@@ -15,7 +15,6 @@ public protocol RocketAlert {
     func show()
 }
 
-
 public enum RocketAuthorStyle {
     case normal
 }

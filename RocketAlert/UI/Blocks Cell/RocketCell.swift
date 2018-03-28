@@ -130,7 +130,7 @@ class RocketCell: UITableViewCell, RocketViewLayout {
     
     fileprivate func setStyle() {
         self.backgroundColor = .clear
-        self.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.contentView.backgroundColor = .clear
         self.shadowView.backgroundColor = .clear
         self.mainView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.selectionStyle = .none

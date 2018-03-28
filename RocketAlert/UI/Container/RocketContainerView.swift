@@ -38,13 +38,18 @@ extension RocketContainerView: RocketViewLayout {
     }
     
     func setPositionConstraints() {
-        self.centerXAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        self.centerYAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        self.centerXAnchor.constraint(equalTo: self.container.centerXAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: self.container.centerYAnchor).isActive = true
     }
     
     func setSizeConstraints() {
-        self.heightAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.heightAnchor).isActive = true
-        self.widthAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.widthAnchor).isActive = true
+        if #available(iOS 11.0, *) {
+            self.heightAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.heightAnchor).isActive = true
+            self.widthAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.widthAnchor).isActive = true
+        } else {
+            self.heightAnchor.constraint(equalTo: self.container.heightAnchor).isActive = true
+            self.widthAnchor.constraint(equalTo: self.container.widthAnchor).isActive = true
+        }
     }
     
 }

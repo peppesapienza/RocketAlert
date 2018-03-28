@@ -32,7 +32,7 @@ class RocketAuthorView: UIView, RocketSubView {
         self.imageView.image = author.image
         self.container = container
         super.init(frame: .zero)
-        
+        self.backgroundColor = .clear
         self.midView.addSubview(imageView)
         self.addSubview(midView)
         container.addSubview(self)
@@ -118,8 +118,8 @@ extension RocketAuthorView: RocketViewLayout {
     }
     
     func setPositionConstraints() {
-        self.rightAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.rightAnchor, constant: -10).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -10).isActive = true
+        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -10).isActive = true
         self.midView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.midView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.imageView.centerXAnchor.constraint(equalTo: self.midView.centerXAnchor).isActive = true

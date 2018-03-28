@@ -8,29 +8,8 @@
 
 import UIKit
 
-extension String {
-    
-    public var htmlDecoded: String {
-        
-        guard let encodedData = self.data(using: String.Encoding.unicode) else {
-            return ""
-        }
-        
-        do {
-            let attributed = try NSAttributedString.init(data: encodedData, options: [.documentType : NSAttributedString.DocumentType.html, .characterEncoding : String.Encoding.unicode.rawValue], documentAttributes: nil)
-            return attributed.string
-        } catch {
-            
-        }
-        
-        return ""
-        
-    }
-}
-
-
 extension UITableView {
-    public func addRow(at: Int, with: UITableViewRowAnimation = .automatic) {
+    func addRow(at: Int, with: UITableViewRowAnimation = .automatic) {
         self.beginUpdates()
         self.insertRows(at: [IndexPath.init(row: at-1, section: 0)], with: with)
         self.endUpdates()
@@ -38,26 +17,6 @@ extension UITableView {
 }
 
 extension UIView {
-    public func clickAnimated(completionHandler: (()->())? = nil, duration: Double = 0.5) {
-        
-        UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseOut], animations: {
-            self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }) { (bool) in
-            UIView.animate(withDuration: duration,
-                           delay: 0,
-                           usingSpringWithDamping: 0.6,
-                           initialSpringVelocity: 15,
-                           options: .curveLinear,
-                           animations:
-            {
-                self.transform = CGAffineTransform.identity
-            }, completion: {bool in
-                completionHandler?()
-            })
-        }
-        
-    }
-    
     public func fadeIn() {
         self.alpha = 0
         UIViewPropertyAnimator.init(duration: 0.3, curve: .easeInOut) {
