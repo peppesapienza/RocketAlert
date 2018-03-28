@@ -10,7 +10,7 @@ import UIKit
 
 extension UIApplication {
 
-    public func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         
         if let nav = base as? UINavigationController {
             return topViewController(base: nav.visibleViewController)
@@ -33,11 +33,11 @@ extension UIApplication {
 
 extension UIViewController {
     
-    public var hasTabBarController: Bool {
+    var hasTabBarController: Bool {
         return self.tabBarController != nil ? true : false
     }
     
-    public var hasNavigationController: Bool {
+    var hasNavigationController: Bool {
         return self.navigationController != nil ? true : false
     }
     

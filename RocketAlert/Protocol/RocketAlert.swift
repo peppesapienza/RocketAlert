@@ -8,25 +8,9 @@
 
 import Foundation
 
-import UIKit
-
 public protocol RocketAlert {
     init(author: RocketAuthor, block: RocketBlock)
     func show()
+    func dismiss()
 }
-
-public enum RocketAuthorStyle {
-    case normal
-}
-
-public struct RocketAuthor {
-    public init(image: UIImage, style: RocketAuthorStyle = .normal) {
-        self.image = image
-        self.style = style
-    }
-    
-    let image: UIImage
-    let style: RocketAuthorStyle
-}
-
 

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 public protocol RocketBlock {
     var child: RocketBlock? { get set }
     var hasChild: Bool { get }

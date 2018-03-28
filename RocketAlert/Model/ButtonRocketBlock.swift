@@ -10,15 +10,19 @@ import Foundation
 
 public class ButtonRocketBlock: ControlRocketBlock {
     
-    public required init(title: String, onComplete: (nextBlock: RocketBlock?, operation: () -> ()), style: RocketElementStyle = RocketElementStyle.Button) {
+    public required init(
+        title: String,
+        action: RocketAction,
+        style: RocketElementStyle = RocketElementStyle.Button)
+    {
         self.style = style
         self.title = title
-        self.onClickEvent = onComplete.operation
-        self.child = onComplete.nextBlock
+        self.action = action.handler
+        self.child = action.next
     }
     
     internal let style: RocketElementStyle
     internal let title: String
-    internal let onClickEvent: () -> ()
+    internal let action: (() -> ())?
     public var child: RocketBlock?
 }

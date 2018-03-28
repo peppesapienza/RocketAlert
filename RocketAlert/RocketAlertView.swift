@@ -8,7 +8,7 @@
 
 import UIKit
 public class RocketAlertView: NSObject, RocketAlert {
-
+    
     public required init(author: RocketAuthor, block: RocketBlock) {
         do {
             self.superView = try TopViewFinder.init(in: UIApplication.shared.topViewController()).view
@@ -17,15 +17,12 @@ public class RocketAlertView: NSObject, RocketAlert {
             self.tableView = RocketTableView.init(authorView: authorView, in: mainView)
             self.tableController = RocketTableViewController.init(tableView: self.tableView)
             self.block = block
-            self.authorView.prepareAnimation()
-            self.tableView.prepareAnimation()
-            self.mainView.alpha = 0
-            self.mainView.transform = CGAffineTransform.init(translationX: self.mainView.frame.width, y: 0)
         } catch {
             fatalError(error.localizedDescription)
         }
         super.init()
         self.tableController.rocket = self
+        self.prepareAnimation()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -57,6 +54,13 @@ public class RocketAlertView: NSObject, RocketAlert {
                 self.mainView.removeFromSuperview()
             })
         }
+    }
+    
+    fileprivate func prepareAnimation() {
+        self.authorView.prepareAnimation()
+        self.tableView.prepareAnimation()
+        self.mainView.alpha = 0
+        self.mainView.transform = CGAffineTransform.init(translationX: self.mainView.frame.width, y: 0)
     }
 
     deinit {

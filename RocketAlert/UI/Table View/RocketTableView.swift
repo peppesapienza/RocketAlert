@@ -31,7 +31,7 @@ class RocketTableView: UITableView, RocketSubView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    weak var container: UIView!
+    weak var container: RocketContainerView!
     weak var authorView: UIView!
     var heightConstraint: NSLayoutConstraint!
     

@@ -38,14 +38,14 @@ class ButtonRocketCell: RocketCell {
         }
     }
     
-    var onClickEvent: (() -> ())?
+    var onClickAction: (() -> ())?
     
     @objc func handleTapOnButton(_ sender: UIButton) {
         guard self.tapOnButton else { return }
         self.animateOnTap(completion: {
             self.notifyObserverWithNextBlock()
             self.tapOnButton = false
-            self.onClickEvent?()
+            self.onClickAction?()
         })
     }
     

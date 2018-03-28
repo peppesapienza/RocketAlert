@@ -41,7 +41,7 @@ extension UIView {
 
 
 extension UIColor {
-    public convenience init(hex: String) {
+    convenience init(hex: String) {
         let scanner = Scanner(string: hex)
         scanner.scanLocation = 0
         

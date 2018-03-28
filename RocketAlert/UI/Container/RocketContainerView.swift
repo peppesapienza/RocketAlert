@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RocketContainerView: UIView, RocketSubView {
+class RocketContainerView: UIView {
     
     init(superView: UIView) {
         self.container = superView

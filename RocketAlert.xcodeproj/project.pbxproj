@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3097C95206B8ED2008C5968 /* RocketAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C94206B8ED2008C5968 /* RocketAuthor.swift */; };
+		E3097C98206B98CE008C5968 /* RocketAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C97206B98CE008C5968 /* RocketAction.swift */; };
+		E3097C9A206B997E008C5968 /* RocketAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C99206B997E008C5968 /* RocketAnimatable.swift */; };
+		E3097C9C206B99A0008C5968 /* RocketViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9B206B99A0008C5968 /* RocketViewLayout.swift */; };
 		E30980D820680135001E65A2 /* ButtonRocketBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30980D720680135001E65A2 /* ButtonRocketBlock.swift */; };
 		E30EB09F2067C14C00C09DCB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB09E2067C14C00C09DCB /* Extension.swift */; };
 		E31096982049F0B2005C9328 /* RocketContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31096972049F0B2005C9328 /* RocketContainerView.swift */; };
@@ -40,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3097C94206B8ED2008C5968 /* RocketAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAuthor.swift; sourceTree = "<group>"; };
+		E3097C97206B98CE008C5968 /* RocketAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAction.swift; sourceTree = "<group>"; };
+		E3097C99206B997E008C5968 /* RocketAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAnimatable.swift; sourceTree = "<group>"; };
+		E3097C9B206B99A0008C5968 /* RocketViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewLayout.swift; sourceTree = "<group>"; };
 		E30980D720680135001E65A2 /* ButtonRocketBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRocketBlock.swift; sourceTree = "<group>"; };
 		E30EB09E2067C14C00C09DCB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		E31096972049F0B2005C9328 /* RocketContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketContainerView.swift; sourceTree = "<group>"; };
@@ -136,8 +144,10 @@
 		E31BEE1720485C9E001C8B08 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				E31BEE1F20485D57001C8B08 /* RocketBlock */,
+				E31BEE1A20485CD0001C8B08 /* RocketBlock.swift */,
 				E31BEE1820485CA9001C8B08 /* RocketAlert.swift */,
+				E3097C99206B997E008C5968 /* RocketAnimatable.swift */,
+				E3097C9B206B99A0008C5968 /* RocketViewLayout.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -148,16 +158,10 @@
 				E31CE2422065887B0041295D /* TextRocketBlock.swift */,
 				E31CE2462065B1760041295D /* RocketElementStyle.swift */,
 				E30980D720680135001E65A2 /* ButtonRocketBlock.swift */,
+				E3097C94206B8ED2008C5968 /* RocketAuthor.swift */,
+				E3097C97206B98CE008C5968 /* RocketAction.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		E31BEE1F20485D57001C8B08 /* RocketBlock */ = {
-			isa = PBXGroup;
-			children = (
-				E31BEE1A20485CD0001C8B08 /* RocketBlock.swift */,
-			);
-			path = RocketBlock;
 			sourceTree = "<group>";
 		};
 		E31BEE2720494945001C8B08 /* Blocks Cell */ = {
@@ -320,8 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3097C98206B98CE008C5968 /* RocketAction.swift in Sources */,
 				E310969C204B1786005C9328 /* RocketCell.swift in Sources */,
 				E31BEE3720496AE6001C8B08 /* RocketAuthorView.swift in Sources */,
+				E3097C9A206B997E008C5968 /* RocketAnimatable.swift in Sources */,
 				E31096982049F0B2005C9328 /* RocketContainerView.swift in Sources */,
 				E31CE2432065887B0041295D /* TextRocketBlock.swift in Sources */,
 				E310969A204B15C5005C9328 /* RocketTableViewController.swift in Sources */,
@@ -336,7 +342,9 @@
 				E31BEE1B20485CD0001C8B08 /* RocketBlock.swift in Sources */,
 				E31BEE2E20494CFC001C8B08 /* RocketTableView.swift in Sources */,
 				E3486F182064403000136149 /* CellRocketFactory.swift in Sources */,
+				E3097C95206B8ED2008C5968 /* RocketAuthor.swift in Sources */,
 				E31BEE31204952C3001C8B08 /* UIApplicationExtension.swift in Sources */,
+				E3097C9C206B99A0008C5968 /* RocketViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

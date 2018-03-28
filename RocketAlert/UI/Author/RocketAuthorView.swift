@@ -8,22 +8,6 @@
 
 import UIKit
 
-protocol RocketViewLayout {
-    func setAutoresizingMask()
-    func setPositionConstraints()
-    func setSizeConstraints()
-}
-
-protocol RocketAnimatable {
-    func prepareAnimation()
-    func openAnimation(completionHandler: (()->())?)
-    func closeAnimation(completionHandler: (()->())?)
-}
-
-protocol RocketSubView {
-    var container: UIView! { get }
-}
-
 class RocketAuthorView: UIView, RocketSubView {
     
      required init(author: RocketAuthor, in container: RocketContainerView) {
@@ -53,7 +37,7 @@ class RocketAuthorView: UIView, RocketSubView {
         self.setShadow()
     }
     
-    weak var container: UIView!
+    weak var container: RocketContainerView!
     private let imageView: UIImageView
     private let midView: UIView
     
