@@ -9,11 +9,13 @@
 import UIKit
 
 public enum RocketAuthorStyle {
-    case normal
+    case round
+    case circular
+    case square
 }
 
 public struct RocketAuthor {
-    public init(image: UIImage, style: RocketAuthorStyle = .normal) {
+    public init(image: UIImage, style: RocketAuthorStyle = .circular) {
         self.image = image
         self.style = style
     }

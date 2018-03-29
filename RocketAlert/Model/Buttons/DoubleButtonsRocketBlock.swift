@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class DoubleButtonsRocketBlock: ControlRocketBlock {
+public class DoubleButtonRocketBlock: ControlRocketBlock {
     
     public required init(first: ButtonRocketBlock, second: ButtonRocketBlock) {
         self.first = first

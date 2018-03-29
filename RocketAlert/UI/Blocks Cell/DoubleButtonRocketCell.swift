@@ -37,7 +37,7 @@ class DoubleButtonRocketCell: RocketCell {
     
     override var currentBlock: RocketBlock? {
         didSet {
-            guard let b = self.currentBlock as? DoubleButtonsRocketBlock else { return }
+            guard let b = self.currentBlock as? DoubleButtonRocketBlock else { return }
             self.firstButton.setTitle(b.first.title, for: .normal)
             self.firstButton.setTitleColor(b.first.style.color, for: .normal)
             self.firstButton.titleLabel?.font = b.first.style.font

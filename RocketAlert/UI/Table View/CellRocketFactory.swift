@@ -31,7 +31,7 @@ struct CellRocketFactory {
             cell.currentBlock = b
             return cell
             
-        case let b as DoubleButtonsRocketBlock:
+        case let b as DoubleButtonRocketBlock:
             let cell = self.dequeue(t: DoubleButtonRocketCell.self) as! DoubleButtonRocketCell
             cell.currentBlock = b
             return cell
