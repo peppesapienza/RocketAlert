@@ -13,16 +13,16 @@ public class ButtonRocketBlock: ControlRocketBlock {
     public required init(
         title: String,
         action: RocketAction,
-        style: RocketElementStyle = RocketElementStyle.Button)
+        style: RocketElementStyle = RocketElementStyle.button)
     {
         self.style = style
         self.title = title
-        self.action = action.handler
-        self.child = action.next
+        self.action = action
     }
     
     internal let style: RocketElementStyle
     internal let title: String
-    internal let action: (() -> ())?
+    internal let action: RocketAction
     public var child: RocketBlock?
 }
+

@@ -21,37 +21,34 @@ class ButtonRocketCell: RocketCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     let button: UIButton
-    var tapOnButton = true
+    var isTapOnButtonEnabled = true
     
-    var titleButton: String? {
+    override var currentBlock: RocketBlock? {
         didSet {
-            self.button.setTitle(self.titleButton, for: .normal)
+            guard let b = self.currentBlock as? ButtonRocketBlock else { return }
+            self.button.setTitle(b.title, for: .normal)
+            self.buttonAction = b.action
+            self.button.setTitleColor(b.style.color, for: .normal)
+            self.button.titleLabel?.font = b.style.font
+            self.setNeedsUpdateConstraints()
         }
     }
     
-    var style: RocketElementStyle? {
-        didSet {
-            self.button.setTitleColor(style?.color, for: .normal)
-            self.button.titleLabel?.font = style?.font
-        }
-    }
-    
-    var onClickAction: (() -> ())?
+    var buttonAction: RocketAction?
     
     @objc func handleTapOnButton(_ sender: UIButton) {
-        guard self.tapOnButton else { return }
-        self.animateOnTap(completion: {
-            self.notifyObserverWithNextBlock()
-            self.tapOnButton = false
-            self.onClickAction?()
+        guard self.isTapOnButtonEnabled else { return }
+        self.isTapOnButtonEnabled = false
+        self.mainView.smoothBounce(completionHandler: {
+            self.notifyObserver(nextBlock: self.buttonAction?.next)
+            self.buttonAction?.handler?()
         })
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.tapOnButton = true
+        self.isTapOnButtonEnabled = true
     }
     
     override func setAutoresizingMask() {

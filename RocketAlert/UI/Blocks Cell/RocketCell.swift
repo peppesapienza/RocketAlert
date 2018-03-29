@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class RocketCell: UITableViewCell, RocketViewLayout {
         
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -16,9 +17,8 @@ class RocketCell: UITableViewCell, RocketViewLayout {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.shadowView)
         self.shadowView.addSubview(self.mainView)
-        self.tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RocketCell.handleTap(_:)))
-        self.mainView.addGestureRecognizer(self.tapGestureRecognizer)
         self.setStyle()
+        self.setAutoresizingMask()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,46 +26,12 @@ class RocketCell: UITableViewCell, RocketViewLayout {
     }
     
     fileprivate let shadowView: UIView
-    fileprivate var tapGestureRecognizer: UITapGestureRecognizer!
     let mainView: UIView
-    var block: RocketBlock?
-    var tapOnCell = true
     
-    @objc
-    fileprivate func handleTap(_ sender: UITapGestureRecognizer) {
-        guard self.tapOnCell else { return }
-        self.animateOnTap(completion: {
-            self.notifyObserverWithNextBlock()
-            self.tapOnCell = false
-        })
-    }
+    var currentBlock: RocketBlock? 
     
-    func animateOnTap(completion: @escaping () -> ()) {
-        let firstAnimator = UIViewPropertyAnimator.init(
-        duration: 0.15,
-        curve: .easeInOut)
-        {
-            self.mainView.transform = CGAffineTransform.init(scaleX: 0.8, y: 0.8)
-        }
-        
-        firstAnimator.addCompletion { (_) in
-            let secondAnimator = UIViewPropertyAnimator.init(
-                duration: 0.15,
-                curve: .easeInOut,
-                animations:
-            {
-                self.mainView.transform = CGAffineTransform.identity
-            })
-            secondAnimator.addCompletion({ (_) in
-                completion()
-            })
-            secondAnimator.startAnimation()
-        }
-        firstAnimator.startAnimation()
-    }
-    
-    func notifyObserverWithNextBlock() {
-        guard let nextBlock = self.block?.child else {
+    func notifyObserver(nextBlock: RocketBlock?) {
+        guard let nextBlock = nextBlock else {
             self.notifyObserverWithDismissRocket()
             return
         }
@@ -79,20 +45,19 @@ class RocketCell: UITableViewCell, RocketViewLayout {
         NotificationCenter.default.post(name: .clickOnLastBlockEvent, object: nil)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.tapOnCell = true
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.setAutoresizingMask()
-        self.setPositionConstraints()
-        self.setSizeConstraints()
         self.setCornerRadius()
         self.setShadow()
     }
-
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        self.setPositionConstraints()
+        self.setSizeConstraints()
+    }
+    
+    
     func setAutoresizingMask() {
         self.mainView.translatesAutoresizingMaskIntoConstraints = false
         self.shadowView.translatesAutoresizingMaskIntoConstraints = false

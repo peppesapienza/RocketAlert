@@ -12,10 +12,10 @@ public class TextRocketBlock: RocketBlock {
     
     public init(text: String) {
         self.text = text
-        self.style = RocketElementStyle.Text
+        self.style = RocketElementStyle.text
     }
     
-    public init(text: String, next: RocketBlock, style: RocketElementStyle = RocketElementStyle.Text) {
+    public init(text: String, next: RocketBlock, style: RocketElementStyle = RocketElementStyle.text) {
         self.text = text
         self.child = next
         self.style = style

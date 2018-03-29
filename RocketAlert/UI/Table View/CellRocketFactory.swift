@@ -23,20 +23,19 @@ struct CellRocketFactory {
         switch block {
         case let b as TextRocketBlock:
             let cell = self.dequeue(t: TextRocketBlock.self) as! TextRocketCell
-            cell.block = b
-            cell.label.text = b.text
-            cell.style = b.style
-            cell.layoutIfNeeded()
+            cell.currentBlock = b
             return cell
             
         case let b as ButtonRocketBlock:
             let cell = self.dequeue(t: ButtonRocketCell.self) as! ButtonRocketCell
-            cell.block = b
-            cell.style = b.style
-            cell.titleButton = b.title
-            cell.onClickAction = b.action
-            cell.layoutIfNeeded()
+            cell.currentBlock = b
             return cell
+            
+        case let b as DoubleButtonsRocketBlock:
+            let cell = self.dequeue(t: DoubleButtonRocketCell.self) as! DoubleButtonRocketCell
+            cell.currentBlock = b
+            return cell
+            
             
         default:
             return self.dequeue(t: RocketBlock.self)

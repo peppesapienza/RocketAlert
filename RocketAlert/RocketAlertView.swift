@@ -29,8 +29,8 @@ public class RocketAlertView: NSObject, RocketAlert {
         fatalError("init(coder:) has not been implemented")
     }
     
-    internal let block: RocketBlock
-    internal let mainView: RocketContainerView
+    let block: RocketBlock
+    let mainView: RocketContainerView
     private let authorView: RocketAuthorView
     private let tableView: RocketTableView
     private let tableController: RocketTableViewController

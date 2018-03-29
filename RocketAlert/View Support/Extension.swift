@@ -24,18 +24,52 @@ extension UIView {
         }.startAnimation()
     }
     
-    public func bounce() {
-        self.transform = CGAffineTransform.init(scaleX: 0.6, y: 0.6)
-        let animator = UIViewPropertyAnimator.init(duration: 0.3, curve: .easeInOut) {
-            self.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
+    public func bounce(completionHandler:  (() -> ())? = nil) {
+        let animator = UIViewPropertyAnimator.init(duration: 0.2, curve: .easeInOut) {
+            self.transform = CGAffineTransform.init(scaleX: 0.6, y: 0.6)
         }
-        animator.addCompletion { (_) in
-            UIViewPropertyAnimator.init(duration: 0.3, curve: .easeInOut, animations: {
-                self.transform = CGAffineTransform.identity
-            }).startAnimation()
+        animator.addCompletion { _ in
+            let secondAnimator = UIViewPropertyAnimator.init(duration: 0.2, curve: .easeInOut) {
+                self.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
+            }
+            secondAnimator.addCompletion { (_) in
+                let thirdAnimator = UIViewPropertyAnimator.init(duration: 0.2, curve: .easeInOut, animations: {
+                    self.transform = CGAffineTransform.identity
+                })
+                thirdAnimator.addCompletion({ (_) in
+                    completionHandler?()
+                })
+                thirdAnimator.startAnimation()
+            }
+            secondAnimator.startAnimation()
         }
         
         animator.startAnimation()
+    }
+    
+    func smoothBounce(completionHandler:  (() -> ())?) {
+        let firstAnimator = UIViewPropertyAnimator.init(
+            duration: 0.15,
+            curve: .easeInOut)
+        {
+            self.transform = CGAffineTransform.init(scaleX: 0.8, y: 0.8)
+        }
+        
+        firstAnimator.addCompletion { (_) in
+            let secondAnimator = UIViewPropertyAnimator.init(
+                duration: 0.15,
+                curve: .easeInOut,
+                animations: {
+                    self.transform = CGAffineTransform.identity
+            })
+            
+            secondAnimator.addCompletion({ (_) in
+                completionHandler?()
+            })
+            
+            secondAnimator.startAnimation()
+        }
+        firstAnimator.startAnimation()
     }
 }
 

@@ -22,6 +22,7 @@ class RocketTableViewController: NSObject {
         super.init()
         self.tableView.register(TextRocketCell.self, forCellReuseIdentifier: "\(TextRocketBlock.self)")
         self.tableView.register(ButtonRocketCell.self, forCellReuseIdentifier: "\(ButtonRocketCell.self)")
+        self.tableView.register(DoubleButtonRocketCell.self, forCellReuseIdentifier: "\(DoubleButtonRocketCell.self)")
         self.tableView.dataSource = self
         self.tableView.delegate = self
         NotificationCenter.default.addObserver(self,

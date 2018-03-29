@@ -13,7 +13,7 @@ public struct RocketAction {
         self.next = next
         self.handler = handler
     }
-    
+
     internal let next: RocketBlock?
     internal let handler: (()->())?
 }
