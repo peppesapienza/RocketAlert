@@ -9,10 +9,9 @@
 import UIKit
 
 extension Notification.Name {
-    static let clickOnBlockEvent = Notification.Name(
-        rawValue: "clickOnBlockEvent")
-    static let clickOnLastBlockEvent = Notification.Name(
-        rawValue: "clickOnLastBlockEvent")
+    static let clickOnBlockEvent = Notification.Name(rawValue: "clickOnBlockEvent")
+    static let clickOnLastBlockEvent = Notification.Name(rawValue: "clickOnLastBlockEvent")
+    public static let addedNewRocketBlock = Notification.Name(rawValue: "addedNewRocketBlock")
 }
 
 class RocketTableViewController: NSObject {
@@ -47,7 +46,12 @@ class RocketTableViewController: NSObject {
     
     func show(block: RocketBlock) {
         self.blocks.append(block)
-        self.tableView.addRow(at: self.blocks.count, with: .bottom)
+        let count = self.blocks.count
+        self.tableView.addRow(at: count, with: .bottom)
+        NotificationCenter.default.post(name: .addedNewRocketBlock, object: [
+            "index" : count-1,
+            "block" : block
+        ])
     }
     
     @objc func handleClickOnBlock(_ sender: Notification) {

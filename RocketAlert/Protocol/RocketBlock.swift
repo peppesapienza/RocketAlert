@@ -9,14 +9,15 @@
 import UIKit
 
 public protocol RocketBlock {
-    var child: RocketBlock? { get set }
+    var id: String? { get set }
+    var next: RocketBlock? { get set }
     var hasChild: Bool { get }
 }
 
 extension RocketBlock {
     public var hasChild: Bool {
         guard
-            let _ = self.child
+            let _ = self.next
         else { return false }
         
         return true

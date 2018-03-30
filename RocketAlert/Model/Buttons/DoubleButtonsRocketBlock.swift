@@ -10,13 +10,19 @@ import Foundation
 
 public class DoubleButtonRocketBlock: ControlRocketBlock {
     
-    public required init(first: ButtonRocketBlock, second: ButtonRocketBlock) {
+    public required init(
+        first: ButtonRocketBlock,
+        second: ButtonRocketBlock,
+        id: String? = nil)
+    {
         self.first = first
         self.second = second
+        self.id = id
     }
     
     let first: ButtonRocketBlock
     let second: ButtonRocketBlock
     
-    public var child: RocketBlock?
+    public var next: RocketBlock?
+    public var id: String?
 }

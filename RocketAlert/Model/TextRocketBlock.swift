@@ -10,22 +10,25 @@ import Foundation
 
 public class TextRocketBlock: RocketBlock {
     
-    public init(text: String) {
+    public init(
+        text: String,
+        next: RocketBlock? = nil,
+        id: String? = nil,
+        style: RocketElementStyle = RocketElementStyle.text)
+    {
         self.text = text
-        self.style = RocketElementStyle.text
-    }
-    
-    public init(text: String, next: RocketBlock, style: RocketElementStyle = RocketElementStyle.text) {
-        self.text = text
-        self.child = next
+        self.next = next
+        self.id = id
         self.style = style
     }
     
-    public var child: RocketBlock?
+    public var next: RocketBlock?
+    public var id: String?
+    
     internal let text: String
     internal let style: RocketElementStyle
     
     public func add(child block: RocketBlock) {
-        self.child = block
+        self.next = block
     }
 }
