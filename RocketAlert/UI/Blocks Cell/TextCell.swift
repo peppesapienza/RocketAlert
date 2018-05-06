@@ -17,27 +17,17 @@ class TextRocketCell: TapableRocketCell {
         self.mainView.addSubview(self.label)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let label: UILabel
-    
     override var currentBlock: RocketBlock? {
         didSet {
             guard let b = currentBlock as? TextRocketBlock else { return }
-            self.style = b.style
+            self.label.textColor = b.style.color
+            self.label.font = b.style.font
             self.label.text = b.text
             self.setNeedsUpdateConstraints()
         }
     }
-        
-    private var style: RocketElementStyle? {
-        didSet {
-            self.label.textColor = style?.color
-            self.label.font = style?.font
-        }
-    }
+    
+    fileprivate let label: UILabel
     
     override func setAutoresizingMask() {
         super.setAutoresizingMask()
@@ -54,6 +44,10 @@ class TextRocketCell: TapableRocketCell {
         super.setPositionConstraints()
         self.label.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 16).isActive = true
         self.label.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 16).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }

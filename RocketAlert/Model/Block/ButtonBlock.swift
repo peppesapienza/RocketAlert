@@ -12,21 +12,20 @@ public class ButtonRocketBlock: ControlRocketBlock {
     
     public init(
         title: String,
-        action: RocketAction,
+        tapHandler: TapRocketHandler,
         id: String? = nil,
         style: RocketElementStyle = RocketElementStyle.button)
     {
         self.title = title
-        self.action = action
+        self.handler = tapHandler
         self.id = id
         self.style = style
     }
     
-    public var next: RocketBlock?
     public var id: String?
     
     internal let style: RocketElementStyle
     internal let title: String
-    internal let action: RocketAction
+    internal let handler: TapRocketHandler
 }
 

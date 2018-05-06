@@ -28,10 +28,6 @@ class RocketAuthorView: UIView, RocketSubView {
         self.setSizeConstraints()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.setCornerRadius()
@@ -39,16 +35,16 @@ class RocketAuthorView: UIView, RocketSubView {
     }
     
     weak var container: RocketContainerView!
-    private let imageView: UIImageView
-    private let midView: UIView
-    private let style: RocketAuthorStyle
+    fileprivate let imageView: UIImageView
+    fileprivate let midView: UIView
+    fileprivate let style: RocketAuthorStyle
     
-    private func setClipToBounds() {
+    fileprivate func setClipToBounds() {
         self.midView.clipsToBounds = true
         self.imageView.clipsToBounds = true
     }
     
-    private func setCornerRadius() {
+    fileprivate func setCornerRadius() {
         let cornerRadius: CGFloat
         switch self.style {
         case .circular:
@@ -62,15 +58,17 @@ class RocketAuthorView: UIView, RocketSubView {
         self.midView.layer.cornerRadius = cornerRadius
     }
     
-    private func setShadow() {
+    fileprivate func setShadow() {
         self.layer.shadowColor = #colorLiteral(red: 0.8767361111, green: 0.8767361111, blue: 0.8767361111, alpha: 1)
         self.layer.shadowRadius = 10
         self.layer.shadowOpacity = 1
         self.layer.shadowOffset = CGSize.zero
     }
     
-    deinit {
-        print("🔥 [Rocket] Deinit RocketAuthorView")
+    deinit { print("🔥 [Rocket] Deinit RocketAuthorView") }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
@@ -114,7 +112,7 @@ extension RocketAuthorView: RocketViewLayout {
     
     func setPositionConstraints() {
         self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -10).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -10).isActive = true
+        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -16).isActive = true
         self.midView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.midView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.imageView.centerXAnchor.constraint(equalTo: self.midView.centerXAnchor).isActive = true

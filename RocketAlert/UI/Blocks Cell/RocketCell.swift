@@ -21,28 +21,23 @@ class RocketCell: UITableViewCell, RocketViewLayout {
         self.setAutoresizingMask()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    fileprivate let shadowView: UIView
+    var currentBlock: RocketBlock?
     let mainView: UIView
+    fileprivate let shadowView: UIView
     
-    var currentBlock: RocketBlock? 
-    
-    func notifyObserver(nextBlock: RocketBlock?) {
-        guard let nextBlock = nextBlock else {
-            self.notifyObserverWithDismissRocket()
+    func show(next: RocketBlock?) {
+        guard let nextBlock = next else {
+            self.dismissRocketAlert()
             return
         }
         
-        NotificationCenter.default.post(name: .clickOnBlockEvent, object: nil, userInfo: [
+        NotificationCenter.default.post(name: .showNextBlockEvent, object: nil, userInfo: [
             "block" : nextBlock
         ])
     }
     
-    func notifyObserverWithDismissRocket() {
-        NotificationCenter.default.post(name: .clickOnLastBlockEvent, object: nil)
+    func dismissRocketAlert() {
+        NotificationCenter.default.post(name: .dismissRocketAlertEvent, object: nil)
     }
     
     override func layoutSubviews() {
@@ -56,7 +51,6 @@ class RocketCell: UITableViewCell, RocketViewLayout {
         self.setPositionConstraints()
         self.setSizeConstraints()
     }
-    
     
     func setAutoresizingMask() {
         self.mainView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,12 +74,11 @@ class RocketCell: UITableViewCell, RocketViewLayout {
     fileprivate func setCornerRadius() {
         self.contentView.clipsToBounds = true
         self.contentView.layer.cornerRadius = 6
-        
         self.mainView.clipsToBounds = true
         self.mainView.layer.masksToBounds = true
         self.mainView.layer.cornerRadius = 6
     }
-    
+        
     fileprivate func setShadow() {
         self.shadowView.layer.shadowColor = #colorLiteral(red: 0.8767361111, green: 0.8767361111, blue: 0.8767361111, alpha: 1)
         self.shadowView.layer.shadowRadius = 10
@@ -99,6 +92,10 @@ class RocketCell: UITableViewCell, RocketViewLayout {
         self.shadowView.backgroundColor = .clear
         self.mainView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.selectionStyle = .none
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

@@ -14,35 +14,31 @@ class ButtonRocketCell: RocketCell {
         self.button = UIButton.init(frame: .zero)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.mainView.addSubview(self.button)
-        self.button.addTarget(self, action: #selector(ButtonRocketCell.handleTapOnButton), for: .touchDown)
+        self.button.addTarget(self, action: #selector(ButtonRocketCell.handle_tapOnButton), for: .touchDown)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let button: UIButton
-    var isTapOnButtonEnabled = true
     
     override var currentBlock: RocketBlock? {
         didSet {
             guard let b = self.currentBlock as? ButtonRocketBlock else { return }
             self.button.setTitle(b.title, for: .normal)
-            self.buttonAction = b.action
+            self.tapHandler = b.handler
             self.button.setTitleColor(b.style.color, for: .normal)
             self.button.titleLabel?.font = b.style.font
             self.setNeedsUpdateConstraints()
         }
     }
     
-    var buttonAction: RocketAction?
+    fileprivate let button: UIButton
+    fileprivate var isTapOnButtonEnabled = true
+    fileprivate var tapHandler: TapRocketHandler?
     
-    @objc func handleTapOnButton(_ sender: UIButton) {
+    @objc
+    fileprivate func handle_tapOnButton(_ sender: UIButton) {
         guard self.isTapOnButtonEnabled else { return }
         self.isTapOnButtonEnabled = false
         self.mainView.smoothBounce(completionHandler: {
-            self.notifyObserver(nextBlock: self.buttonAction?.next)
-            self.buttonAction?.handler?()
+            self.show(next: self.tapHandler?.next)
+            self.tapHandler?.action?()
         })
     }
     
@@ -66,6 +62,10 @@ class ButtonRocketCell: RocketCell {
         super.setPositionConstraints()
         self.button.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 10).isActive = true
         self.button.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 10).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

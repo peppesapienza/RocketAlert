@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E3097C95206B8ED2008C5968 /* RocketAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C94206B8ED2008C5968 /* RocketAuthor.swift */; };
-		E3097C98206B98CE008C5968 /* RocketAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C97206B98CE008C5968 /* RocketAction.swift */; };
+		E3097C95206B8ED2008C5968 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C94206B8ED2008C5968 /* Author.swift */; };
+		E3097C98206B98CE008C5968 /* TapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C97206B98CE008C5968 /* TapHandler.swift */; };
 		E3097C9A206B997E008C5968 /* RocketAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C99206B997E008C5968 /* RocketAnimatable.swift */; };
 		E3097C9C206B99A0008C5968 /* RocketViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9B206B99A0008C5968 /* RocketViewLayout.swift */; };
-		E3097C9E206C316E008C5968 /* DoubleButtonRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9D206C316E008C5968 /* DoubleButtonRocketCell.swift */; };
-		E3097CA0206C59BE008C5968 /* TapableRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9F206C59BE008C5968 /* TapableRocketCell.swift */; };
-		E3097CA3206D3919008C5968 /* DoubleButtonsRocketBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097CA2206D3919008C5968 /* DoubleButtonsRocketBlock.swift */; };
-		E30980D820680135001E65A2 /* ButtonRocketBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30980D720680135001E65A2 /* ButtonRocketBlock.swift */; };
+		E3097C9E206C316E008C5968 /* DoubleButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9D206C316E008C5968 /* DoubleButtonCell.swift */; };
+		E3097CA0206C59BE008C5968 /* TapableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9F206C59BE008C5968 /* TapableCell.swift */; };
+		E3097CA3206D3919008C5968 /* DoubleButtonsBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */; };
+		E30980D820680135001E65A2 /* ButtonBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30980D720680135001E65A2 /* ButtonBlock.swift */; };
 		E30EB09F2067C14C00C09DCB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB09E2067C14C00C09DCB /* Extension.swift */; };
-		E31096982049F0B2005C9328 /* RocketContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31096972049F0B2005C9328 /* RocketContainerView.swift */; };
-		E310969A204B15C5005C9328 /* RocketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3109699204B15C5005C9328 /* RocketTableViewController.swift */; };
+		E31096982049F0B2005C9328 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31096972049F0B2005C9328 /* ContainerView.swift */; };
+		E310969A204B15C5005C9328 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3109699204B15C5005C9328 /* TableController.swift */; };
 		E310969C204B1786005C9328 /* RocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310969B204B1786005C9328 /* RocketCell.swift */; };
 		E31BEDFE20485C82001C8B08 /* RocketAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31BEDF420485C82001C8B08 /* RocketAlert.framework */; };
 		E31BEE0320485C82001C8B08 /* RocketAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE0220485C82001C8B08 /* RocketAlertTests.swift */; };
@@ -25,15 +25,16 @@
 		E31BEE1920485CA9001C8B08 /* RocketAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE1820485CA9001C8B08 /* RocketAlert.swift */; };
 		E31BEE1B20485CD0001C8B08 /* RocketBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE1A20485CD0001C8B08 /* RocketBlock.swift */; };
 		E31BEE1E20485CED001C8B08 /* RocketAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE1D20485CED001C8B08 /* RocketAlertView.swift */; };
-		E31BEE2E20494CFC001C8B08 /* RocketTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE2D20494CFC001C8B08 /* RocketTableView.swift */; };
+		E31BEE2E20494CFC001C8B08 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE2D20494CFC001C8B08 /* TableView.swift */; };
 		E31BEE31204952C3001C8B08 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE30204952C3001C8B08 /* UIApplicationExtension.swift */; };
-		E31BEE3320496723001C8B08 /* TopViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE3220496723001C8B08 /* TopViewFinder.swift */; };
-		E31BEE3720496AE6001C8B08 /* RocketAuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE3620496AE6001C8B08 /* RocketAuthorView.swift */; };
-		E31CE2432065887B0041295D /* TextRocketBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE2422065887B0041295D /* TextRocketBlock.swift */; };
-		E31CE245206591300041295D /* ButtonRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE244206591300041295D /* ButtonRocketCell.swift */; };
-		E31CE2472065B1760041295D /* RocketElementStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE2462065B1760041295D /* RocketElementStyle.swift */; };
-		E3486F182064403000136149 /* CellRocketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3486F172064403000136149 /* CellRocketFactory.swift */; };
-		E3EDE3DE20545977006A6FD1 /* TextRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EDE3DD20545977006A6FD1 /* TextRocketCell.swift */; };
+		E31BEE3720496AE6001C8B08 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE3620496AE6001C8B08 /* AuthorView.swift */; };
+		E31CE2432065887B0041295D /* TextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE2422065887B0041295D /* TextBlock.swift */; };
+		E31CE245206591300041295D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE244206591300041295D /* ButtonCell.swift */; };
+		E31CE2472065B1760041295D /* ElementStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE2462065B1760041295D /* ElementStyle.swift */; };
+		E32A89202070213A00862AE5 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32A891F2070213A00862AE5 /* TextInputCell.swift */; };
+		E3486F182064403000136149 /* CellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3486F172064403000136149 /* CellFactory.swift */; };
+		E389A14F209F81140052CC72 /* TextInputBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389A14E209F81140052CC72 /* TextInputBlock.swift */; };
+		E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EDE3DD20545977006A6FD1 /* TextCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,17 +48,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E3097C94206B8ED2008C5968 /* RocketAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAuthor.swift; sourceTree = "<group>"; };
-		E3097C97206B98CE008C5968 /* RocketAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAction.swift; sourceTree = "<group>"; };
+		E3097C94206B8ED2008C5968 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		E3097C97206B98CE008C5968 /* TapHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapHandler.swift; sourceTree = "<group>"; };
 		E3097C99206B997E008C5968 /* RocketAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAnimatable.swift; sourceTree = "<group>"; };
 		E3097C9B206B99A0008C5968 /* RocketViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewLayout.swift; sourceTree = "<group>"; };
-		E3097C9D206C316E008C5968 /* DoubleButtonRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonRocketCell.swift; sourceTree = "<group>"; };
-		E3097C9F206C59BE008C5968 /* TapableRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableRocketCell.swift; sourceTree = "<group>"; };
-		E3097CA2206D3919008C5968 /* DoubleButtonsRocketBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonsRocketBlock.swift; sourceTree = "<group>"; };
-		E30980D720680135001E65A2 /* ButtonRocketBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRocketBlock.swift; sourceTree = "<group>"; };
+		E3097C9D206C316E008C5968 /* DoubleButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonCell.swift; sourceTree = "<group>"; };
+		E3097C9F206C59BE008C5968 /* TapableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableCell.swift; sourceTree = "<group>"; };
+		E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonsBlock.swift; sourceTree = "<group>"; };
+		E30980D720680135001E65A2 /* ButtonBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBlock.swift; sourceTree = "<group>"; };
 		E30EB09E2067C14C00C09DCB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		E31096972049F0B2005C9328 /* RocketContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketContainerView.swift; sourceTree = "<group>"; };
-		E3109699204B15C5005C9328 /* RocketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketTableViewController.swift; sourceTree = "<group>"; };
+		E31096972049F0B2005C9328 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		E3109699204B15C5005C9328 /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		E310969B204B1786005C9328 /* RocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCell.swift; sourceTree = "<group>"; };
 		E31BEDF420485C82001C8B08 /* RocketAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RocketAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31BEDF720485C82001C8B08 /* RocketAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RocketAlert.h; sourceTree = "<group>"; };
@@ -68,15 +69,16 @@
 		E31BEE1820485CA9001C8B08 /* RocketAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAlert.swift; sourceTree = "<group>"; };
 		E31BEE1A20485CD0001C8B08 /* RocketBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketBlock.swift; sourceTree = "<group>"; };
 		E31BEE1D20485CED001C8B08 /* RocketAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAlertView.swift; sourceTree = "<group>"; };
-		E31BEE2D20494CFC001C8B08 /* RocketTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketTableView.swift; sourceTree = "<group>"; };
+		E31BEE2D20494CFC001C8B08 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E31BEE30204952C3001C8B08 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
-		E31BEE3220496723001C8B08 /* TopViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewFinder.swift; sourceTree = "<group>"; };
-		E31BEE3620496AE6001C8B08 /* RocketAuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAuthorView.swift; sourceTree = "<group>"; };
-		E31CE2422065887B0041295D /* TextRocketBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRocketBlock.swift; sourceTree = "<group>"; };
-		E31CE244206591300041295D /* ButtonRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRocketCell.swift; sourceTree = "<group>"; };
-		E31CE2462065B1760041295D /* RocketElementStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketElementStyle.swift; sourceTree = "<group>"; };
-		E3486F172064403000136149 /* CellRocketFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRocketFactory.swift; sourceTree = "<group>"; };
-		E3EDE3DD20545977006A6FD1 /* TextRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRocketCell.swift; sourceTree = "<group>"; };
+		E31BEE3620496AE6001C8B08 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
+		E31CE2422065887B0041295D /* TextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
+		E31CE244206591300041295D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		E31CE2462065B1760041295D /* ElementStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementStyle.swift; sourceTree = "<group>"; };
+		E32A891F2070213A00862AE5 /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
+		E3486F172064403000136149 /* CellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFactory.swift; sourceTree = "<group>"; };
+		E389A14E209F81140052CC72 /* TextInputBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputBlock.swift; sourceTree = "<group>"; };
+		E3EDE3DD20545977006A6FD1 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,19 +100,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E3097CA1206D390B008C5968 /* Buttons */ = {
+		E3097CA1206D390B008C5968 /* Block */ = {
 			isa = PBXGroup;
 			children = (
-				E3097CA2206D3919008C5968 /* DoubleButtonsRocketBlock.swift */,
-				E30980D720680135001E65A2 /* ButtonRocketBlock.swift */,
+				E31CE2422065887B0041295D /* TextBlock.swift */,
+				E389A14E209F81140052CC72 /* TextInputBlock.swift */,
+				E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */,
+				E30980D720680135001E65A2 /* ButtonBlock.swift */,
 			);
-			path = Buttons;
+			path = Block;
 			sourceTree = "<group>";
 		};
 		E31096962049F09D005C9328 /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				E31096972049F0B2005C9328 /* RocketContainerView.swift */,
+				E31096972049F0B2005C9328 /* ContainerView.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -170,11 +174,10 @@
 		E31BEE1C20485CE0001C8B08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E3097CA1206D390B008C5968 /* Buttons */,
-				E31CE2422065887B0041295D /* TextRocketBlock.swift */,
-				E31CE2462065B1760041295D /* RocketElementStyle.swift */,
-				E3097C94206B8ED2008C5968 /* RocketAuthor.swift */,
-				E3097C97206B98CE008C5968 /* RocketAction.swift */,
+				E3097CA1206D390B008C5968 /* Block */,
+				E31CE2462065B1760041295D /* ElementStyle.swift */,
+				E3097C94206B8ED2008C5968 /* Author.swift */,
+				E3097C97206B98CE008C5968 /* TapHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,10 +186,11 @@
 			isa = PBXGroup;
 			children = (
 				E310969B204B1786005C9328 /* RocketCell.swift */,
-				E3EDE3DD20545977006A6FD1 /* TextRocketCell.swift */,
-				E31CE244206591300041295D /* ButtonRocketCell.swift */,
-				E3097C9D206C316E008C5968 /* DoubleButtonRocketCell.swift */,
-				E3097C9F206C59BE008C5968 /* TapableRocketCell.swift */,
+				E3EDE3DD20545977006A6FD1 /* TextCell.swift */,
+				E31CE244206591300041295D /* ButtonCell.swift */,
+				E3097C9D206C316E008C5968 /* DoubleButtonCell.swift */,
+				E3097C9F206C59BE008C5968 /* TapableCell.swift */,
+				E32A891F2070213A00862AE5 /* TextInputCell.swift */,
 			);
 			path = "Blocks Cell";
 			sourceTree = "<group>";
@@ -194,9 +198,9 @@
 		E31BEE2C20494CD2001C8B08 /* Table View */ = {
 			isa = PBXGroup;
 			children = (
-				E3109699204B15C5005C9328 /* RocketTableViewController.swift */,
-				E31BEE2D20494CFC001C8B08 /* RocketTableView.swift */,
-				E3486F172064403000136149 /* CellRocketFactory.swift */,
+				E3109699204B15C5005C9328 /* TableController.swift */,
+				E31BEE2D20494CFC001C8B08 /* TableView.swift */,
+				E3486F172064403000136149 /* CellFactory.swift */,
 			);
 			path = "Table View";
 			sourceTree = "<group>";
@@ -205,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				E30EB09E2067C14C00C09DCB /* Extension.swift */,
-				E31BEE3220496723001C8B08 /* TopViewFinder.swift */,
 				E31BEE30204952C3001C8B08 /* UIApplicationExtension.swift */,
 			);
 			path = "View Support";
@@ -225,7 +228,7 @@
 		E31BEE3520496AD6001C8B08 /* Author */ = {
 			isa = PBXGroup;
 			children = (
-				E31BEE3620496AE6001C8B08 /* RocketAuthorView.swift */,
+				E31BEE3620496AE6001C8B08 /* AuthorView.swift */,
 			);
 			path = Author;
 			sourceTree = "<group>";
@@ -341,30 +344,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3097C9E206C316E008C5968 /* DoubleButtonRocketCell.swift in Sources */,
-				E3097C98206B98CE008C5968 /* RocketAction.swift in Sources */,
+				E3097C9E206C316E008C5968 /* DoubleButtonCell.swift in Sources */,
+				E3097C98206B98CE008C5968 /* TapHandler.swift in Sources */,
 				E310969C204B1786005C9328 /* RocketCell.swift in Sources */,
-				E31BEE3720496AE6001C8B08 /* RocketAuthorView.swift in Sources */,
+				E31BEE3720496AE6001C8B08 /* AuthorView.swift in Sources */,
 				E3097C9A206B997E008C5968 /* RocketAnimatable.swift in Sources */,
-				E31096982049F0B2005C9328 /* RocketContainerView.swift in Sources */,
-				E31CE2432065887B0041295D /* TextRocketBlock.swift in Sources */,
-				E310969A204B15C5005C9328 /* RocketTableViewController.swift in Sources */,
-				E31CE245206591300041295D /* ButtonRocketCell.swift in Sources */,
-				E31BEE3320496723001C8B08 /* TopViewFinder.swift in Sources */,
-				E3097CA3206D3919008C5968 /* DoubleButtonsRocketBlock.swift in Sources */,
+				E31096982049F0B2005C9328 /* ContainerView.swift in Sources */,
+				E31CE2432065887B0041295D /* TextBlock.swift in Sources */,
+				E310969A204B15C5005C9328 /* TableController.swift in Sources */,
+				E31CE245206591300041295D /* ButtonCell.swift in Sources */,
+				E32A89202070213A00862AE5 /* TextInputCell.swift in Sources */,
+				E3097CA3206D3919008C5968 /* DoubleButtonsBlock.swift in Sources */,
 				E30EB09F2067C14C00C09DCB /* Extension.swift in Sources */,
-				E3EDE3DE20545977006A6FD1 /* TextRocketCell.swift in Sources */,
+				E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */,
 				E31BEE1920485CA9001C8B08 /* RocketAlert.swift in Sources */,
-				E31CE2472065B1760041295D /* RocketElementStyle.swift in Sources */,
+				E31CE2472065B1760041295D /* ElementStyle.swift in Sources */,
 				E31BEE1E20485CED001C8B08 /* RocketAlertView.swift in Sources */,
-				E30980D820680135001E65A2 /* ButtonRocketBlock.swift in Sources */,
+				E30980D820680135001E65A2 /* ButtonBlock.swift in Sources */,
 				E31BEE1B20485CD0001C8B08 /* RocketBlock.swift in Sources */,
-				E31BEE2E20494CFC001C8B08 /* RocketTableView.swift in Sources */,
-				E3486F182064403000136149 /* CellRocketFactory.swift in Sources */,
-				E3097CA0206C59BE008C5968 /* TapableRocketCell.swift in Sources */,
-				E3097C95206B8ED2008C5968 /* RocketAuthor.swift in Sources */,
+				E31BEE2E20494CFC001C8B08 /* TableView.swift in Sources */,
+				E3486F182064403000136149 /* CellFactory.swift in Sources */,
+				E3097CA0206C59BE008C5968 /* TapableCell.swift in Sources */,
+				E3097C95206B8ED2008C5968 /* Author.swift in Sources */,
 				E31BEE31204952C3001C8B08 /* UIApplicationExtension.swift in Sources */,
 				E3097C9C206B99A0008C5968 /* RocketViewLayout.swift in Sources */,
+				E389A14F209F81140052CC72 /* TextInputBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

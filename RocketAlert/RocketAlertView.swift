@@ -10,16 +10,16 @@ import UIKit
 public class RocketAlertView: NSObject, RocketAlert {
     
     public required init(author: RocketAuthor, block: RocketBlock) {
-        do {
-            self.superView = try TopViewFinder.init(in: UIApplication.shared.topViewController()).view
-            self.mainView = RocketContainerView.init(superView: superView)
-            self.authorView = RocketAuthorView.init(author: author, in: mainView)
-            self.tableView = RocketTableView.init(authorView: authorView, in: mainView)
-            self.tableController = RocketTableViewController.init(tableView: self.tableView)
-            self.block = block
-        } catch {
-            fatalError(error.localizedDescription)
+        guard let vc = UIApplication.shared.topViewController() else {
+            fatalError(RocketAlertError.cantFindRootViewController.localizedDescription)
         }
+        RocketAlertView.hasTabBar = vc.hasTabBarController
+        self.superView = vc.view
+        self.mainView = RocketContainerView.init(superView: superView)
+        self.authorView = RocketAuthorView.init(author: author, in: mainView)
+        self.tableView = RocketTableView.init(authorView: authorView, in: mainView)
+        self.tableController = RocketTableController.init(tableView: self.tableView)
+        self.block = block
         super.init()
         self.tableController.rocket = self
         self.prepareAnimation()
@@ -29,11 +29,13 @@ public class RocketAlertView: NSObject, RocketAlert {
         fatalError("init(coder:) has not been implemented")
     }
     
+    static var hasTabBar: Bool = false
+    
     let block: RocketBlock
     let mainView: RocketContainerView
     private let authorView: RocketAuthorView
     private let tableView: RocketTableView
-    private let tableController: RocketTableViewController
+    private let tableController: RocketTableController
     private weak var superView: UIView!
     
     public func show() {
@@ -67,4 +69,16 @@ public class RocketAlertView: NSObject, RocketAlert {
         print("🔥 [Rocket] Deinit RocketAlertView")
     }
     
+}
+
+enum RocketAlertError: Error {
+    case cantFindRootViewController
+}
+
+extension RocketAlertError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .cantFindRootViewController: return "😵 [Rocket] I can't find the UIApplication.keyWindow.rootViewController"
+        }
+    }
 }

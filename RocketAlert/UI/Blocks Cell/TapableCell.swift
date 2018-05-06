@@ -16,20 +16,20 @@ class TapableRocketCell: RocketCell {
         self.mainView.addGestureRecognizer(self.tapGestureRecognizer)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     fileprivate var tapGestureRecognizer: UITapGestureRecognizer!
-    var isTapEnabled = true
+    fileprivate var isTapEnabled = true
     
     @objc
     fileprivate func handleTap(_ sender: UITapGestureRecognizer) {
         guard self.isTapEnabled else { return }
         self.mainView.smoothBounce(completionHandler: {
-            self.notifyObserver(nextBlock: self.currentBlock?.next)
+            self.show(next: (self.currentBlock as? TappableRocketBlock)?.next)
             self.isTapEnabled = false
         })
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

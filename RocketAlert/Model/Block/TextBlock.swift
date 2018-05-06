@@ -8,7 +8,13 @@
 
 import Foundation
 
-public class TextRocketBlock: RocketBlock {
+public class TextRocketBlock: TappableRocketBlock {
+    
+    public init(text: String, next: RocketBlock) {
+        self.text = text
+        self.next = next
+        self.style = RocketElementStyle.text
+    }
     
     public init(
         text: String,
@@ -31,4 +37,7 @@ public class TextRocketBlock: RocketBlock {
     public func add(child block: RocketBlock) {
         self.next = block
     }
+    
 }
+
+

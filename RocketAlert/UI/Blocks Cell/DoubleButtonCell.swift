@@ -19,21 +19,10 @@ class DoubleButtonRocketCell: RocketCell {
         self.mainView.addSubview(self.separatorView)
         self.separatorView.backgroundColor = #colorLiteral(red: 0.9480613426, green: 0.9480613426, blue: 0.9480613426, alpha: 1)
         self.firstButton.addTarget(self,
-                                   action: #selector(DoubleButtonRocketCell.handleTapOnFirstButton(_:)), for: .touchUpInside)
+                                   action: #selector(DoubleButtonRocketCell.handle_tapOnFirstButton(_:)), for: .touchUpInside)
         self.secondButton.addTarget(self,
-                                   action: #selector(DoubleButtonRocketCell.handleTapOnSecondButton(_:)), for: .touchUpInside)
+                                   action: #selector(DoubleButtonRocketCell.handle_tapOnSecondButton(_:)), for: .touchUpInside)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    fileprivate let separatorView: UIView
-    fileprivate let firstButton: UIButton
-    fileprivate let secondButton: UIButton
-    fileprivate var firstButtonAction: RocketAction?
-    fileprivate var secondButtonAction: RocketAction?
-    fileprivate var isTapOnButtonsEnabled: Bool = true
     
     override var currentBlock: RocketBlock? {
         didSet {
@@ -41,30 +30,39 @@ class DoubleButtonRocketCell: RocketCell {
             self.firstButton.setTitle(b.first.title, for: .normal)
             self.firstButton.setTitleColor(b.first.style.color, for: .normal)
             self.firstButton.titleLabel?.font = b.first.style.font
-            self.firstButtonAction = b.first.action
+            self.tapFirstButtonHandler = b.first.handler
             self.secondButton.setTitle(b.second.title, for: .normal)
             self.secondButton.setTitleColor(b.second.style.color, for: .normal)
             self.secondButton.titleLabel?.font = b.second.style.font
-            self.secondButtonAction = b.second.action
+            self.tapSecondButtonHandler = b.second.handler
             self.setNeedsUpdateConstraints()
         }
     }
     
-    @objc func handleTapOnFirstButton(_ sender: UIButton) {
+    fileprivate let separatorView: UIView
+    fileprivate let firstButton: UIButton
+    fileprivate let secondButton: UIButton
+    fileprivate var tapFirstButtonHandler: TapRocketHandler?
+    fileprivate var tapSecondButtonHandler: TapRocketHandler?
+    fileprivate var isTapOnButtonsEnabled: Bool = true
+    
+    @objc
+    fileprivate func handle_tapOnFirstButton(_ sender: UIButton) {
         guard self.isTapOnButtonsEnabled else { return }
         self.isTapOnButtonsEnabled = false
         self.firstButton.bounce(completionHandler: {
-            self.notifyObserver(nextBlock: self.firstButtonAction?.next)
-            self.firstButtonAction?.handler?()
+            self.show(next: self.tapFirstButtonHandler?.next)
+            self.tapFirstButtonHandler?.action?()
         })
     }
     
-    @objc func handleTapOnSecondButton(_ sender: UIButton) {
+    @objc
+    fileprivate func handle_tapOnSecondButton(_ sender: UIButton) {
         guard self.isTapOnButtonsEnabled else { return }
         self.isTapOnButtonsEnabled = false
         self.secondButton.bounce(completionHandler: {
-            self.notifyObserver(nextBlock: self.secondButtonAction?.next)
-            self.secondButtonAction?.handler?()
+            self.show(next: self.tapSecondButtonHandler?.next)
+            self.tapSecondButtonHandler?.action?()
         })
     }
     
@@ -98,6 +96,10 @@ class DoubleButtonRocketCell: RocketCell {
         self.firstButton.centerYAnchor.constraint(equalTo: self.secondButton.centerYAnchor).isActive = true
         self.separatorView.centerXAnchor.constraint(equalTo: self.mainView.centerXAnchor).isActive = true
         self.separatorView.centerYAnchor.constraint(equalTo: self.mainView.centerYAnchor).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }
