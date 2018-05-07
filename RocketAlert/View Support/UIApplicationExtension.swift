@@ -31,6 +31,16 @@ extension UIApplication {
     
 }
 
+extension UIDevice {
+    var isPad: Bool {
+        return self.userInterfaceIdiom == .pad
+    }
+    
+    var isPhone: Bool {
+        return self.userInterfaceIdiom == .phone
+    }
+}
+
 extension UIViewController {
     
     var hasTabBarController: Bool {

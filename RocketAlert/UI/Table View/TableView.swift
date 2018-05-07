@@ -26,8 +26,8 @@ class RocketTableView: UITableView, RocketSubView {
         self.separatorStyle = .none
         self.backgroundColor = .clear
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardOpening), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHiding), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: .UIKeyboardWillHide, object: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,13 +39,17 @@ class RocketTableView: UITableView, RocketSubView {
     
     var heightConstraint: NSLayoutConstraint!
     var bottomConstraint: NSLayoutConstraint!
+    var widthConstraint: NSLayoutConstraint!
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.heightConstraint.constant = self.contentSize.height
+        let width: CGFloat = (UIDevice.current.isPad || RocketAlertView.isLandscape) ? -180 : 0
+        let widthIpadLandscape: CGFloat = (UIDevice.current.isPad && RocketAlertView.isLandscape) ? -100 : 0
+        self.widthConstraint.constant = width + widthIpadLandscape
     }
     
-    @objc func handleKeyboardOpening(_ notification: Notification) {
+    @objc func handle_keyboardOpening(_ notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
@@ -117,7 +121,8 @@ extension RocketTableView: RocketViewLayout {
     }
 
     func setSizeConstraints() {
-        self.widthAnchor.constraint(equalTo: self.container.widthAnchor, multiplier: 0.6).isActive = true
+        self.widthConstraint = self.widthAnchor.constraint(equalTo: self.container.widthAnchor, multiplier: 0.6)
+        self.widthConstraint.isActive = true
         self.topAnchor.constraint(greaterThanOrEqualTo: self.container.topAnchor, constant: 20).isActive = true
         self.heightConstraint = self.heightAnchor.constraint(equalToConstant: 44)
         self.heightConstraint.priority = .defaultLow

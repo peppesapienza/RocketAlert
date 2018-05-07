@@ -25,10 +25,13 @@ public class RocketAlertView: UIViewController, RocketAlert {
         self.tableView = RocketTableView.init(authorView: authorView, in: mainView)
         self.tableController = RocketTableController.init(tableView: self.tableView)
         self.tableController.rocket = self
+        NotificationCenter.default.addObserver(self, selector: #selector(RocketAlertView.rotated), name: .UIDeviceOrientationDidChange, object: nil)
         self.prepareAnimation()
     }
     
     static var hasTabBar: Bool = false
+    static var isLandscape: Bool = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
+    
     let block: RocketBlock
     var mainView: RocketContainerView!
     fileprivate var topVC: UIViewController
@@ -64,11 +67,23 @@ public class RocketAlertView: UIViewController, RocketAlert {
         self.mainView.transform = CGAffineTransform.init(translationX: self.mainView.frame.width, y: 0)
     }
     
+    @objc
+    fileprivate func rotated() {
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            RocketAlertView.isLandscape = true
+        }
+        
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            RocketAlertView.isLandscape = false
+        }
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     deinit {
+        NotificationCenter.default.removeObserver(self, name: .UIDeviceOrientationDidChange, object: nil)
         print("🔥 [Rocket] Deinit RocketAlertView")
     }
     
