@@ -9,7 +9,7 @@
 import Foundation
 
 public struct TapRocketHandler {
-    public init(next: RocketBlock?, action: (()->())?) {
+    public init(next: RocketBlock?, action: (()->())? = nil) {
         self.next = next
         self.action = action
     }

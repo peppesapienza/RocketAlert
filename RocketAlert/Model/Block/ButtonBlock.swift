@@ -12,20 +12,29 @@ public class ButtonRocketBlock: ControlRocketBlock {
     
     public init(
         title: String,
-        tapHandler: TapRocketHandler,
-        id: String? = nil,
-        style: RocketElementStyle = RocketElementStyle.button)
+        tapHandler: TapRocketHandler? = nil,
+        style: RocketElementStyle? = RocketElementStyle.button,
+        id: String? = nil)
     {
         self.title = title
-        self.handler = tapHandler
-        self.id = id
+        self.tapHandler = tapHandler
         self.style = style
+        self.id = id
+    }
+    
+    public convenience init(title: String, tapHandler: TapRocketHandler) {
+        self.init(title: title, tapHandler: tapHandler, style: .button, id: nil)
+    }
+    
+    public convenience init(title: String, tapHandler: TapRocketHandler, style: RocketElementStyle) {
+        self.init(title: title, tapHandler: tapHandler, style: style, id: nil)
     }
     
     public var id: String?
+    public var tapHandler: TapRocketHandler?
+    public var style: RocketElementStyle? = RocketElementStyle.button
     
-    internal let style: RocketElementStyle
     internal let title: String
-    internal let handler: TapRocketHandler
+    
 }
 

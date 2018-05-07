@@ -20,7 +20,7 @@ public class TextRocketBlock: TappableRocketBlock {
         text: String,
         next: RocketBlock? = nil,
         id: String? = nil,
-        style: RocketElementStyle = RocketElementStyle.text)
+        style: RocketElementStyle = .text)
     {
         self.text = text
         self.next = next
@@ -30,11 +30,11 @@ public class TextRocketBlock: TappableRocketBlock {
     
     public var next: RocketBlock?
     public var id: String?
+    public var style: RocketElementStyle? = .text
     
     internal let text: String
-    internal let style: RocketElementStyle
     
-    public func add(child block: RocketBlock) {
+    public func add(next block: RocketBlock) {
         self.next = block
     }
     
