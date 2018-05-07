@@ -73,7 +73,7 @@ class RocketTableController: NSObject {
     fileprivate func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: .showNextBlockEvent, object: nil)
         NotificationCenter.default.removeObserver(self, name: .dismissRocketAlertEvent, object: nil)
-        print("🔥 [Rocket] Deinit RocketTableViewController")
+        print("🔥 [Rocket] Deinit RocketTableController")
     }
     
 }

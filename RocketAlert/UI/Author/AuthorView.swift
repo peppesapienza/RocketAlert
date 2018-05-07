@@ -112,7 +112,8 @@ extension RocketAuthorView: RocketViewLayout {
     
     func setPositionConstraints() {
         self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -10).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -16).isActive = true
+        let tabBarHeight: CGFloat = RocketAlertView.hasTabBar ? -40 : -20
+        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: tabBarHeight).isActive = true
         self.midView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.midView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.imageView.centerXAnchor.constraint(equalTo: self.midView.centerXAnchor).isActive = true
