@@ -14,11 +14,11 @@ public protocol RocketBlock {
 }
 
 extension RocketBlock {
-    
     public var cellIdentifier: String {
         return String.init(describing: type(of: self))
     }
 }
+
 
 protocol TappableRocketBlock: RocketBlock {
     var next: RocketBlock? { get set }

@@ -29,10 +29,6 @@ class RocketTableView: UITableView, RocketSubView {
         NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: .UIKeyboardWillHide, object: nil)
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     weak var container: RocketContainerView!
     weak var authorView: UIView!
@@ -44,8 +40,8 @@ class RocketTableView: UITableView, RocketSubView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.heightConstraint.constant = self.contentSize.height
-        let width: CGFloat = (UIDevice.current.isPad || RocketAlertView.isLandscape) ? -180 : 0
-        let widthIpadLandscape: CGFloat = (UIDevice.current.isPad && RocketAlertView.isLandscape) ? -100 : 0
+        let width: CGFloat = (UIDevice.current.isPad || Rocket.isLandscape) ? -180 : 0
+        let widthIpadLandscape: CGFloat = (UIDevice.current.isPad && Rocket.isLandscape) ? -100 : 0
         self.widthConstraint.constant = width + widthIpadLandscape
     }
     
@@ -54,7 +50,7 @@ class RocketTableView: UITableView, RocketSubView {
             return
         }
         let keyboardHeight = keyboardFrame.cgRectValue.height
-        let tabBarHeight: CGFloat = RocketAlertView.hasTabBar ? 44 : 0
+        let tabBarHeight: CGFloat = Rocket.hasTabBar ? 44 : 0
         self.bottomConstraint.constant = -(keyboardHeight - tabBarHeight)
         self.scrollToLastVisibleCell()
     }
@@ -74,6 +70,10 @@ class RocketTableView: UITableView, RocketSubView {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
         print("🔥 [Rocket] Deinit RocketTableView")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }

@@ -24,7 +24,7 @@
 		E31BEE0520485C82001C8B08 /* RocketAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = E31BEDF720485C82001C8B08 /* RocketAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E31BEE1920485CA9001C8B08 /* RocketAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE1820485CA9001C8B08 /* RocketAlert.swift */; };
 		E31BEE1B20485CD0001C8B08 /* RocketBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE1A20485CD0001C8B08 /* RocketBlock.swift */; };
-		E31BEE1E20485CED001C8B08 /* RocketAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE1D20485CED001C8B08 /* RocketAlertView.swift */; };
+		E31BEE1E20485CED001C8B08 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE1D20485CED001C8B08 /* Rocket.swift */; };
 		E31BEE2E20494CFC001C8B08 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE2D20494CFC001C8B08 /* TableView.swift */; };
 		E31BEE31204952C3001C8B08 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE30204952C3001C8B08 /* UIApplicationExtension.swift */; };
 		E31BEE3720496AE6001C8B08 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31BEE3620496AE6001C8B08 /* AuthorView.swift */; };
@@ -68,7 +68,7 @@
 		E31BEE0420485C82001C8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E31BEE1820485CA9001C8B08 /* RocketAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAlert.swift; sourceTree = "<group>"; };
 		E31BEE1A20485CD0001C8B08 /* RocketBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketBlock.swift; sourceTree = "<group>"; };
-		E31BEE1D20485CED001C8B08 /* RocketAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketAlertView.swift; sourceTree = "<group>"; };
+		E31BEE1D20485CED001C8B08 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		E31BEE2D20494CFC001C8B08 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E31BEE30204952C3001C8B08 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		E31BEE3620496AE6001C8B08 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		E31BEDF620485C82001C8B08 /* RocketAlert */ = {
 			isa = PBXGroup;
 			children = (
-				E31BEE1D20485CED001C8B08 /* RocketAlertView.swift */,
+				E31BEE1D20485CED001C8B08 /* Rocket.swift */,
 				E31BEE2F2049526C001C8B08 /* View Support */,
 				E31BEE3420496AD0001C8B08 /* UI */,
 				E31BEE1C20485CE0001C8B08 /* Model */,
@@ -359,7 +359,7 @@
 				E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */,
 				E31BEE1920485CA9001C8B08 /* RocketAlert.swift in Sources */,
 				E31CE2472065B1760041295D /* ElementStyle.swift in Sources */,
-				E31BEE1E20485CED001C8B08 /* RocketAlertView.swift in Sources */,
+				E31BEE1E20485CED001C8B08 /* Rocket.swift in Sources */,
 				E30980D820680135001E65A2 /* ButtonBlock.swift in Sources */,
 				E31BEE1B20485CD0001C8B08 /* RocketBlock.swift in Sources */,
 				E31BEE2E20494CFC001C8B08 /* TableView.swift in Sources */,

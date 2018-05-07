@@ -21,9 +21,9 @@ class ButtonRocketCell: RocketCell {
         didSet {
             guard let b = self.currentBlock as? ButtonRocketBlock else { return }
             self.button.setTitle(b.title, for: .normal)
-            self.tapHandler = b.handler
-            self.button.setTitleColor(b.style.color, for: .normal)
-            self.button.titleLabel?.font = b.style.font
+            self.tapHandler = b.tapHandler
+            self.button.setTitleColor(b.style?.color, for: .normal)
+            self.button.titleLabel?.font = b.style?.font
             self.setNeedsUpdateConstraints()
         }
     }

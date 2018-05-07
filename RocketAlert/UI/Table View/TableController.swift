@@ -27,7 +27,7 @@ class RocketTableController: NSObject {
     
     deinit { self.removeObservers() }
     
-    weak var rocket: RocketAlertView!
+    weak var rocket: Rocket!
     fileprivate weak var tableView: UITableView!
     fileprivate var blocks: [RocketBlock] = []
     
