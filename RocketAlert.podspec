@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name              = 'Rocket Alert'
+    s.name              = 'RocketAlert'
     s.version           = '1.0.0'
     s.summary           = 'User friendly, Modular and Modern iOS Alert View'
     s.homepage          = 'https://github.com/peppesapienza/Rocket-Alert'
@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
     s.platform          = :ios
     s.source            = { :http => 'https://github.com/peppesapienza/Rocket-Alert.git' }
 
+    s.ios.frameworks = 'Foundation', 'UIKit'
     s.ios.deployment_target = '10.0'
-    s.source_files = 'RocketAlert/*.{swift,plist}'
+    s.ios.vendored_frameworks = 'RocketAlert.framework'
 end

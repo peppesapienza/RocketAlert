@@ -5,7 +5,6 @@
 //  Created by Giuseppe Sapienza on 23/03/18.
 //  Copyright © 2018 Giuseppe Sapienza. All rights reserved.
 //
-
 import Foundation
 
 public struct RocketElementStyle {
