@@ -17,11 +17,15 @@ class TapableRocketCell: RocketCell {
     }
     
     fileprivate var tapGestureRecognizer: UITapGestureRecognizer!
-    fileprivate var isTapEnabled = true
+    var isTapEnabled = true
     
     @objc
     fileprivate func handleTap(_ sender: UITapGestureRecognizer) {
         guard self.isTapEnabled else { return }
+        self.tapAction()
+    }
+    
+    func tapAction() {
         self.mainView.smoothBounce(completionHandler: {
             self.show(next: (self.currentBlock as? TappableRocketBlock)?.next)
             self.isTapEnabled = false

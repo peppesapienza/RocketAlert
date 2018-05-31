@@ -23,11 +23,25 @@ class TextRocketCell: TapableRocketCell {
             self.label.textColor = b.style?.color
             self.label.font = b.style?.font
             self.label.text = b.text
+            self.showNextAfter(seconds: b.showNextAfter)
             self.setNeedsUpdateConstraints()
         }
     }
     
     fileprivate let label: UILabel
+    
+    fileprivate func showNextAfter(seconds: TimeInterval?) {
+        guard let t = seconds, t > 0.0 else {
+            self.isTapEnabled = true
+            return
+        }
+        
+        super.isTapEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + t) {
+            super.tapAction()
+        }
+    }
     
     override func setAutoresizingMask() {
         super.setAutoresizingMask()
