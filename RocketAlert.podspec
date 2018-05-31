@@ -10,8 +10,9 @@ Pod::Spec.new do |s|
     s.platform          = :ios
 
     s.source            = { :git => 'https://github.com/peppesapienza/Rocket-Alert.git', :tag => '1.0-beta.1' }
+    s.requires_arc = true
 
-    #s.ios.frameworks = 'Foundation', 'UIKit'
+    s.ios.frameworks = 'Foundation', 'UIKit'
     s.ios.deployment_target = '10.0'
-    s.source_files = "RocketAlert", "RocketAlert/**/*.{h,m,swift}"
+    s.ios.source_files = "RocketAlert/*.swift", "RocketAlert/**/*.{h,m,swift,plist}"
 end

@@ -15,7 +15,7 @@
 		E3097CA0206C59BE008C5968 /* TapableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9F206C59BE008C5968 /* TapableCell.swift */; };
 		E3097CA3206D3919008C5968 /* DoubleButtonsBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */; };
 		E30980D820680135001E65A2 /* ButtonBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30980D720680135001E65A2 /* ButtonBlock.swift */; };
-		E30EB09F2067C14C00C09DCB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB09E2067C14C00C09DCB /* Extension.swift */; };
+		E30EF49F20C06478005D7235 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EF49E20C06478005D7235 /* Extension.swift */; };
 		E31096982049F0B2005C9328 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31096972049F0B2005C9328 /* ContainerView.swift */; };
 		E310969A204B15C5005C9328 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3109699204B15C5005C9328 /* TableController.swift */; };
 		E310969C204B1786005C9328 /* RocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310969B204B1786005C9328 /* RocketCell.swift */; };
@@ -56,7 +56,9 @@
 		E3097C9F206C59BE008C5968 /* TapableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableCell.swift; sourceTree = "<group>"; };
 		E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonsBlock.swift; sourceTree = "<group>"; };
 		E30980D720680135001E65A2 /* ButtonBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBlock.swift; sourceTree = "<group>"; };
-		E30EB09E2067C14C00C09DCB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		E30EF49A20C05F14005D7235 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E30EF49C20C05F1A005D7235 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E30EF49E20C06478005D7235 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		E31096972049F0B2005C9328 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		E3109699204B15C5005C9328 /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		E310969B204B1786005C9328 /* RocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,15 @@
 			path = Block;
 			sourceTree = "<group>";
 		};
+		E30EF49920C05F13005D7235 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E30EF49C20C05F1A005D7235 /* Foundation.framework */,
+				E30EF49A20C05F14005D7235 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E31096962049F09D005C9328 /* Container */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +136,7 @@
 				E31BEDF620485C82001C8B08 /* RocketAlert */,
 				E31BEE0120485C82001C8B08 /* RocketAlertTests */,
 				E31BEDF520485C82001C8B08 /* Products */,
+				E30EF49920C05F13005D7235 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,8 +220,8 @@
 		E31BEE2F2049526C001C8B08 /* View Support */ = {
 			isa = PBXGroup;
 			children = (
-				E30EB09E2067C14C00C09DCB /* Extension.swift */,
 				E31BEE30204952C3001C8B08 /* UIApplicationExtension.swift */,
+				E30EF49E20C06478005D7235 /* Extension.swift */,
 			);
 			path = "View Support";
 			sourceTree = "<group>";
@@ -354,8 +366,8 @@
 				E310969A204B15C5005C9328 /* TableController.swift in Sources */,
 				E31CE245206591300041295D /* ButtonCell.swift in Sources */,
 				E32A89202070213A00862AE5 /* TextInputCell.swift in Sources */,
+				E30EF49F20C06478005D7235 /* Extension.swift in Sources */,
 				E3097CA3206D3919008C5968 /* DoubleButtonsBlock.swift in Sources */,
-				E30EB09F2067C14C00C09DCB /* Extension.swift in Sources */,
 				E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */,
 				E31BEE1920485CA9001C8B08 /* RocketAlert.swift in Sources */,
 				E31CE2472065B1760041295D /* ElementStyle.swift in Sources */,
