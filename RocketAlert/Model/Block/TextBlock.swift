@@ -21,14 +21,18 @@ public class TextRocketBlock: TappableRocketBlock {
         self.init(text: text, next: nil, showNextAfter: showNextAfter, id: nil, style: .text)
     }
     
-    public convenience init(
+    public init(
         text: String,
         next: RocketBlock? = nil,
         showNextAfter: TimeInterval? = nil,
         id: String? = nil,
         style: RocketElementStyle = .text)
     {
-        self.init(text: text, next: next, showNextAfter: showNextAfter, id: id, style: style)
+        self.text = text
+        self.next = next
+        self.showNextAfter = showNextAfter
+        self.id = id
+        self.style = style
     }
     
     public var next: RocketBlock?
