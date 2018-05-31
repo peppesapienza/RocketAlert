@@ -81,7 +81,7 @@ class RocketCell: UITableViewCell, RocketViewLayout {
         
     fileprivate func setShadow() {
         self.shadowView.layer.shadowColor = #colorLiteral(red: 0.8767361111, green: 0.8767361111, blue: 0.8767361111, alpha: 1)
-        self.shadowView.layer.shadowRadius = 10
+        self.shadowView.layer.shadowRadius = 6
         self.shadowView.layer.shadowOpacity = 1
         self.shadowView.layer.shadowOffset = CGSize.zero
     }
