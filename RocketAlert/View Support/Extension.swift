@@ -5,7 +5,6 @@
 //  Created by Giuseppe Sapienza on 14/11/16.
 //  Copyright © 2016 xCoding.it. All rights reserved.
 //
-
 import UIKit
 
 extension UITableView {
@@ -21,7 +20,7 @@ extension UIView {
         self.alpha = 0
         UIViewPropertyAnimator.init(duration: 0.3, curve: .easeInOut) {
             self.alpha = 1
-        }.startAnimation()
+            }.startAnimation()
     }
     
     public func bounce(completionHandler:  (() -> ())? = nil) {
@@ -94,5 +93,3 @@ extension UIColor {
         )
     }
 }
-
-
