@@ -36,6 +36,13 @@ rocket.dismiss()
 
 **`RocketBlock` is a protocol that give to all blocks a `var id: String? {get set}` property** (created to be used in some advanced circumstances). There is also a `var cellIdentifier: String {get}` which is used internally to match the block with a reusable cell. 
 
+```swift
+public protocol RocketBlock {
+    var id: String? { get set }
+    var cellIdentifier: String { get }
+}
+```
+
 **The `RocketBlock` protocol is never used as base protocol of the implemented class.** Instead you will use the inherited protocols that gives to the blocks some useful stuff. 
 
 
@@ -44,8 +51,10 @@ rocket.dismiss()
 The `TappableRocketBlock` is a inherited protocol from `RocketBlock`. The `TappableRocketBlock` protocol describe the block that could be tapped by the user. He gives to the implemented class two properties:
 
 ```swift
-var next: RocketBlock? { get set }
-var showNextAfter: TimeInterval? { get set }
+protocol TappableRocketBlock: RocketBlock {
+    var next: RocketBlock? { get set }
+    var showNextAfter: TimeInterval? { get set }
+}
 ```
 
 1. The `next` property represent the next `RocketBlock` that will be shown after the tap.  
@@ -115,12 +124,27 @@ firstBlock.font = RocketFont.text // the default
 The `RocketFont` provide some default styles:
 
 ```swift
-public static var text = RocketFont.init(font: UIFont.systemFont(ofSize: 18, weight: .regular), color: #colorLiteral(red: 0.1621472239, green: 0.2301641703, blue: 0.3008684814, alpha: 1))
-public static var textBold = RocketFont.init(font: UIFont.systemFont(ofSize: 18, weight: .bold), color: #colorLiteral(red: 0.1621472239, green: 0.2301641703, blue: 0.3008684814, alpha: 1))
-public static var button = RocketFont.init(font: UIFont.systemFont(ofSize: 20, weight: .black), color: #colorLiteral(red: 0.1902082911, green: 0.6098146351, blue: 0.968627451, alpha: 1))
-public static var lightButton = RocketFont.init(font: UIFont.systemFont(ofSize: 18, weight: .regular), color: #colorLiteral(red: 0.1902082911, green: 0.6098146351, blue: 0.968627451, alpha: 1))
-public static var cancel = RocketFont.init(font: UIFont.systemFont(ofSize: 20, weight: .semibold), color: #colorLiteral(red: 0.9267585874, green: 0.367726624, blue: 0.3804723024, alpha: 1))
-public static var emoji = RocketFont.init(font: UIFont.systemFont(ofSize: 25, weight: .black), color: #colorLiteral(red: 0.1621472239, green: 0.2301641703, blue: 0.3008684814, alpha: 1))
+public struct RocketFont {
+    public static var text = RocketFont.init(font: UIFont.systemFont(ofSize: 18, weight: .regular), color: #colorLiteral(red: 0.1621472239, green: 0.2301641703, blue: 0.3008684814, alpha: 1))
+    public static var textBold = RocketFont.init(font: UIFont.systemFont(ofSize: 18, weight: .bold), color: #colorLiteral(red: 0.1621472239, green: 0.2301641703, blue: 0.3008684814, alpha: 1))
+    public static var button = RocketFont.init(font: UIFont.systemFont(ofSize: 20, weight: .black), color: #colorLiteral(red: 0.1902082911, green: 0.6098146351, blue: 0.968627451, alpha: 1))
+    public static var lightButton = RocketFont.init(font: UIFont.systemFont(ofSize: 18, weight: .regular), color: #colorLiteral(red: 0.1902082911, green: 0.6098146351, blue: 0.968627451, alpha: 1))
+    public static var cancel = RocketFont.init(font: UIFont.systemFont(ofSize: 20, weight: .semibold), color: #colorLiteral(red: 0.9267585874, green: 0.367726624, blue: 0.3804723024, alpha: 1))
+    public static var emoji = RocketFont.init(font: UIFont.systemFont(ofSize: 25, weight: .black), color: #colorLiteral(red: 0.1621472239, green: 0.2301641703, blue: 0.3008684814, alpha: 1))
+    
+    public var color: UIColor
+    public var font: UIFont
+    
+    public init() {
+        self.color = UIColor.black
+        self.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+    }
+    
+    public init(font: UIFont, color: UIColor) {
+        self.font = font
+        self.color = color
+    }
+}
 
 // USE:
 block.font = RocketFont.text
@@ -143,5 +167,6 @@ When you call the `show()` the `present()` method will be fired over the topmost
 ### The RocketTableController 
 
 The `RocketTableView` is managed by the `RockeTableController` that implement the `UITableViewDataSource` and `UITableViewDelegate` protocols.
+
 
 
