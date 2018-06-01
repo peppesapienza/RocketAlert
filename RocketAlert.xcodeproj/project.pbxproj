@@ -34,6 +34,7 @@
 		E32A89202070213A00862AE5 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32A891F2070213A00862AE5 /* TextInputCell.swift */; };
 		E3486F182064403000136149 /* CellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3486F172064403000136149 /* CellFactory.swift */; };
 		E389A14F209F81140052CC72 /* TextInputBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389A14E209F81140052CC72 /* TextInputBlock.swift */; };
+		E3E3100920C1258600088A12 /* ImageBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E3100820C1258600088A12 /* ImageBlock.swift */; };
 		E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EDE3DD20545977006A6FD1 /* TextCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		E32A891F2070213A00862AE5 /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
 		E3486F172064403000136149 /* CellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFactory.swift; sourceTree = "<group>"; };
 		E389A14E209F81140052CC72 /* TextInputBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputBlock.swift; sourceTree = "<group>"; };
+		E3E3100820C1258600088A12 /* ImageBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlock.swift; sourceTree = "<group>"; };
 		E3EDE3DD20545977006A6FD1 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				E389A14E209F81140052CC72 /* TextInputBlock.swift */,
 				E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */,
 				E30980D720680135001E65A2 /* ButtonBlock.swift */,
+				E3E3100820C1258600088A12 /* ImageBlock.swift */,
 			);
 			path = Block;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				E3097C9E206C316E008C5968 /* DoubleButtonCell.swift in Sources */,
 				E3097C98206B98CE008C5968 /* TapHandler.swift in Sources */,
 				E310969C204B1786005C9328 /* RocketCell.swift in Sources */,
+				E3E3100920C1258600088A12 /* ImageBlock.swift in Sources */,
 				E31BEE3720496AE6001C8B08 /* AuthorView.swift in Sources */,
 				E3097C9A206B997E008C5968 /* RocketAnimatable.swift in Sources */,
 				E31096982049F0B2005C9328 /* ContainerView.swift in Sources */,

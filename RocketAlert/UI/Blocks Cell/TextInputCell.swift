@@ -30,7 +30,7 @@ class TextInputRocketCell: RocketCell {
             guard let b = currentBlock as? TextInputRocketBlock else { return }
             self.label.text = b.text
             self.inputHandler = b.handler
-            self.setStyle(button: b.buttonStyle, text: b.style)
+            self.setStyle(button: b.buttonStyle, text: b.font)
             self.button.setTitle(b.buttonTitle, for: .normal)
             self.setNeedsUpdateConstraints()
         }
@@ -50,7 +50,7 @@ class TextInputRocketCell: RocketCell {
         self.show(next: next)
     }
     
-    fileprivate func setStyle(button buttonStyle: RocketElementStyle?, text textStyle: RocketElementStyle?) {
+    fileprivate func setStyle(button buttonStyle: RocketFont?, text textStyle: RocketFont?) {
         self.label.textColor = textStyle?.color
         self.label.font = textStyle?.font
         self.textView.font = UIFont.systemFont(ofSize: 16, weight: .light)

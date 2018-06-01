@@ -15,13 +15,13 @@ public class TextInputRocketBlock: InputRocketBlock {
         buttonTitle: String,
         inputHandler: InputRocketHandler<String>,
         id: String? = nil,
-        style: RocketElementStyle? = RocketElementStyle.text,
-        buttonStyle: RocketElementStyle? = RocketElementStyle.lightButton)
+        font: RocketFont? = RocketFont.text,
+        buttonStyle: RocketFont? = RocketFont.lightButton)
     {
         self.text = text
         self.buttonTitle = buttonTitle
         self.handler = inputHandler
-        self.style = style
+        self.font = font
         self.buttonStyle = buttonStyle
     }
     
@@ -30,6 +30,6 @@ public class TextInputRocketBlock: InputRocketBlock {
     internal let text: String
     internal let buttonTitle: String
     internal let handler: InputRocketHandler<String>
-    internal let style: RocketElementStyle?
-    internal let buttonStyle: RocketElementStyle?
+    internal let font: RocketFont?
+    internal let buttonStyle: RocketFont?
 }

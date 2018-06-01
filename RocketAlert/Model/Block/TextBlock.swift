@@ -13,12 +13,12 @@ public class TextRocketBlock: TappableRocketBlock {
     public init(text: String, next: RocketBlock, showNextAfter: TimeInterval? = nil) {
         self.text = text
         self.next = next
-        self.style = RocketElementStyle.text
+        self.font = RocketFont.text
         self.showNextAfter = showNextAfter
     }
     
     public convenience init(text: String, showNextAfter: TimeInterval) {
-        self.init(text: text, next: nil, showNextAfter: showNextAfter, id: nil, style: .text)
+        self.init(text: text, next: nil, showNextAfter: showNextAfter, id: nil, font: .text)
     }
     
     public init(
@@ -26,13 +26,13 @@ public class TextRocketBlock: TappableRocketBlock {
         next: RocketBlock? = nil,
         showNextAfter: TimeInterval? = nil,
         id: String? = nil,
-        style: RocketElementStyle = .text)
+        font: RocketFont = .text)
     {
         self.text = text
         self.next = next
         self.showNextAfter = showNextAfter
         self.id = id
-        self.style = style
+        self.font = font
     }
     
     public var next: RocketBlock?
@@ -44,7 +44,7 @@ public class TextRocketBlock: TappableRocketBlock {
     */
     public var showNextAfter: TimeInterval?
     public var id: String?
-    public var style: RocketElementStyle? = .text
+    public var font: RocketFont? = .text
     
     internal let text: String
     

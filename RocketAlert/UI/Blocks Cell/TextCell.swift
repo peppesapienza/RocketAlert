@@ -20,8 +20,8 @@ class TextRocketCell: TapableRocketCell {
     override var currentBlock: RocketBlock? {
         didSet {
             guard let b = currentBlock as? TextRocketBlock else { return }
-            self.label.textColor = b.style?.color
-            self.label.font = b.style?.font
+            self.label.textColor = b.font?.color
+            self.label.font = b.font?.font
             self.label.text = b.text
             self.showNextAfter(seconds: b.showNextAfter)
             self.setNeedsUpdateConstraints()

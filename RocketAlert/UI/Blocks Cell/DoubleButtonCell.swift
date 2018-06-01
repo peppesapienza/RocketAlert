@@ -28,12 +28,12 @@ class DoubleButtonRocketCell: RocketCell {
         didSet {
             guard let b = self.currentBlock as? DoubleButtonRocketBlock else { return }
             self.firstButton.setTitle(b.first.title, for: .normal)
-            self.firstButton.setTitleColor(b.first.style?.color, for: .normal)
-            self.firstButton.titleLabel?.font = b.first.style?.font
+            self.firstButton.setTitleColor(b.first.font?.color, for: .normal)
+            self.firstButton.titleLabel?.font = b.first.font?.font
             self.tapFirstButtonHandler = b.first.tapHandler
             self.secondButton.setTitle(b.second.title, for: .normal)
-            self.secondButton.setTitleColor(b.second.style?.color, for: .normal)
-            self.secondButton.titleLabel?.font = b.second.style?.font
+            self.secondButton.setTitleColor(b.second.font?.color, for: .normal)
+            self.secondButton.titleLabel?.font = b.second.font?.font
             self.tapSecondButtonHandler = b.second.tapHandler
             self.setNeedsUpdateConstraints()
         }
