@@ -15,6 +15,12 @@ public class ImageRocketBlock: TextRocketBlock {
         super.init(text: text ?? "", next: next, showNextAfter: showNextAfter, id: id, font: .text)
     }
     
+    public convenience init(image: UIImage, text: String?) {
+        self.init(image: image, text: text, next: nil, showNextAfter: nil, id: nil)
+    }
+    
+    public var paddingLeft: CGFloat = 0
+    public var paddingRight: CGFloat = 0
     public var imageStyle: RocketImageStyle = .round
     
     internal let image: UIImage
