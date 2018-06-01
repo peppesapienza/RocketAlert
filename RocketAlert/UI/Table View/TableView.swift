@@ -17,8 +17,7 @@ class RocketTableView: UITableView, RocketSubView {
         self.container.addSubview(self)
         
         self.setAutoresizingMask()
-        self.setPositionConstraints()
-        self.setSizeConstraints()
+        self.setConstraints()
         
         self.rowHeight = UITableViewAutomaticDimension
         self.estimatedRowHeight = UITableViewAutomaticDimension
@@ -113,17 +112,17 @@ extension RocketTableView: RocketViewLayout {
     func setAutoresizingMask() {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    func setPositionConstraints() {
-        self.rightAnchor.constraint(equalTo: self.authorView.leftAnchor, constant: -6).isActive = true
-        self.bottomConstraint = self.bottomAnchor.constraint(equalTo: self.authorView.bottomAnchor, constant: -10)
-        self.bottomConstraint.isActive = true
-    }
 
-    func setSizeConstraints() {
+    func setConstraints() {
         self.widthConstraint = self.widthAnchor.constraint(equalTo: self.container.widthAnchor, multiplier: 0.6)
         self.widthConstraint.isActive = true
+        
         self.topAnchor.constraint(greaterThanOrEqualTo: self.container.topAnchor, constant: 20).isActive = true
+        self.rightAnchor.constraint(equalTo: self.authorView.leftAnchor, constant: -6).isActive = true
+        
+        self.bottomConstraint = self.bottomAnchor.constraint(equalTo: self.authorView.bottomAnchor, constant: -10)
+        self.bottomConstraint.isActive = true
+        
         self.heightConstraint = self.heightAnchor.constraint(equalToConstant: 44)
         self.heightConstraint.priority = .defaultLow
         self.heightConstraint.isActive = true

@@ -24,8 +24,7 @@ class RocketAuthorView: UIView, RocketSubView {
         
         self.setAutoresizingMask()
         self.setClipToBounds()
-        self.setPositionConstraints()
-        self.setSizeConstraints()
+        self.setConstraints()
     }
     
     override func layoutSubviews() {
@@ -110,23 +109,24 @@ extension RocketAuthorView: RocketViewLayout {
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setPositionConstraints() {
-        self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -10).isActive = true
+    func setConstraints() {
         let tabBarHeight: CGFloat = Rocket.hasTabBar ? -40 : -20
-        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: tabBarHeight).isActive = true
-        self.midView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        self.midView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.imageView.centerXAnchor.constraint(equalTo: self.midView.centerXAnchor).isActive = true
-        self.imageView.centerYAnchor.constraint(equalTo: self.midView.centerYAnchor).isActive = true
-    }
-    
-    func setSizeConstraints() {
         let size: CGFloat = 60
+        
+        self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -10).isActive = true
+        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: tabBarHeight).isActive = true
         self.heightAnchor.constraint(equalToConstant: size).isActive = true
         self.widthAnchor.constraint(equalToConstant: size).isActive = true
+        
+        self.midView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.midView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.midView.heightAnchor.constraint(equalToConstant: size).isActive = true
         self.midView.widthAnchor.constraint(equalToConstant: size).isActive = true
+        
+        self.imageView.centerXAnchor.constraint(equalTo: self.midView.centerXAnchor).isActive = true
+        self.imageView.centerYAnchor.constraint(equalTo: self.midView.centerYAnchor).isActive = true
         self.imageView.heightAnchor.constraint(equalToConstant: size).isActive = true
         self.imageView.widthAnchor.constraint(equalToConstant: size).isActive = true
     }
+
 }

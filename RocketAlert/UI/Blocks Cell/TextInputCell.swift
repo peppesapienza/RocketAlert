@@ -69,24 +69,22 @@ class TextInputRocketCell: RocketCell {
         self.button.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override func setSizeConstraints() {
-        super.setSizeConstraints()
-        self.label.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -16).isActive = true
-        self.textView.widthAnchor.constraint(equalTo: self.label.widthAnchor, multiplier: 1).isActive = true
-        self.textView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        self.button.widthAnchor.constraint(equalTo: self.textView.widthAnchor).isActive = true
-        self.button.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    
-    override func setPositionConstraints() {
-        super.setPositionConstraints()
+    override func setConstraints() {
+        super.setConstraints()
         self.label.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 16).isActive = true
         self.label.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 16).isActive = true
+        self.label.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -16).isActive = true
+        
         self.textView.centerXAnchor.constraint(equalTo: self.mainView.centerXAnchor).isActive = true
         self.textView.topAnchor.constraint(equalTo: self.label.bottomAnchor, constant: 6).isActive = true
         self.textView.bottomAnchor.constraint(equalTo: self.button.topAnchor, constant: -10).isActive = true
+        self.textView.widthAnchor.constraint(equalTo: self.label.widthAnchor, multiplier: 1).isActive = true
+        self.textView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
         self.button.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -16).isActive = true
         self.button.centerXAnchor.constraint(equalTo: self.textView.centerXAnchor).isActive = true
+        self.button.widthAnchor.constraint(equalTo: self.textView.widthAnchor).isActive = true
+        self.button.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

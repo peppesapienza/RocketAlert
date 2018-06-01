@@ -14,6 +14,5 @@ protocol RocketSubView {
 
 protocol RocketViewLayout {
     func setAutoresizingMask()
-    func setPositionConstraints()
-    func setSizeConstraints()
+    func setConstraints()
 }

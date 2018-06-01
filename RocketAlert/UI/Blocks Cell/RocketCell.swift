@@ -48,8 +48,7 @@ class RocketCell: UITableViewCell, RocketViewLayout {
     
     override func updateConstraints() {
         super.updateConstraints()
-        self.setPositionConstraints()
-        self.setSizeConstraints()
+        self.setConstraints()
     }
     
     func setAutoresizingMask() {
@@ -57,18 +56,16 @@ class RocketCell: UITableViewCell, RocketViewLayout {
         self.shadowView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setPositionConstraints() {
-        self.shadowView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
-        self.shadowView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10).isActive = true
-        self.mainView.topAnchor.constraint(equalTo: self.shadowView.topAnchor, constant: 0).isActive = true
-        self.mainView.leftAnchor.constraint(equalTo: self.shadowView.leftAnchor, constant: 0).isActive = true
-    }
-    
-    func setSizeConstraints() {
+    func setConstraints() {
         self.shadowView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
         self.shadowView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -10).isActive = true
+        self.shadowView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
+        self.shadowView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10).isActive = true
+        
         self.mainView.bottomAnchor.constraint(equalTo: self.shadowView.bottomAnchor, constant: 0).isActive = true
         self.mainView.rightAnchor.constraint(equalTo: self.shadowView.rightAnchor, constant: 0).isActive = true
+        self.mainView.topAnchor.constraint(equalTo: self.shadowView.topAnchor, constant: 0).isActive = true
+        self.mainView.leftAnchor.constraint(equalTo: self.shadowView.leftAnchor, constant: 0).isActive = true
     }
     
     fileprivate func setCornerRadius() {

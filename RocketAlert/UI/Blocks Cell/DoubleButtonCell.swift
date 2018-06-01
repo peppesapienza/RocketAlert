@@ -77,23 +77,22 @@ class DoubleButtonRocketCell: RocketCell {
         self.secondButton.translatesAutoresizingMaskIntoConstraints = false
         self.separatorView.translatesAutoresizingMaskIntoConstraints = false
     }
+
     
-    override func setSizeConstraints() {
-        super.setSizeConstraints()
-        self.secondButton.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -10).isActive = true
-        self.secondButton.widthAnchor.constraint(equalTo: self.mainView.widthAnchor, multiplier: 0.45).isActive = true
-        self.firstButton.widthAnchor.constraint(equalTo: self.secondButton.widthAnchor, multiplier: 1).isActive = true
-        self.firstButton.heightAnchor.constraint(equalTo: self.secondButton.heightAnchor, multiplier: 1).isActive = true
-        self.separatorView.heightAnchor.constraint(equalTo: self.firstButton.heightAnchor, multiplier: 1).isActive = true
-        self.separatorView.widthAnchor.constraint(equalToConstant: 2).isActive = true
-    }
-    
-    override func setPositionConstraints() {
-        super.setPositionConstraints()
-        self.secondButton.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -10).isActive = true
-        self.secondButton.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 10).isActive = true
+    override func setConstraints() {
+        super.setConstraints()
         self.firstButton.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 10).isActive = true
         self.firstButton.centerYAnchor.constraint(equalTo: self.secondButton.centerYAnchor).isActive = true
+        self.firstButton.widthAnchor.constraint(equalTo: self.secondButton.widthAnchor, multiplier: 1).isActive = true
+        self.firstButton.heightAnchor.constraint(equalTo: self.secondButton.heightAnchor, multiplier: 1).isActive = true
+        
+        self.secondButton.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -10).isActive = true
+        self.secondButton.widthAnchor.constraint(equalTo: self.mainView.widthAnchor, multiplier: 0.45).isActive = true
+        self.secondButton.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -10).isActive = true
+        self.secondButton.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 10).isActive = true
+        
+        self.separatorView.heightAnchor.constraint(equalTo: self.firstButton.heightAnchor, multiplier: 1).isActive = true
+        self.separatorView.widthAnchor.constraint(equalToConstant: 2).isActive = true
         self.separatorView.centerXAnchor.constraint(equalTo: self.mainView.centerXAnchor).isActive = true
         self.separatorView.centerYAnchor.constraint(equalTo: self.mainView.centerYAnchor).isActive = true
     }

@@ -52,16 +52,12 @@ class ButtonRocketCell: RocketCell {
         self.button.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override func setSizeConstraints() {
-        super.setSizeConstraints()
-        self.button.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -10).isActive = true
-        self.button.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -10).isActive = true
-    }
-    
-    override func setPositionConstraints() {
-        super.setPositionConstraints()
+    override func setConstraints() {
+        super.setConstraints()
         self.button.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 10).isActive = true
         self.button.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 10).isActive = true
+        self.button.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -10).isActive = true
+        self.button.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -10).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

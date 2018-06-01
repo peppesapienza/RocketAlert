@@ -48,16 +48,12 @@ class TextRocketCell: TapableRocketCell {
         self.label.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override func setSizeConstraints() {
-        super.setSizeConstraints()
-        self.label.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -12).isActive = true
-        self.label.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -16).isActive = true
-    }
-    
-    override func setPositionConstraints() {
-        super.setPositionConstraints()
+    override func setConstraints() {
+        super.setConstraints()
         self.label.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 16).isActive = true
         self.label.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 16).isActive = true
+        self.label.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -12).isActive = true
+        self.label.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -16).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

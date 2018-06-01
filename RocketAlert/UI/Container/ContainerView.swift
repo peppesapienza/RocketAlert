@@ -16,8 +16,7 @@ class RocketContainerView: UIView {
         self.backgroundColor = .clear
         superView.addSubview(self)
         self.setAutoresizingMask()
-        self.setPositionConstraints()
-        self.setSizeConstraints()
+        self.setConstraints()
     }
 
     weak var container: UIView!
@@ -37,12 +36,10 @@ extension RocketContainerView: RocketViewLayout {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setPositionConstraints() {
+    func setConstraints() {
         self.centerXAnchor.constraint(equalTo: self.container.centerXAnchor).isActive = true
         self.centerYAnchor.constraint(equalTo: self.container.centerYAnchor).isActive = true
-    }
-    
-    func setSizeConstraints() {
+        
         if #available(iOS 11.0, *) {
             self.heightAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.heightAnchor).isActive = true
             self.widthAnchor.constraint(equalTo: self.container.safeAreaLayoutGuide.widthAnchor).isActive = true
