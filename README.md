@@ -8,6 +8,32 @@ Rockert Alert resolve the problem of be distracted by a boring AlertView with a 
 
 With a modern style and a powerful personalization RocketAlert could help you to increase your conversion rate.
 
+
+## Installation
+
+### CocoaPods
+```
+platform :ios, '10.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'RocketAlert'
+end
+```
+
+Then, run the following command:
+
+```
+$ pod install
+```
+
+## Communication
+
+- If you need help, use [Stack Overflow](https://stackoverflow.com/questions/tagged/rocketalert). (Tag 'rocketalert')
+- If you found a bug or you have a feature request open an issue.
+- If **you are an :it: iOS Italian Developer follow us** on [Slack](https://www.xcoding.it/community) or [Facebook Group](https://www.facebook.com/groups/mobile.developers.it)
+- If you want to contribute, submit a pull request.
+
 ## Usage
 
 **You can istantiate a `Rocket` by passing to his parameters a `RocketAuthor` and a `RocketBlock` object.** After that you can **present the `Rocket` by performing the method `show()`**:
