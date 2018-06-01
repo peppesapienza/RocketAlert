@@ -12,6 +12,14 @@ public enum RocketImageStyle {
     case round
     case circular
     case square
+    
+    internal func cornerRadius(for view: UIView) -> CGFloat {
+        switch self {
+        case .circular: return view.frame.height/2
+        case .round: return 6
+        case .square: return 0
+        }
+    }
 }
 
 /// The Rocket Author
