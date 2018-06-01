@@ -28,9 +28,9 @@ class TextRocketCell: TapableRocketCell {
         }
     }
     
-    fileprivate let label: UILabel
+    internal let label: UILabel
     
-    fileprivate func showNextAfter(seconds: TimeInterval?) {
+    internal func showNextAfter(seconds: TimeInterval?) {
         guard let t = seconds, t > 0.0 else {
             self.isTapEnabled = true
             return
@@ -61,4 +61,3 @@ class TextRocketCell: TapableRocketCell {
     }
 
 }
-

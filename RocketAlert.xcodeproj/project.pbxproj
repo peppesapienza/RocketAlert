@@ -35,6 +35,7 @@
 		E3486F182064403000136149 /* CellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3486F172064403000136149 /* CellFactory.swift */; };
 		E389A14F209F81140052CC72 /* TextInputBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389A14E209F81140052CC72 /* TextInputBlock.swift */; };
 		E3E3100920C1258600088A12 /* ImageBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E3100820C1258600088A12 /* ImageBlock.swift */; };
+		E3E3100F20C13F5400088A12 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E3100E20C13F5400088A12 /* ImageCell.swift */; };
 		E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EDE3DD20545977006A6FD1 /* TextCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		E3486F172064403000136149 /* CellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFactory.swift; sourceTree = "<group>"; };
 		E389A14E209F81140052CC72 /* TextInputBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputBlock.swift; sourceTree = "<group>"; };
 		E3E3100820C1258600088A12 /* ImageBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlock.swift; sourceTree = "<group>"; };
+		E3E3100E20C13F5400088A12 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		E3EDE3DD20545977006A6FD1 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +208,7 @@
 				E3097C9D206C316E008C5968 /* DoubleButtonCell.swift */,
 				E3097C9F206C59BE008C5968 /* TapableCell.swift */,
 				E32A891F2070213A00862AE5 /* TextInputCell.swift */,
+				E3E3100E20C13F5400088A12 /* ImageCell.swift */,
 			);
 			path = "Blocks Cell";
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				E310969A204B15C5005C9328 /* TableController.swift in Sources */,
 				E31CE245206591300041295D /* ButtonCell.swift in Sources */,
 				E32A89202070213A00862AE5 /* TextInputCell.swift in Sources */,
+				E3E3100F20C13F5400088A12 /* ImageCell.swift in Sources */,
 				E30EF49F20C06478005D7235 /* Extension.swift in Sources */,
 				E3097CA3206D3919008C5968 /* DoubleButtonsBlock.swift in Sources */,
 				E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */,

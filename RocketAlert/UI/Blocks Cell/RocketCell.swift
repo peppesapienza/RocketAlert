@@ -57,6 +57,10 @@ class RocketCell: UITableViewCell, RocketViewLayout {
     }
     
     func setConstraints() {
+        self.setMainViewConstraints()
+    }
+    
+    internal func setMainViewConstraints() {
         self.shadowView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
         self.shadowView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -10).isActive = true
         self.shadowView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true

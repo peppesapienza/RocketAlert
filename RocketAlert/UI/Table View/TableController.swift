@@ -57,6 +57,7 @@ class RocketTableController: NSObject {
         self.tableView.register(ButtonRocketCell.self, forCellReuseIdentifier: "\(ButtonRocketBlock.self)")
         self.tableView.register(DoubleButtonRocketCell.self, forCellReuseIdentifier: "\(DoubleButtonRocketBlock.self)")
         self.tableView.register(TextInputRocketCell.self, forCellReuseIdentifier: "\(TextInputRocketBlock.self)")
+        self.tableView.register(ImageRocketCell.self, forCellReuseIdentifier: "\(ImageRocketBlock.self)")
     }
     
     fileprivate func addObservers() {
