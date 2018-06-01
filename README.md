@@ -6,4 +6,4 @@ Rockert Alert resolve the problem of be distracted by a boring AlertView with a 
 
 With a modern style and a powerful personalization RocketAlert will help you to increase your conversion rate.
 
-![alt text](https://media.giphy.com/media/5QLxkjz2nq5cHBENqr/giphy.gif)
+![alt text](https://media.giphy.com/media/5QLxkjz2nq5cHBENqr/giphy.gif)![alt text](https://media.giphy.com/media/9u15NC295RsZIKCDWj/giphy.gif)
