@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum RocketAuthorStyle {
+public enum RocketImageStyle {
     case round
     case circular
     case square
@@ -24,13 +24,13 @@ public struct RocketAuthor {
         - style: the style of the image's view
      
      - Important:
-    if you don't define a style, the .circular will be used
+    if you don't provide a style then the .circular will be used
      */
-    public init(image: UIImage, style: RocketAuthorStyle = .circular) {
+    public init(image: UIImage, style: RocketImageStyle = .circular) {
         self.image = image
         self.style = style
     }
     
     let image: UIImage
-    let style: RocketAuthorStyle
+    let style: RocketImageStyle
 }

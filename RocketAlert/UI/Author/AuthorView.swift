@@ -37,7 +37,7 @@ class RocketAuthorView: UIView, RocketSubView {
     weak var container: RocketContainerView!
     fileprivate let imageView: UIImageView
     fileprivate let midView: UIView
-    fileprivate let style: RocketAuthorStyle
+    fileprivate let style: RocketImageStyle
     
     fileprivate func setClipToBounds() {
         self.midView.clipsToBounds = true
