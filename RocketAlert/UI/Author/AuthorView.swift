@@ -14,6 +14,7 @@ class RocketAuthorView: UIView, RocketSubView {
         self.midView = UIView.init(frame: .zero)
         self.imageView = UIImageView.init(frame: .zero)
         self.imageView.image = author.image
+        self.imageView.backgroundColor = .white
         self.container = container
         self.style = author.style
         super.init(frame: .zero)
@@ -44,17 +45,8 @@ class RocketAuthorView: UIView, RocketSubView {
     }
     
     fileprivate func setCornerRadius() {
-        let cornerRadius: CGFloat
-        switch self.style {
-        case .circular:
-            cornerRadius = self.midView.layer.frame.height/2
-        case .round:
-            cornerRadius = 6
-        case .square:
-            cornerRadius = 0
-        }
         self.midView.layer.masksToBounds = true
-        self.midView.layer.cornerRadius = cornerRadius
+        self.midView.layer.cornerRadius = self.style.cornerRadius(for: self.midView)
     }
     
     fileprivate func setShadow() {
