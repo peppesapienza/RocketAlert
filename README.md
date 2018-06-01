@@ -17,7 +17,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'RocketAlert'
+    pod 'RocketAlert', '1.0-beta.2'
 end
 ```
 
