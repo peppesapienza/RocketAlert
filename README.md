@@ -85,7 +85,7 @@ let firstBlock = TextRocketBlock.init(text: "First", next: secondBlock)
 
 The `thirdBlock` will be shown automatically after 2.0 seconds and after the `secondBlock`.
 
-### Example 3. Flatten style
+#### Example 3. Flatten style
 
 ```swift
 let firstBlock = TextRocketBlock.init(text: "First")
