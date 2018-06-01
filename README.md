@@ -1,4 +1,4 @@
-# Rocket-Alert
+# RocketAlert
 
 Would you like to improve your User Experiece's while asking user to do some action? 
 
