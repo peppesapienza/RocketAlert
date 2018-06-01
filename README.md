@@ -68,9 +68,9 @@ protocol TappableRocketBlock: RocketBlock {
 You can create a `TextRocketBlock` by using on of these init:
 
 ```swift
-init(text: String, next: RocketBlock, showNextAfter: TimeInterval? = nil)
-init(text: String, showNextAfter: TimeInterval)
-init(text: String, next: RocketBlock? = nil, showNextAfter: TimeInterval? = nil, id: String? = nil, font: RocketFont = .text)
+TextRocketBlock.init(text: String, next: RocketBlock, showNextAfter: TimeInterval? = nil)
+TextRocketBlock.init(text: String, showNextAfter: TimeInterval)
+TextRocketBlock.init(text: String, next: RocketBlock? = nil, showNextAfter: TimeInterval? = nil, id: String? = nil, font: RocketFont = .text)
 ```
 
 #### Example 1.
@@ -152,21 +152,39 @@ block.font = RocketFont.emoji
 block.font = RocketFont.textBold
 ```
 
-## How does it work internally?
+## ControlRocketBlock
 
-**A `Rocket` is a subclass of `UIViewController`**. 
+The `ControlRocketBlock` is a inherited protocol from `RocketBlock`. The `ControlRocketBlock` protocol describe the interactable blocks. 
 
-When you create an object of a `Rocket` class the **init start searching inside the hierarchy of the `UIApplication.shared.keyWindow` and try to extract the topmost view controller.** If he can't find a VC he throw a `fatalError`.
+### ButtonRocketBlock
 
-Rocket is composed by some subviews and the most important are: 
-1. `RocketTableView` that handle, show and manage the `RocketBlocks`
-2. `RocketAuthorView` that show the content of the `RocketAuthor`
+**Use `ButtonRocketBlock` object to show a single button.** You can't define a `next`block directly. **Instead you need to provide a `TapRocketHandler` that let you to define a custom action and the next block** that will be fired after the `TouchUpInside` event.
 
-When you call the `show()` the `present()` method will be fired over the topmost VC that will present the rocket VC with `.modalPresentationStyle = .overCurrentContext`. Likewise the `dismiss()` will dismiss the rocket VC.
+You can create a `ButtonRocketBlock` using one of these init:
 
-### The RocketTableController 
+```swift
+ButtonRocketBlock.init(title: String, tapHandler: TapRocketHandler) 
+ButtonRocketBlock.init(title: String, tapHandler: TapRocketHandler, font: RocketFont)
+ButtonRocketBlock.init(title: String, tapHandler: TapRocketHandler? = nil, font: RocketFont? = RocketFont.button, id: String? = nil)
+```
+The default `RocketFont` is `.button`. 
 
-The `RocketTableView` is managed by the `RockeTableController` that implement the `UITableViewDataSource` and `UITableViewDelegate` protocols.
+#### Example 4. 
 
+```swift
+let button = ButtonRocketBlock.init(title: "PRESS THERE")
+let afterTheTapOnButton = TextRocketBlock.init(text: "You press the button!!")
 
+button.tapHandler = TapRocketHandler.init(next: afterTheTapOnButton, action: {
+    print("the user click the button")
+    
+    UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+        
+    }
+})
+
+let rocket = Rocket.init(author: author, block: button)
+rocket.show()
+```
+![alt text](https://media.giphy.com/media/wHf4k5qvG6bz8XvP7f/giphy.gif)
 
