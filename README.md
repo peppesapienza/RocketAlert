@@ -23,7 +23,7 @@ With a modern style and a powerful personalization RocketAlert could help you to
     - [DoubleButtonBlock](./README.md#doublebuttonrocketblock) - Show two buttons
 - [InputRocketBlock](./README.md#inputrocketblock) protocol
     - [TextInputRocketBlock](./README.md#textinputrocketblock) - ask user to enter a text
-        - [TextInputRocketBlock](./README.md#return-different-blocks) - depends on input, return a different block
+        - [InputRocketHandler](./README.md#return-different-blocks) - depends on input, return a different block
 
 ## Installation
 
