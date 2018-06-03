@@ -101,7 +101,7 @@ TextRocketBlock.init(text: String, showNextAfter: TimeInterval)
 TextRocketBlock.init(text: String, next: RocketBlock? = nil, showNextAfter: TimeInterval? = nil, id: String? = nil, font: RocketFont = .text)
 ```
 
-#### Example 1.
+And you can use it like that:
 
 ```swift
 let secondBlock = TextRocketBlock.init(text: "This is your second block")
@@ -112,7 +112,7 @@ rocket.show()
 ```
 The `secondBlock` will be presented after the tap on the `firstBlock`. Note that I passed the `firstBlock` to the `rocket`.
 
-#### Example 2. Flatten style
+#### Create RocketBlock with a flattened style
 
 Use this style when you have a lot of blocks and you want maintain your code clear:
 
@@ -127,7 +127,7 @@ secondBlock.next = third
 secondBlock.font = RocketFont.textBold
 ```
 
-#### Example 3. ShowNextAfter
+#### The property `showNextAfter`
 
 ```swift
 let firstBlock = TextRocketBlock.init(text: "First")
@@ -144,7 +144,7 @@ The `thirdBlock` will be shown automatically after 2.0 seconds and after the `se
 
 ![Screenshot](https://image.ibb.co/nC4kLy/Schermata_2018_06_01_alle_17_23_18.png)
 
-#### RocketFont
+#### The `RocketFont`
 
 You can change the `UIFont` by providing a `RocketFont` object to the `font` property. 
 
@@ -183,7 +183,7 @@ ButtonRocketBlock.init(title: String, tapHandler: TapRocketHandler? = nil, font:
 ```
 The default `RocketFont` is `.button`. 
 
-#### Example 4. 
+#### The `TapRocketHandler` 
 
 ```swift
 let button = ButtonRocketBlock.init(title: "PRESS THERE")
@@ -221,11 +221,68 @@ let doubleButton = DoubleButtonRocketBlock.init(left: leftButton, right: rightBu
 
 ## InputRocketBlock
 
-The `InputRocketBlock` is an inherited protocol from `RocketBlock`. The `InputRocketBlock` protocol describes the block that has an input field. He gives to the implemented class an `InputRocketHandler<InputType>` properties:
+The `InputRocketBlock` is an inherited protocol from `RocketBlock`. **The `InputRocketBlock` protocol describes the block that has an input field.** He gives to the implemented class an `InputRocketHandler<InputType>` properties:
 
-```
+```swift
 protocol InputRocketBlock: RocketBlock {
     associatedtype InputType
-    var handler: InputRocketHandler<InputType> { get }
+    var handler: InputRocketHandler<InputType>? { get set }
 }
 ```
+
+When you create an `InputRocketHandler<T>` you need to define a closure that returns back at least one `RocketBlock`:
+
+```swift
+public struct InputRocketHandler<T> {
+    public init(action: ((T)->(RocketBlock?))?) {
+        self.action = action
+    }
+    
+    internal let action: ((_ text: T)->(RocketBlock?))?
+}
+```
+
+### TextInputRocketBlock
+
+Use the `TextInputRocketBlock` when you want to ask the user to enter some String information. The `TextInputRocketBlock` is an implemented class of the `InputRocketBlock` protocol.
+
+You can create a `TextInputRocketBlock` by using one of these init:
+
+```swift
+TextInputRocketBlock.init(text: String, buttonTitle: String)
+TextInputRocketBlock.init(text: text, buttonTitle: buttonTitle, inputHandler: InputRocketHandler<String>?)
+TextInputRocketBlock.init(text: String, buttonTitle: String, inputHandler: InputRocketHandler<String>?, id: String? = nil, font: RocketFont? = RocketFont.text, buttonStyle: RocketFont? = RocketFont.lightButton)
+```
+
+In it basic form you can use it like that:
+
+```swift
+let input = TextInputRocketBlock.init(text: "Describe your problem:", buttonTitle: "Send")
+
+input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock? in
+    return TextRocketBlock.init(text: "Thanks you so much!")
+})
+```
+
+#### Return different blocks
+
+If you want to handle differently the user's input you can return different blocks based on the value of the `InputRocketHandler`:
+
+```swift
+let input = TextInputRocketBlock.init(text: "Describe your problem:", buttonTitle: "Send")
+
+input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock? in
+    if (input.isEmpty) {
+        return TextRocketBlock.init(text: "Why haven't added a text? :(")
+    }
+    
+    if (input == "SecretKey") {
+        return TextRocketBlock.init(text: "Awesome!! you know the secret key")
+    }
+    
+    let block = TextRocketBlock.init(text: "Thanks you so much!")
+    /* you can concatenate more blocks if you want */
+    return block
+})
+```
+
