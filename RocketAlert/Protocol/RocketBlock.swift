@@ -22,16 +22,7 @@ extension RocketBlock {
 
 protocol TappableRocketBlock: RocketBlock {
     var next: RocketBlock? { get set }
-}
-
-extension TappableRocketBlock {
-    public var hasChild: Bool {
-        guard
-            let _ = self.next
-            else { return false }
-        
-        return true
-    }
+    var showNextAfter: TimeInterval? { get set }
 }
 
 protocol ControlRocketBlock: RocketBlock {
