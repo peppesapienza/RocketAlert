@@ -71,6 +71,8 @@ public protocol RocketBlock {
 
 **The `RocketBlock` protocol is never used as base protocol of the implemented class.** Instead you will use the inherited protocols that gives to the blocks some useful stuff. 
 
+**IMPORTANT:** When a next block is presented the interaction over the previous block will be disabled.
+
 
 ## TappableRocketBlock
 
@@ -110,17 +112,9 @@ rocket.show()
 ```
 The `secondBlock` will be presented after the tap on the `firstBlock`. Note that I passed the `firstBlock` to the `rocket`.
 
-#### Example 2. ShowNextAfter
+#### Example 2. Flatten style
 
-```swift
-let thirdBlock = TextRocketBlock.init(text: "Third")
-let secondBlock = TextRocketBlock.init(text: "Second", next: thirdBlock, showNextAfter: 2.0)
-let firstBlock = TextRocketBlock.init(text: "First", next: secondBlock)
-```
-
-The `thirdBlock` will be shown automatically after 2.0 seconds and after the `secondBlock`.
-
-#### Example 3. Flatten style
+Use this style when you have a lot of blocks and you want mantain your code clear:
 
 ```swift
 let firstBlock = TextRocketBlock.init(text: "First")
@@ -128,11 +122,25 @@ let secondBlock = TextRocketBlock.init(text: "Second")
 let thirdBlock = TextRocketBlock.init(text: "Third")
 
 firstBlock.next = second 
-firstBlock.showNextAfter = 2.0
 
 secondBlock.next = third
 secondBlock.font = RocketFont.textBold
 ```
+
+#### Example 3. ShowNextAfter
+
+```swift
+let firstBlock = TextRocketBlock.init(text: "First")
+let secondBlock = TextRocketBlock.init(text: "Second")
+
+firstBlock.next = second 
+firstBlock.showNextAfter = 2.0
+
+secondBlock.font = RocketFont.textBold
+```
+
+The `thirdBlock` will be shown automatically after 2.0 seconds and after the `secondBlock`.
+
 
 ![Screenshot](https://image.ibb.co/nC4kLy/Schermata_2018_06_01_alle_17_23_18.png)
 
@@ -195,4 +203,6 @@ rocket.show()
 ![alt text](https://media.giphy.com/media/wHf4k5qvG6bz8XvP7f/giphy.gif)
 
 
-### DoubleButtonRocketBlock
+### DoubleButtonsRocketBlock
+
+**Use the `DoubleButtonsRocketBlock` when you want to show two options.** You can initialize a `DoubleButtonsRocketBlock` passing to it two `ButtonRocketBlock`. It's important to know that **when a user tap to one of the buttons the touch over the block will be disabled.** 
