@@ -8,7 +8,7 @@ Rockert Alert resolve the problem of being distracted by a boring AlertView with
 
 With a modern style and a powerful personalization RocketAlert could help you to increase your conversion rate.
 
-- [Installation](./#installation)
+- [Installation](./README.md#installation)
 - 
 
 
