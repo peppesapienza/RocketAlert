@@ -1,8 +1,8 @@
 # RocketAlert
 
-Would you like to improve your User Experiece's while asking user to do some action? 
+Would you like to improve your User Experience's while asking user to do some action? 
 
-Rockert Alert resolve the problem of be distracted by a boring AlertView with a user friendly boarding process similar to a Chat Bot. 
+Rockert Alert resolve the problem of being distracted by a boring AlertView with a user-friendly boarding process similar to a Chat Bot. 
 
 ![alt text](https://media.giphy.com/media/5QLxkjz2nq5cHBENqr/giphy.gif)![alt text](https://media.giphy.com/media/9u15NC295RsZIKCDWj/giphy.gif)
 
@@ -36,7 +36,7 @@ $ pod install
 
 ## Usage
 
-**You can istantiate a `Rocket` by passing to his parameters a `RocketAuthor` and a `RocketBlock` object.** After that you can **present the `Rocket` by performing the method `show()`**:
+**You can instantiate a `Rocket` by passing to his parameters a `RocketAuthor` and a `RocketBlock` object.** After that, you can **present the `Rocket` by performing the method `show()`**:
 
 ```swift
 import RocketAlert
@@ -56,11 +56,11 @@ rocket.dismiss()
 
 ## The RocketBlock
 
- **`RocketBlock` is container of data and functionality** and under the hood `RocketBlock` is nothing else a simple `UITableViewCell`.
+ **`RocketBlock` is a container of data and functionality** and under the hood `RocketBlock` is nothing else a simple `UITableViewCell`.
 
-**Depends on block type a user can interact with a block by: *Tap*, *Control Events*** (for example button click) **and *Input Events*** (at the moment only text input). **After an event `Rocket` could show the next block** that has been attached to the interacted block.
+**Depends on block type a user can interact with a block by *Tap*, *Control Events*** (for example button click) **and *Input Events*** (at the moment only text input). **After an event `Rocket` could show the next block** that has been attached to the interacted block.
 
-**`RocketBlock` is a protocol that give to all blocks a `var id: String? {get set}` property** (created to be used in some advanced circumstances). There is also a `var cellIdentifier: String {get}` which is used internally to match the block with a reusable cell. 
+**`RocketBlock` is a protocol that gives to all blocks a `var id: String? {get set}` property** (created to be used in some advanced circumstances). There is also a `var cellIdentifier: String {get}` which is used internally to match the block with a reusable cell. 
 
 ```swift
 public protocol RocketBlock {
@@ -69,14 +69,14 @@ public protocol RocketBlock {
 }
 ```
 
-**The `RocketBlock` protocol is never used as base protocol of the implemented class.** Instead you will use the inherited protocols that gives to the blocks some useful stuff. 
+**The `RocketBlock` protocol is never used as the base protocol of the implemented class.** Instead, you will use the inherited protocols that give to the blocks some useful stuff. 
 
-**IMPORTANT:** When a next block is presented the interaction over the previous block will be disabled.
+**IMPORTANT:** When a next block has been presented the interaction over the previous block will be disabled.
 
 
 ## TappableRocketBlock
 
-The `TappableRocketBlock` is a inherited protocol from `RocketBlock`. The `TappableRocketBlock` protocol describe the block that could be tapped by the user. He gives to the implemented class two properties:
+The `TappableRocketBlock` is an inherited protocol from `RocketBlock`. The `TappableRocketBlock` protocol describes the block that could be tapped by the user. He gives to the implemented class two properties:
 
 ```swift
 protocol TappableRocketBlock: RocketBlock {
@@ -85,7 +85,7 @@ protocol TappableRocketBlock: RocketBlock {
 }
 ```
 
-1. The `next` property represent the next `RocketBlock` that will be shown after the tap.  
+1. The `next` property represents the next `RocketBlock` that will be shown after the tap.  
 2. The `showNextAfter` property allows the next block, if presented, to be shown automatically after an amount of time. If you provide a value the `TapGestureRecognizer` will be disabled.
 
 
@@ -205,4 +205,27 @@ rocket.show()
 
 ### DoubleButtonsRocketBlock
 
-**Use the `DoubleButtonsRocketBlock` when you want to show two options.** You can initialize a `DoubleButtonsRocketBlock` passing to it two `ButtonRocketBlock`. It's important to know that **when a user tap to one of the buttons the touch over the block will be disabled.** 
+**Use the `DoubleButtonsRocketBlock` when you want to show two options.** You can initialize a `DoubleButtonsRocketBlock` passing to it two `ButtonRocketBlock`. It's important to know that **when a user taps to one of the buttons the touch over the block will be disabled.** 
+
+```swift
+let leftButton = ButtonRocketBlock.init(title: "Left Button")
+leftButton.font = .button // the default
+
+let rightButton = ButtonRocketBlock.init(title: "Right Button")
+rightButton.font = .lightButton
+rightButton.tapHandler = // remember to set a tapHandler if you want to show a block or if yuo want perform an action
+
+let doubleButton = DoubleButtonRocketBlock.init(left: leftButton, right: rightButton)
+```
+
+
+## InputRocketBlock
+
+The `InputRocketBlock` is a inherited protocol from `RocketBlock`. The `InputRocketBlock` protocol describes the block that has an input field. He gives to the implemented class an `InputRocketHandler<InputType>` properties:
+
+```
+protocol InputRocketBlock: RocketBlock {
+    associatedtype InputType
+    var handler: InputRocketHandler<InputType> { get }
+}
+```
