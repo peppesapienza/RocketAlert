@@ -230,7 +230,7 @@ leftButton.font = .button // the default
 
 let rightButton = ButtonRocketBlock.init(title: "Right Button")
 rightButton.font = .lightButton
-rightButton.tapHandler = // remember to set a tapHandler if you want to show a block or if yuo want perform an action
+rightButton.tapHandler = // remember to set a tapHandler if you want to show a block or if you want perform an action
 
 let doubleButton = DoubleButtonRocketBlock.init(left: leftButton, right: rightButton)
 ```
