@@ -9,8 +9,13 @@ Rockert Alert resolve the problem of being distracted by a boring AlertView with
 With a modern style and a powerful personalization RocketAlert could help you to increase your conversion rate.
 
 - [Installation](./README.md#installation)
-- 
-
+- [Communication](./README.md#communication)
+- [Usage](/README.md#usage)
+- [RocketBlock](./README.md#rocketblock)
+- [TappableRocketBlock](./README.md#tappablerocketblock) 
+    - [TextRocketBlock](./README.md#textrocketblock): Show a line or multiline text
+        - [Flattened style](./README.md#dlattenedstyle): How to write clean and readable blocks
+        - [shownNextAfter](./README.md#shownextafterproperty): Show next block automatically
 
 ## Installation
 
@@ -58,7 +63,7 @@ You can **destroy the alert by invoking the method `dismiss()`** on the same roc
 rocket.dismiss()
 ```
 
-## The RocketBlock
+## RocketBlock
 
  **`RocketBlock` is a container of data and functionality** and under the hood `RocketBlock` is nothing else a simple `UITableViewCell`.
 
@@ -116,7 +121,7 @@ rocket.show()
 ```
 The `secondBlock` will be presented after the tap on the `firstBlock`. Note that I passed the `firstBlock` to the `rocket`.
 
-#### Create RocketBlock with a flattened style
+#### Flattened style
 
 Use this style when you have a lot of blocks and you want maintain your code clear:
 
@@ -131,7 +136,7 @@ secondBlock.next = third
 secondBlock.font = RocketFont.textBold
 ```
 
-#### The property `showNextAfter`
+#### `showNextAfter` property
 
 ```swift
 let firstBlock = TextRocketBlock.init(text: "First")
