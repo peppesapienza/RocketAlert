@@ -8,6 +8,9 @@ Rockert Alert resolve the problem of being distracted by a boring AlertView with
 
 With a modern style and a powerful personalization RocketAlert could help you to increase your conversion rate.
 
+- [Installation](./#installation)
+- 
+
 
 ## Installation
 
@@ -33,6 +36,7 @@ $ pod install
 - If you found a bug or you have a feature request open an issue.
 - If **you are an :it: iOS Italian Developer follow us** on [Slack](https://www.xcoding.it/community) or [Facebook Group](https://www.facebook.com/groups/mobile.developers.it)
 - If you want to contribute, submit a pull request.
+
 
 ## Usage
 
