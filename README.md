@@ -11,11 +11,19 @@ With a modern style and a powerful personalization RocketAlert could help you to
 - [Installation](./README.md#installation)
 - [Communication](./README.md#communication)
 - [Usage](/README.md#usage)
-- [RocketBlock](./README.md#rocketblock)
-- [TappableRocketBlock](./README.md#tappablerocketblock) 
-    - [TextRocketBlock](./README.md#textrocketblock): Show a line or multiline text
-        - [Flattened style](./README.md#dlattenedstyle): How to write clean and readable blocks
-        - [shownNextAfter](./README.md#shownextafterproperty): Show next block automatically
+- [RocketBlock](./README.md#rocketblock) - The base protocol
+- [TappableRocketBlock](./README.md#tappablerocketblock) protocol
+    - [TextRocketBlock](./README.md#textrocketblock) - Show a line or multiline text
+        - [Flat style](./README.md#flat-style) - How to write clean and readable blocks
+        - [shownNextAfter](./README.md#shownextafter-property): Show next block automatically
+        - [RocketFont](./README.md#rocketfont) - How to change the text style
+- [ControlRocketBlock](./README.md#controlrocketblock) protocol
+    - [ButtonRocketBlock](./README.md#buttonrocketblock) - Show a single button
+        - [TapRocketHandler](./README.md#taprockethandler) - Handle and show a next block after the TouchUpInside event
+    - [DoubleButtonBlock](./README.md#doublebuttonrocketblock) - Show two buttons
+- [InputRocketBlock](./README.md#inputrocketblock) protocol
+    - [TextInputRocketBlock](./README.md#textinputrocketblock) - ask user to enter a text
+        - [TextInputRocketBlock](./README.md#return-different-blocks) - depends on input, return a different block
 
 ## Installation
 
@@ -121,7 +129,7 @@ rocket.show()
 ```
 The `secondBlock` will be presented after the tap on the `firstBlock`. Note that I passed the `firstBlock` to the `rocket`.
 
-#### Flattened style
+#### Flat style
 
 Use this style when you have a lot of blocks and you want maintain your code clear:
 
@@ -153,7 +161,7 @@ The `thirdBlock` will be shown automatically after 2.0 seconds and after the `se
 
 ![Screenshot](https://image.ibb.co/nC4kLy/Schermata_2018_06_01_alle_17_23_18.png)
 
-#### The `RocketFont`
+#### `RocketFont`
 
 You can change the `UIFont` by providing a `RocketFont` object to the `font` property. 
 
@@ -192,7 +200,7 @@ ButtonRocketBlock.init(title: String, tapHandler: TapRocketHandler? = nil, font:
 ```
 The default `RocketFont` is `.button`. 
 
-#### The `TapRocketHandler` 
+#### `TapRocketHandler` 
 
 ```swift
 let button = ButtonRocketBlock.init(title: "PRESS THERE")
@@ -212,9 +220,9 @@ rocket.show()
 ![alt text](https://media.giphy.com/media/wHf4k5qvG6bz8XvP7f/giphy.gif)
 
 
-### DoubleButtonsRocketBlock
+### DoubleButtonRocketBlock
 
-**Use the `DoubleButtonsRocketBlock` when you want to show two options.** You can initialize a `DoubleButtonsRocketBlock` passing to it init two `ButtonRocketBlock`. It's important to know that **when a user taps to one of the buttons the touch over the block will be disabled.** 
+**Use the `DoubleButtonRocketBlock` when you want to show two options.** You can initialize a `DoubleButtonRocketBlock` passing to it init two `ButtonRocketBlock`. It's important to know that **when a user taps to one of the buttons the touch over the block will be disabled.** 
 
 ```swift
 let leftButton = ButtonRocketBlock.init(title: "Left Button")
@@ -226,7 +234,6 @@ rightButton.tapHandler = // remember to set a tapHandler if you want to show a b
 
 let doubleButton = DoubleButtonRocketBlock.init(left: leftButton, right: rightButton)
 ```
-
 
 ## InputRocketBlock
 
@@ -253,7 +260,7 @@ public struct InputRocketHandler<T> {
 
 ### TextInputRocketBlock
 
-Use the `TextInputRocketBlock` when you want to ask the user to enter some String information. The `TextInputRocketBlock` is an implemented class of the `InputRocketBlock` protocol.
+**Use the `TextInputRocketBlock` when you want to ask the user to enter some String information.** The `TextInputRocketBlock` is an implemented class of the `InputRocketBlock` protocol.
 
 You can create a `TextInputRocketBlock` by using one of these init:
 
@@ -275,7 +282,7 @@ input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock
 
 #### Return different blocks
 
-If you want to handle differently the user's input you can return different blocks based on the value of the `InputRocketHandler`:
+If you want to handle differently the user's input, **you can return a different block based on the value of the `InputRocketHandler`:**
 
 ```swift
 let input = TextInputRocketBlock.init(text: "Describe your problem:", buttonTitle: "Send")
