@@ -13,7 +13,7 @@
 		E3097C9C206B99A0008C5968 /* RocketViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9B206B99A0008C5968 /* RocketViewLayout.swift */; };
 		E3097C9E206C316E008C5968 /* DoubleButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9D206C316E008C5968 /* DoubleButtonCell.swift */; };
 		E3097CA0206C59BE008C5968 /* TapableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097C9F206C59BE008C5968 /* TapableCell.swift */; };
-		E3097CA3206D3919008C5968 /* DoubleButtonsBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */; };
+		E3097CA3206D3919008C5968 /* DoubleButtonBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3097CA2206D3919008C5968 /* DoubleButtonBlock.swift */; };
 		E30980D820680135001E65A2 /* ButtonBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30980D720680135001E65A2 /* ButtonBlock.swift */; };
 		E30EF49F20C06478005D7235 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EF49E20C06478005D7235 /* Extension.swift */; };
 		E31096982049F0B2005C9328 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31096972049F0B2005C9328 /* ContainerView.swift */; };
@@ -56,7 +56,7 @@
 		E3097C9B206B99A0008C5968 /* RocketViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewLayout.swift; sourceTree = "<group>"; };
 		E3097C9D206C316E008C5968 /* DoubleButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonCell.swift; sourceTree = "<group>"; };
 		E3097C9F206C59BE008C5968 /* TapableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableCell.swift; sourceTree = "<group>"; };
-		E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonsBlock.swift; sourceTree = "<group>"; };
+		E3097CA2206D3919008C5968 /* DoubleButtonBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleButtonBlock.swift; sourceTree = "<group>"; };
 		E30980D720680135001E65A2 /* ButtonBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBlock.swift; sourceTree = "<group>"; };
 		E30EF49A20C05F14005D7235 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E30EF49C20C05F1A005D7235 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -111,7 +111,7 @@
 			children = (
 				E31CE2422065887B0041295D /* TextBlock.swift */,
 				E389A14E209F81140052CC72 /* TextInputBlock.swift */,
-				E3097CA2206D3919008C5968 /* DoubleButtonsBlock.swift */,
+				E3097CA2206D3919008C5968 /* DoubleButtonBlock.swift */,
 				E30980D720680135001E65A2 /* ButtonBlock.swift */,
 				E3E3100820C1258600088A12 /* ImageBlock.swift */,
 			);
@@ -375,7 +375,7 @@
 				E32A89202070213A00862AE5 /* TextInputCell.swift in Sources */,
 				E3E3100F20C13F5400088A12 /* ImageCell.swift in Sources */,
 				E30EF49F20C06478005D7235 /* Extension.swift in Sources */,
-				E3097CA3206D3919008C5968 /* DoubleButtonsBlock.swift in Sources */,
+				E3097CA3206D3919008C5968 /* DoubleButtonBlock.swift in Sources */,
 				E3EDE3DE20545977006A6FD1 /* TextCell.swift in Sources */,
 				E31BEE1920485CA9001C8B08 /* RocketAlert.swift in Sources */,
 				E31CE2472065B1760041295D /* ElementStyle.swift in Sources */,

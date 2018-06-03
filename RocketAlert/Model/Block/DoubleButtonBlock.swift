@@ -11,17 +11,17 @@ import Foundation
 public class DoubleButtonRocketBlock: ControlRocketBlock {
     
     public required init(
-        first: ButtonRocketBlock,
-        second: ButtonRocketBlock,
+        left: ButtonRocketBlock,
+        right: ButtonRocketBlock,
         id: String? = nil)
     {
-        self.first = first
-        self.second = second
+        self.left = left
+        self.right = right
         self.id = id
     }
     
-    let first: ButtonRocketBlock
-    let second: ButtonRocketBlock
+    let left: ButtonRocketBlock
+    let right: ButtonRocketBlock
     
     public var id: String?
 }
