@@ -23,6 +23,5 @@ public class DoubleButtonRocketBlock: ControlRocketBlock {
     let first: ButtonRocketBlock
     let second: ButtonRocketBlock
     
-    public var next: RocketBlock?
     public var id: String?
 }
