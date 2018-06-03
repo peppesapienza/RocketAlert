@@ -87,6 +87,7 @@ extension RocketTableController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return CellRocketFactory.init(
             block: self.blocks[indexPath.row],
+            lastBlockIndex: self.blocks.count-1,
             tableView: tableView,
             indexPath: indexPath).cell()
     }
