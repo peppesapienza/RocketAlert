@@ -10,10 +10,14 @@ import Foundation
 
 public class TextInputRocketBlock: InputRocketBlock {
     
+    public convenience init(text: String, buttonTitle: String) {
+        self.init(text: text, buttonTitle: buttonTitle, inputHandler: nil)
+    }
+    
     public init(
         text: String,
         buttonTitle: String,
-        inputHandler: InputRocketHandler<String>,
+        inputHandler: InputRocketHandler<String>?,
         id: String? = nil,
         font: RocketFont? = RocketFont.text,
         buttonStyle: RocketFont? = RocketFont.lightButton)
@@ -29,7 +33,8 @@ public class TextInputRocketBlock: InputRocketBlock {
     
     internal let text: String
     internal let buttonTitle: String
-    internal let handler: InputRocketHandler<String>
-    internal let font: RocketFont?
-    internal let buttonStyle: RocketFont?
+    
+    public var handler: InputRocketHandler<String>?
+    public var font: RocketFont?
+    public var buttonStyle: RocketFont?
 }

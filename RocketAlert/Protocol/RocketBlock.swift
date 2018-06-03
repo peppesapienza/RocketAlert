@@ -31,5 +31,5 @@ protocol ControlRocketBlock: RocketBlock {
 
 protocol InputRocketBlock: RocketBlock {
     associatedtype InputType
-    var handler: InputRocketHandler<InputType> { get }
+    var handler: InputRocketHandler<InputType>? { get set }
 }
