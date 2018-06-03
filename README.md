@@ -93,7 +93,7 @@ protocol TappableRocketBlock: RocketBlock {
 
 **You can use `TextRocketBlock` object to show a line or multiline string.** The `TextRocketBlock` is an implemented class of the `TappableRocketBlock` protocol.
 
-You can create a `TextRocketBlock` by using on of these init:
+You can create a `TextRocketBlock` by using one of these init:
 
 ```swift
 TextRocketBlock.init(text: String, next: RocketBlock, showNextAfter: TimeInterval? = nil)
@@ -114,7 +114,7 @@ The `secondBlock` will be presented after the tap on the `firstBlock`. Note that
 
 #### Example 2. Flatten style
 
-Use this style when you have a lot of blocks and you want mantain your code clear:
+Use this style when you have a lot of blocks and you want maintain your code clear:
 
 ```swift
 let firstBlock = TextRocketBlock.init(text: "First")
@@ -168,11 +168,11 @@ block.font = RocketFont.cancel
 
 ## ControlRocketBlock
 
-The `ControlRocketBlock` is a inherited protocol from `RocketBlock`. The `ControlRocketBlock` protocol describe the interactable blocks. 
+The `ControlRocketBlock` is an inherited protocol from `RocketBlock`. The `ControlRocketBlock` protocol describes the interactable blocks. 
 
 ### ButtonRocketBlock
 
-**Use `ButtonRocketBlock` object to show a single button.** You can't define a `next`block directly. **Instead you need to provide a `TapRocketHandler` that let you to define a custom action and the next block** that will be fired after the `TouchUpInside` event.
+**Use `ButtonRocketBlock` object to show a single button.** You can't define a `next`block directly. **Instead you need to provide a `TapRocketHandler` that let you define a custom action and the next block** that will be fired after the `TouchUpInside` event.
 
 You can create a `ButtonRocketBlock` using one of these init:
 
@@ -205,7 +205,7 @@ rocket.show()
 
 ### DoubleButtonsRocketBlock
 
-**Use the `DoubleButtonsRocketBlock` when you want to show two options.** You can initialize a `DoubleButtonsRocketBlock` passing to it two `ButtonRocketBlock`. It's important to know that **when a user taps to one of the buttons the touch over the block will be disabled.** 
+**Use the `DoubleButtonsRocketBlock` when you want to show two options.** You can initialize a `DoubleButtonsRocketBlock` passing to it init two `ButtonRocketBlock`. It's important to know that **when a user taps to one of the buttons the touch over the block will be disabled.** 
 
 ```swift
 let leftButton = ButtonRocketBlock.init(title: "Left Button")
@@ -221,7 +221,7 @@ let doubleButton = DoubleButtonRocketBlock.init(left: leftButton, right: rightBu
 
 ## InputRocketBlock
 
-The `InputRocketBlock` is a inherited protocol from `RocketBlock`. The `InputRocketBlock` protocol describes the block that has an input field. He gives to the implemented class an `InputRocketHandler<InputType>` properties:
+The `InputRocketBlock` is an inherited protocol from `RocketBlock`. The `InputRocketBlock` protocol describes the block that has an input field. He gives to the implemented class an `InputRocketHandler<InputType>` properties:
 
 ```
 protocol InputRocketBlock: RocketBlock {
