@@ -21,7 +21,7 @@ public class ImageRocketBlock: TextRocketBlock {
     
     public var paddingLeft: CGFloat = 0
     public var paddingRight: CGFloat = 0
-    public var imageStyle: RocketImageStyle = .round
+    public var imageStyle: RocketImageStyle = .square
     
     internal let image: UIImage
 

@@ -20,7 +20,7 @@ class ImageRocketCell: TextRocketCell {
         didSet {
             guard let b = currentBlock as? ImageRocketBlock else { return }
             self.paddingLeft = b.paddingLeft
-            self.paddingRight = b.paddingRight
+            self.paddingRight = b.paddingRight * -1
             self.customImageView.image = b.image
             self.customImageView.layer.cornerRadius = b.imageStyle.cornerRadius(for: self.customImageView)
             self.setNeedsUpdateConstraints()
