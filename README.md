@@ -183,6 +183,32 @@ block.font = RocketFont.lightButton
 block.font = RocketFont.cancel
 ```
 
+### ImageRocketBlock
+
+**You can use `ImageRocketBlock` object to show an Image with or without text.** The **`ImageRocketBlock` is a subclass of `TextRocketBlock`** class, so you can editing the same properties.
+
+You can create an `ImageRocketBlock` by using one of these init:
+
+```swift
+ImageRocketBlock.init(image: UIImage, text: String?)
+ImageRocketBlock.init(image: UIImage, text: String?, next: RocketBlock?, showNextAfter: TimeInterval?, id: String?)
+```
+
+**You can add a padding to the internal `ImageView`** by editing the properties `paddingLeft` and `paddingRight`. **The default padding value is 0**:
+
+```
+imageBlock.paddingLeft = 10
+imageBlock.paddingRight = 10 
+```
+
+And you can **round the corners of the `ImageView` by assigning a `RocketImageStyle` to the `imageStyle`** property. The default value is `.square`:
+
+```
+imageBlock.imageStyle = .circular
+imageBlock.imageStyle = .round
+imageBlock.imageStyle = .square
+```
+
 ## ControlRocketBlock
 
 The `ControlRocketBlock` is an inherited protocol from `RocketBlock`. The `ControlRocketBlock` protocol describes the interactable blocks. 
