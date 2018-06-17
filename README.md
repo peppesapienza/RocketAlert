@@ -1,10 +1,10 @@
 # RocketAlert
 
-Would you like to improve your User Experience's while asking user to do some action? 
-
 Rockert Alert resolve the problem of being distracted by a boring AlertView with a user-friendly boarding process similar to a Chat Bot. 
 
 ![alt text](https://media.giphy.com/media/5QLxkjz2nq5cHBENqr/giphy.gif)![alt text](https://media.giphy.com/media/9u15NC295RsZIKCDWj/giphy.gif)
+
+Would you like to improve your User Experience's while asking user to do some action? 
 
 With a modern style and a powerful personalization RocketAlert could help you to increase your conversion rate.
 
@@ -17,6 +17,7 @@ With a modern style and a powerful personalization RocketAlert could help you to
         - [Flat style](./README.md#flat-style) - How to write clean and readable blocks
         - [shownNextAfter](./README.md#shownextafter-property): Show next block automatically
         - [RocketFont](./README.md#rocketfont) - How to change the text style
+    - [ImageRocketBlock](./README.md#imagerocketblock) - Show an Image with text
 - [ControlRocketBlock](./README.md#controlrocketblock) protocol
     - [ButtonRocketBlock](./README.md#buttonrocketblock) - Show a single button
         - [TapRocketHandler](./README.md#taprockethandler) - Handle and show a next block after the TouchUpInside event
@@ -24,6 +25,7 @@ With a modern style and a powerful personalization RocketAlert could help you to
 - [InputRocketBlock](./README.md#inputrocketblock) protocol
     - [TextInputRocketBlock](./README.md#textinputrocketblock) - ask user to enter a text
         - [InputRocketHandler](./README.md#return-different-blocks) - depends on input, return a different block
+- [NotificationCenter](./README.md#notificationcenter) Intercept internal notification
 
 ## Installation
 
@@ -183,6 +185,33 @@ block.font = RocketFont.lightButton
 block.font = RocketFont.cancel
 ```
 
+### ImageRocketBlock
+
+**You can use `ImageRocketBlock` object to show an Image with or without text.** The **`ImageRocketBlock` is a subclass of `TextRocketBlock`** class, so you can editing the same properties.
+
+You can create an `ImageRocketBlock` by using one of these init:
+
+```swift
+ImageRocketBlock.init(image: UIImage, text: String?)
+ImageRocketBlock.init(image: UIImage, text: String?, next: RocketBlock?, showNextAfter: TimeInterval?, id: String?)
+```
+
+**You can add a padding to the internal `ImageView`** by editing the properties `paddingLeft` and `paddingRight`. **The default padding value is 0**:
+
+```
+imageBlock.paddingLeft = 10
+imageBlock.paddingRight = 10 
+```
+
+And you can **round the corners of the `ImageView` by assigning a `RocketImageStyle` to the `imageStyle`** property. The default value is `.square`:
+
+```
+imageBlock.imageStyle = .circular
+imageBlock.imageStyle = .round
+imageBlock.imageStyle = .square
+```
+![Screenshot](https://image.ibb.co/kr3PAJ/Schermata_2018_06_17_alle_13_06_51.png)
+
 ## ControlRocketBlock
 
 The `ControlRocketBlock` is an inherited protocol from `RocketBlock`. The `ControlRocketBlock` protocol describes the interactable blocks. 
@@ -302,3 +331,29 @@ input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock
 })
 ```
 
+## NotificationCenter
+
+**You can subscribe your object as observers of the  `Notification.Name.addedNewRocketBlock`.** This event will be fired after a block is displayed on the screen. 
+
+The `userInfo` bring with itself the `index` and the `block` presented.
+
+```swift
+// subscribe to the Notification.Name.addedNewRocketBlock
+NotificationCenter
+            .default
+            .addObserver(self,
+                         selector: #selector(ViewController.handleRocketAlertBlock),
+                         name: Notification.Name.addedNewRocketBlock,
+                         object: nil)
+                    
+                    
+// handle the notification
+@objc func handleRocketAlertBlock(_ sender: Notification) {
+    guard
+        let index = sender.userInfo?["index"] as? Int,
+        let block = sender.userInfo?["block"] as? RocketBlock
+    else { return }
+    
+    print(index, block)
+}
+```
