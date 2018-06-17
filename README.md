@@ -25,6 +25,7 @@ With a modern style and a powerful personalization RocketAlert could help you to
 - [InputRocketBlock](./README.md#inputrocketblock) protocol
     - [TextInputRocketBlock](./README.md#textinputrocketblock) - ask user to enter a text
         - [InputRocketHandler](./README.md#return-different-blocks) - depends on input, return a different block
+- [NotificationCenter](./README.md#notificationcenter) Intercept internal notification
 
 ## Installation
 
@@ -330,3 +331,29 @@ input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock
 })
 ```
 
+## NotificationCenter
+
+**You can subscribe your object as observers of the  `Notification.Name.addedNewRocketBlock`.** This event will be fired after a block is displayed on the screen. 
+
+The `userInfo` bring with itself the `index` and the `block` presented.
+
+```swift
+// subscribe to the Notification.Name.addedNewRocketBlock
+NotificationCenter
+            .default
+            .addObserver(self,
+                         selector: #selector(ViewController.handleRocketAlertBlock),
+                         name: Notification.Name.addedNewRocketBlock,
+                         object: nil)
+                    
+                    
+// handle the notification
+@objc func handleRocketAlertBlock(_ sender: Notification) {
+    guard
+        let index = sender.userInfo?["index"] as? Int,
+        let block = sender.userInfo?["block"] as? RocketBlock
+    else { return }
+    
+    print(index, block)
+}
+```
