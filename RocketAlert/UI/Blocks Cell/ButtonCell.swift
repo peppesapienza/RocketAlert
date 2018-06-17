@@ -38,8 +38,8 @@ class ButtonRocketCell: RocketCell {
         self.isTapOnButtonEnabled = false
         self.mainView.smoothBounce(completionHandler: {
             self.show(next: self.tapHandler?.next)
-            self.tapHandler?.action?()
         })
+        self.tapHandler?.action?()
     }
     
     override func prepareForReuse() {

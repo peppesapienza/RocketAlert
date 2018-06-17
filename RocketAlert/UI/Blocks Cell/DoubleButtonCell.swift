@@ -52,8 +52,8 @@ class DoubleButtonRocketCell: RocketCell {
         self.isTapOnButtonsEnabled = false
         self.firstButton.bounce(completionHandler: {
             self.show(next: self.tapFirstButtonHandler?.next)
-            self.tapFirstButtonHandler?.action?()
         })
+        self.tapFirstButtonHandler?.action?()
     }
     
     @objc
@@ -62,8 +62,8 @@ class DoubleButtonRocketCell: RocketCell {
         self.isTapOnButtonsEnabled = false
         self.secondButton.bounce(completionHandler: {
             self.show(next: self.tapSecondButtonHandler?.next)
-            self.tapSecondButtonHandler?.action?()
         })
+        self.tapSecondButtonHandler?.action?()
     }
     
     override func prepareForReuse() {
