@@ -1,10 +1,10 @@
 # RocketAlert
 
-Would you like to improve your User Experience's while asking user to do some action? 
-
 Rockert Alert resolve the problem of being distracted by a boring AlertView with a user-friendly boarding process similar to a Chat Bot. 
 
 ![alt text](https://media.giphy.com/media/5QLxkjz2nq5cHBENqr/giphy.gif)![alt text](https://media.giphy.com/media/9u15NC295RsZIKCDWj/giphy.gif)
+
+Would you like to improve your User Experience's while asking user to do some action? 
 
 With a modern style and a powerful personalization RocketAlert could help you to increase your conversion rate.
 
@@ -17,6 +17,7 @@ With a modern style and a powerful personalization RocketAlert could help you to
         - [Flat style](./README.md#flat-style) - How to write clean and readable blocks
         - [shownNextAfter](./README.md#shownextafter-property): Show next block automatically
         - [RocketFont](./README.md#rocketfont) - How to change the text style
+    - [ImageRocketBlock](./README.md#imagerocketblock) - Show an Image with text
 - [ControlRocketBlock](./README.md#controlrocketblock) protocol
     - [ButtonRocketBlock](./README.md#buttonrocketblock) - Show a single button
         - [TapRocketHandler](./README.md#taprockethandler) - Handle and show a next block after the TouchUpInside event
@@ -208,6 +209,7 @@ imageBlock.imageStyle = .circular
 imageBlock.imageStyle = .round
 imageBlock.imageStyle = .square
 ```
+![Screenshot](https://image.ibb.co/kr3PAJ/Schermata_2018_06_17_alle_13_06_51.png)
 
 ## ControlRocketBlock
 
