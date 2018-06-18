@@ -26,6 +26,8 @@ With a modern style and a powerful personalization RocketAlert could help you to
     - [TextInputRocketBlock](./README.md#textinputrocketblock) - ask user to enter a text
         - [InputRocketHandler](./README.md#return-different-blocks) - depends on input, return a different block
 - [NotificationCenter](./README.md#notificationcenter) Intercept internal notification
+    -[rocketBlockAddedEvent](.README.md/#rocketblockaddedevent)
+    -[rocketDismissEvent](.README.md/#rocketdismissevent)
 
 ## Installation
 
@@ -362,9 +364,9 @@ NotificationCenter
 
 ### rocketDismissEvent
 
-`rocketDismissEvent` will be fired when rocket is dismissed (after the last block or after click to the close button). Inside the `userInfo` you will find the `count` of all blocks displayed and the `blocks` array:
+**`rocketDismissEvent` will be fired when rocket is dismissed** (after the last block or after click to the close button). Inside the `userInfo` you will find the `count` of all blocks displayed and the `blocks` array:
 
-```
+```swift
 NotificationCenter
     .default
     .addObserver(self,
