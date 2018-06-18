@@ -62,7 +62,7 @@ class RocketViewController: UIViewController {
     }
     
     deinit {
-        print("🔥 [Rocket] Deinit RocketViewController")
+        //print("🔥 [Rocket] Deinit RocketViewController")
     }
 
 }
