@@ -26,8 +26,8 @@ With a modern style and a powerful personalization RocketAlert could help you to
     - [TextInputRocketBlock](./README.md#textinputrocketblock) - ask user to enter a text
         - [InputRocketHandler](./README.md#return-different-blocks) - depends on input, return a different block
 - [NotificationCenter](./README.md#notificationcenter) Intercept internal notification
-    -[rocketBlockAddedEvent](.README.md/#rocketblockaddedevent)
-    -[rocketDismissEvent](.README.md/#rocketdismissevent)
+    - [rocketBlockAddedEvent](.README.md/#rocketblockaddedevent)
+    - [rocketDismissEvent](.README.md/#rocketdismissevent)
 
 ## Installation
 
