@@ -13,7 +13,7 @@ class RocketTableView: UITableView, RocketSubView {
     required init(authorView: RocketAuthorView, in container: RocketContainerView) {
         self.container = container
         self.authorView = authorView
-        super.init(frame: .zero, style: .plain)
+        super.init(frame: .zero, style: .grouped)
         self.container.addSubview(self)
         
         self.setAutoresizingMask()
@@ -120,7 +120,7 @@ extension RocketTableView: RocketViewLayout {
         self.topAnchor.constraint(greaterThanOrEqualTo: self.container.topAnchor, constant: 20).isActive = true
         self.rightAnchor.constraint(equalTo: self.authorView.leftAnchor, constant: -6).isActive = true
         
-        self.bottomConstraint = self.bottomAnchor.constraint(equalTo: self.authorView.bottomAnchor, constant: -10)
+        self.bottomConstraint = self.bottomAnchor.constraint(equalTo: self.authorView.bottomAnchor, constant: 20)
         self.bottomConstraint.isActive = true
         
         self.heightConstraint = self.heightAnchor.constraint(equalToConstant: 44)

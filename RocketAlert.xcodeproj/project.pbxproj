@@ -31,6 +31,8 @@
 		E31CE2432065887B0041295D /* TextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE2422065887B0041295D /* TextBlock.swift */; };
 		E31CE245206591300041295D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE244206591300041295D /* ButtonCell.swift */; };
 		E31CE2472065B1760041295D /* ElementStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CE2462065B1760041295D /* ElementStyle.swift */; };
+		E31E658320D6A81F00DB4093 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31E658220D6A81F00DB4093 /* CloseButtonView.swift */; };
+		E31E658A20D6B2ED00DB4093 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31E658920D6B2ED00DB4093 /* CloseButton.swift */; };
 		E32A89202070213A00862AE5 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32A891F2070213A00862AE5 /* TextInputCell.swift */; };
 		E3486F182064403000136149 /* CellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3486F172064403000136149 /* CellFactory.swift */; };
 		E389A14F209F81140052CC72 /* TextInputBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389A14E209F81140052CC72 /* TextInputBlock.swift */; };
@@ -79,6 +81,8 @@
 		E31CE2422065887B0041295D /* TextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
 		E31CE244206591300041295D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		E31CE2462065B1760041295D /* ElementStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementStyle.swift; sourceTree = "<group>"; };
+		E31E658220D6A81F00DB4093 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
+		E31E658920D6B2ED00DB4093 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		E32A891F2070213A00862AE5 /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
 		E3486F172064403000136149 /* CellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFactory.swift; sourceTree = "<group>"; };
 		E389A14E209F81140052CC72 /* TextInputBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputBlock.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				E31CE2462065B1760041295D /* ElementStyle.swift */,
 				E3097C94206B8ED2008C5968 /* Author.swift */,
 				E3097C97206B98CE008C5968 /* TapHandler.swift */,
+				E31E658920D6B2ED00DB4093 /* CloseButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				E3109699204B15C5005C9328 /* TableController.swift */,
 				E31BEE2D20494CFC001C8B08 /* TableView.swift */,
 				E3486F172064403000136149 /* CellFactory.swift */,
+				E31E658220D6A81F00DB4093 /* CloseButtonView.swift */,
 			);
 			path = "Table View";
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				E310969C204B1786005C9328 /* RocketCell.swift in Sources */,
 				E3E3100920C1258600088A12 /* ImageBlock.swift in Sources */,
 				E31BEE3720496AE6001C8B08 /* AuthorView.swift in Sources */,
+				E31E658320D6A81F00DB4093 /* CloseButtonView.swift in Sources */,
 				E3097C9A206B997E008C5968 /* RocketAnimatable.swift in Sources */,
 				E31096982049F0B2005C9328 /* ContainerView.swift in Sources */,
 				E31CE2432065887B0041295D /* TextBlock.swift in Sources */,
@@ -383,6 +390,7 @@
 				E30980D820680135001E65A2 /* ButtonBlock.swift in Sources */,
 				E31BEE1B20485CD0001C8B08 /* RocketBlock.swift in Sources */,
 				E31BEE2E20494CFC001C8B08 /* TableView.swift in Sources */,
+				E31E658A20D6B2ED00DB4093 /* CloseButton.swift in Sources */,
 				E3486F182064403000136149 /* CellFactory.swift in Sources */,
 				E3097CA0206C59BE008C5968 /* TapableCell.swift in Sources */,
 				E3097C95206B8ED2008C5968 /* Author.swift in Sources */,

@@ -25,8 +25,6 @@ class RocketTableController: NSObject {
         self.tableView.delegate = self
     }
     
-    deinit { self.removeObservers() }
-    
     weak var rocket: Rocket!
     fileprivate weak var tableView: UITableView!
     fileprivate var blocks: [RocketBlock] = []
@@ -74,9 +72,12 @@ class RocketTableController: NSObject {
     fileprivate func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: .showNextBlockEvent, object: nil)
         NotificationCenter.default.removeObserver(self, name: .dismissRocketAlertEvent, object: nil)
-        print("🔥 [Rocket] Deinit RocketTableController")
     }
     
+    deinit {
+        self.removeObservers()
+        print("🔥 [Rocket] Deinit RocketTableController")
+    }
 }
 
 extension RocketTableController: UITableViewDataSource {
@@ -97,6 +98,26 @@ extension RocketTableController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.fadeIn()
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let closeButton = self.rocket.closeButton else { return nil }
+
+        return CloseButtonView.init(
+            frame: CGRect.init(
+                origin: .zero,
+                size: CGSize.init(width: tableView.frame.width, height: 40)),
+            closeButton: closeButton)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let _ = self.rocket.closeButton else { return 0 }
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
 }
 
 

@@ -38,6 +38,8 @@ public class Rocket: UIViewController, RocketAlert {
         NotificationCenter.default.addObserver(self, selector: #selector(Rocket.rotated), name: .UIDeviceOrientationDidChange, object: nil)
     }
     
+    public var closeButton: RocketCloseButton?
+    
     static var hasTabBar: Bool = false
     static var isLandscape: Bool = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
     
