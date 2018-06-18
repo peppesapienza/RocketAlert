@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol RocketAlert {
+public protocol RocketControl {
     init(author: RocketAuthor, block: RocketBlock)
     func show()
     func dismiss()

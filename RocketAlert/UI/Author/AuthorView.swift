@@ -10,7 +10,7 @@ import UIKit
 
 class RocketAuthorView: UIView, RocketSubView {
     
-     required init(author: RocketAuthor, in container: RocketContainerView) {
+     required init(author: RocketAuthor, in container: UIView) {
         self.midView = UIView.init(frame: .zero)
         self.imageView = UIImageView.init(frame: .zero)
         self.imageView.image = author.image
@@ -34,7 +34,7 @@ class RocketAuthorView: UIView, RocketSubView {
         self.setShadow()
     }
     
-    weak var container: RocketContainerView!
+    weak var container: UIView!
     fileprivate let imageView: UIImageView
     fileprivate let midView: UIView
     fileprivate let style: RocketImageStyle
@@ -102,10 +102,10 @@ extension RocketAuthorView: RocketViewLayout {
     }
     
     func setConstraints() {
-        let tabBarHeight: CGFloat = Rocket.hasTabBar ? -40 : -20
+        let tabBarHeight: CGFloat = Rocket.hasTabBar ? -40 : -30
         let size: CGFloat = 60
         
-        self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -10).isActive = true
+        self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -20).isActive = true
         self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: tabBarHeight).isActive = true
         self.heightAnchor.constraint(equalToConstant: size).isActive = true
         self.widthAnchor.constraint(equalToConstant: size).isActive = true

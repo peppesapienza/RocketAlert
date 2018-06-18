@@ -10,7 +10,7 @@ import UIKit
 
 class RocketTableView: UITableView, RocketSubView {
     
-    required init(authorView: RocketAuthorView, in container: RocketContainerView) {
+    required init(authorView: RocketAuthorView, in container: UIView) {
         self.container = container
         self.authorView = authorView
         super.init(frame: .zero, style: .grouped)
@@ -29,7 +29,7 @@ class RocketTableView: UITableView, RocketSubView {
         NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: .UIKeyboardWillHide, object: nil)
     }
     
-    weak var container: RocketContainerView!
+    weak var container: UIView!
     weak var authorView: UIView!
     
     var heightConstraint: NSLayoutConstraint!

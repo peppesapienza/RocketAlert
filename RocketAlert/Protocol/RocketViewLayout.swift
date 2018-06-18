@@ -9,7 +9,7 @@
 import Foundation
 
 protocol RocketSubView {
-    var container: RocketContainerView! { get }
+    var container: UIView! { get }
 }
 
 protocol RocketViewLayout {

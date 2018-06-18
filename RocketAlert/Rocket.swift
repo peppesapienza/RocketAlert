@@ -9,7 +9,9 @@
 import UIKit
 
 /// A powerful, light and userfriendly Alert View
-public class Rocket: UIViewController, RocketAlert {
+public class Rocket: RocketControl {
+    static var hasTabBar: Bool = false
+    static var isLandscape: Bool = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
     
     /**
     Initializes and returns a newly Rocket object with the specified author and block.
@@ -22,62 +24,33 @@ public class Rocket: UIViewController, RocketAlert {
         guard let vc = UIApplication.shared.topViewController() else {
             fatalError(RocketAlertError.cantFindRootViewController.localizedDescription)
         }
+        
         Rocket.hasTabBar = vc.hasTabBarController
         self.topVC = vc
         self.block = block
-        super.init(nibName: nil, bundle: nil)
-        self.modalPresentationStyle = .overCurrentContext
-        self.view.backgroundColor = .clear
-        self.view.alpha = 1
-        self.mainView = RocketContainerView.init(superView: self.view)
-        self.authorView = RocketAuthorView.init(author: author, in: mainView)
-        self.tableView = RocketTableView.init(authorView: authorView, in: mainView)
-        self.tableController = RocketTableController.init(tableView: self.tableView)
-        self.tableController.rocket = self
-        self.prepareAnimation()
+        self.vc = RocketViewController.init(author: author)
+        self.vc.rocket = self
         NotificationCenter.default.addObserver(self, selector: #selector(Rocket.rotated), name: .UIDeviceOrientationDidChange, object: nil)
     }
     
     public var closeButton: RocketCloseButton?
     
-    static var hasTabBar: Bool = false
-    static var isLandscape: Bool = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
-    
-    let block: RocketBlock
-    var mainView: RocketContainerView!
     fileprivate var topVC: UIViewController
-    fileprivate var authorView: RocketAuthorView!
-    fileprivate var tableView: RocketTableView!
-    fileprivate var tableController: RocketTableController!
+    fileprivate let vc: RocketViewController!
+    fileprivate let block: RocketBlock
     
     /// Show the Rocket Alert.
     public func show() {
-        self.topVC.present(self, animated: false, completion: {
-            self.mainView.alpha = 1
-            self.mainView.transform = CGAffineTransform.identity
-            self.authorView.openAnimation(completionHandler: {
-                self.authorView.bounce()
-                self.tableView.openAnimation(completionHandler: {
-                    self.tableController.show(block: self.block)
-                })
-            })
+        self.topVC.present(self.vc, animated: false, completion: {
+            self.vc.show(block: self.block)
         })
     }
     
     /// Dismiss the Rocket Alert.
     public func dismiss() {
-        self.tableView.closeAnimation {
-            self.authorView.closeAnimation(completionHandler: {
-                super.dismiss(animated: false, completion: nil)
-            })
+        self.vc.dismiss {
+            
         }
-    }
-    
-    fileprivate func prepareAnimation() {
-        self.authorView.prepareAnimation()
-        self.tableView.prepareAnimation()
-        self.mainView.alpha = 0
-        self.mainView.transform = CGAffineTransform.init(translationX: self.mainView.frame.width, y: 0)
     }
     
     @objc
@@ -97,12 +70,12 @@ public class Rocket: UIViewController, RocketAlert {
 
     deinit {
         NotificationCenter.default.removeObserver(self, name: .UIDeviceOrientationDidChange, object: nil)
-        //print("🔥 [Rocket] Deinit Rocket")
+        print("🔥 [Rocket] Deinit Rocket")
     }
     
 }
 
-enum RocketAlertError: Error {
+public enum RocketAlertError: Error {
     case cantFindRootViewController
 }
 
