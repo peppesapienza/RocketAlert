@@ -11,7 +11,7 @@ import UIKit
 extension Notification.Name {
     static let showNextBlockEvent = Notification.Name(rawValue: "showNextBlockEvent")
     static let dismissRocketAlertEvent = Notification.Name(rawValue: "dismissRocketAlertEvent")
-    public static let addedNewRocketBlock = Notification.Name(rawValue: "addedNewRocketBlock")
+    public static let rocketBlockAddedEvent = Notification.Name(rawValue: "rocketBlockAddedEvent")
 }
 
 class RocketTableController: NSObject {
@@ -33,7 +33,7 @@ class RocketTableController: NSObject {
         self.blocks.append(block)
         let count = self.blocks.count
         self.tableView.addRow(at: count, with: .bottom)
-        NotificationCenter.default.post(name: .addedNewRocketBlock, object: [
+        NotificationCenter.default.post(name: .rocketBlockAddedEvent, object: [
             "index" : count-1,
             "block" : block
         ])
