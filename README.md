@@ -333,18 +333,20 @@ input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock
 
 ## NotificationCenter
 
-**You can subscribe your object as observers of the  `Notification.Name.addedNewRocketBlock`.** This event will be fired after a block is displayed on the screen. 
+### rocketBlockAddedEvent
+
+**You can subscribe your object as observers of the  `Notification.Name.rocketBlockAddedEvent`.** This event will be fired after a block is displayed on the screen. 
 
 The `userInfo` bring with itself the `index` and the `block` presented.
 
 ```swift
 // subscribe to the Notification.Name.addedNewRocketBlock
 NotificationCenter
-            .default
-            .addObserver(self,
-                         selector: #selector(ViewController.handleRocketAlertBlock),
-                         name: Notification.Name.addedNewRocketBlock,
-                         object: nil)
+    .default
+    .addObserver(self,
+                 selector: #selector(ViewController.handleRocketAlertBlock),
+                 name: Notification.Name.rocketBlockAddedEvent,
+                 object: nil)
                     
                     
 // handle the notification
@@ -355,5 +357,28 @@ NotificationCenter
     else { return }
     
     print(index, block)
+}
+```
+
+### rocketDismissEvent
+
+`rocketDismissEvent` will be fired when rocket is dismissed (after the last block or after click to the close button). Inside the `userInfo` you will find the `count` of all blocks displayed and the `blocks` array:
+
+```
+NotificationCenter
+    .default
+    .addObserver(self,
+                 selector: #selector(ViewController.handleRocketAlertBlock),
+                 name: Notification.Name.rocketDismissEvent,
+                 object: nil)
+     
+
+@objc func handleRocketDismissEvent(_ sender: Notification) {
+    guard
+        let count = sender.userInfo?["count"] as? Int,
+        let blocks = sender.userInfo?["blocks"] as? [RocketBlock]
+        else { return }
+    
+    print(count, blocks)
 }
 ```
