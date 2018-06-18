@@ -12,6 +12,7 @@ extension Notification.Name {
     static let showNextBlockEvent = Notification.Name(rawValue: "showNextBlockEvent")
     static let dismissRocketAlertEvent = Notification.Name(rawValue: "dismissRocketAlertEvent")
     public static let rocketBlockAddedEvent = Notification.Name(rawValue: "rocketBlockAddedEvent")
+    public static let rocketDismissEvent = Notification.Name(rawValue: "rocketDismissEvent")
 }
 
 class RocketTableController: NSObject {
@@ -29,12 +30,15 @@ class RocketTableController: NSObject {
     fileprivate weak var tableView: UITableView!
     fileprivate var blocks: [RocketBlock] = []
     
+    fileprivate var count: Int {
+        return self.blocks.count
+    }
+    
     func show(block: RocketBlock) {
         self.blocks.append(block)
-        let count = self.blocks.count
-        self.tableView.addRow(at: count, with: .bottom)
-        NotificationCenter.default.post(name: .rocketBlockAddedEvent, object: [
-            "index" : count-1,
+        self.tableView.addRow(at: self.count, with: .bottom)
+        NotificationCenter.default.post(name: .rocketBlockAddedEvent, object: nil, userInfo: [
+            "index" : self.count-1,
             "block" : block
         ])
     }
@@ -48,6 +52,10 @@ class RocketTableController: NSObject {
     @objc
     fileprivate func handle_dismissRocketAlertEvent(_ sender: Notification) {
         self.rocket.dismiss()
+        NotificationCenter.default.post(name: .rocketDismissEvent, object: nil, userInfo: [
+            "count" : count,
+            "blocks" : self.blocks
+        ])
     }
     
     fileprivate func registerCells() {
