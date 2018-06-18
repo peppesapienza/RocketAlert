@@ -68,7 +68,7 @@ class RocketTableView: UITableView, RocketSubView {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-        print("🔥 [Rocket] Deinit RocketTableView")
+        //print("🔥 [Rocket] Deinit RocketTableView")
     }
     
     required init?(coder aDecoder: NSCoder) {

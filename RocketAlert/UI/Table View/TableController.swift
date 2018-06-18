@@ -84,7 +84,7 @@ class RocketTableController: NSObject {
     
     deinit {
         self.removeObservers()
-        print("🔥 [Rocket] Deinit RocketTableController")
+        //print("🔥 [Rocket] Deinit RocketTableController")
     }
 }
 

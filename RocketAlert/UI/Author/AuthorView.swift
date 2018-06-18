@@ -56,7 +56,7 @@ class RocketAuthorView: UIView, RocketSubView {
         self.layer.shadowOffset = CGSize.zero
     }
     
-    deinit { print("🔥 [Rocket] Deinit RocketAuthorView") }
+    //deinit { print("🔥 [Rocket] Deinit RocketAuthorView") }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

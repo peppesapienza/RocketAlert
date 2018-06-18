@@ -97,7 +97,7 @@ public class Rocket: UIViewController, RocketAlert {
 
     deinit {
         NotificationCenter.default.removeObserver(self, name: .UIDeviceOrientationDidChange, object: nil)
-        print("🔥 [Rocket] Deinit Rocket")
+        //print("🔥 [Rocket] Deinit Rocket")
     }
     
 }

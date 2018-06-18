@@ -25,9 +25,7 @@ class RocketContainerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("🔥 [Rocket] Deinit RocketContainerView")
-    }
+    // deinit { print("🔥 [Rocket] Deinit RocketContainerView") }
     
 }
 
