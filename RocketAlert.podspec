@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'RocketAlert'
-    s.version           = '1.0-beta.2'
+    s.version           = '1.0-beta.3'
     s.summary           = 'User friendly, Modular and Modern iOS Alert View'
     s.homepage          = 'https://github.com/peppesapienza/Rocket-Alert'
 
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
     s.platform          = :ios
 
-    s.source            = { :git => 'https://github.com/peppesapienza/Rocket-Alert.git', :tag => '1.0-beta.2' }
+    s.source            = { :git => 'https://github.com/peppesapienza/Rocket-Alert.git', :tag => '1.0-beta.3' }
     s.requires_arc = true
 
     s.ios.frameworks = 'Foundation', 'UIKit'

@@ -47,6 +47,7 @@ public class TextRocketBlock: TappableRocketBlock {
     public var font: RocketFont? = .text
     
     internal let text: String
+    internal var isNextShowed: Bool = false
     
     public func add(next block: RocketBlock) {
         self.next = block

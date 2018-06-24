@@ -23,7 +23,10 @@ class TextRocketCell: TapableRocketCell {
             self.label.textColor = b.font?.color
             self.label.font = b.font?.font
             self.label.text = b.text
-            self.showNextAfter(seconds: b.showNextAfter)
+            if (!b.isNextShowed) {
+                self.showNextAfter(seconds: b.showNextAfter)
+                b.isNextShowed = true
+            }
             self.setNeedsUpdateConstraints()
         }
     }
@@ -36,10 +39,10 @@ class TextRocketCell: TapableRocketCell {
             return
         }
         
-        super.isTapEnabled = false
+        self.isTapEnabled = false
         
         DispatchQueue.main.asyncAfter(deadline: .now() + t) {
-            super.tapAction()
+            self.tapAction()
         }
     }
     
