@@ -234,7 +234,7 @@ The default `RocketFont` is `.button`.
 #### `TapRocketHandler` 
 
 ```swift
-let button = ButtonRocketBlock.init(title: "PRESS THERE")
+let button = ButtonRocketBlock.init(title: "PRESS HERE")
 let afterTheTapOnButton = TextRocketBlock.init(text: "You press the button!!")
 
 button.tapHandler = TapRocketHandler.init(next: afterTheTapOnButton, action: {
@@ -248,8 +248,6 @@ button.tapHandler = TapRocketHandler.init(next: afterTheTapOnButton, action: {
 let rocket = Rocket.init(author: author, block: button)
 rocket.show()
 ```
-![alt text](https://media.giphy.com/media/wHf4k5qvG6bz8XvP7f/giphy.gif)
-
 
 ### DoubleButtonRocketBlock
 
