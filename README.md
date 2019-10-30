@@ -6,7 +6,7 @@ Rockert Alert resolve the problem of being distracted by a boring AlertView with
 
 Would you like to improve your User Experience's while asking user to do some action? 
 
-With a modern style and a powerful personalization RocketAlert could help you to increase your conversion rate.
+With a modern style and a powerful personalization RocketAlert will help you to increase your conversion rate.
 
 - [Installation](./README.md#installation)
 - [Communication](./README.md#communication)
@@ -189,7 +189,7 @@ block.font = RocketFont.cancel
 
 ### ImageRocketBlock
 
-**You can use `ImageRocketBlock` object to show an Image with or without text.** The **`ImageRocketBlock` is a subclass of `TextRocketBlock`** one, so you can edit the same properties.
+**You can use `ImageRocketBlock` object to show an Image with or without text.** The **`ImageRocketBlock` is a subclass of the `TextRocketBlock`** one, so you can edit the same properties.
 
 You can instatiate an `ImageRocketBlock` by using one of these init:
 
@@ -220,7 +220,7 @@ The `ControlRocketBlock` is an inherited protocol of `RocketBlock`. The `Control
 
 ### ButtonRocketBlock
 
-**Use `ButtonRocketBlock` object to show a single button.** Inside the init you wont be able to define a `next` block directly. **However, you'll need to provide a `TapRocketHandler` object which will let you define a custom action and the next block** (it will be fired after the `TouchUpInside` event).
+**Use `ButtonRocketBlock` object to show a single button.** Inside the init you won't be able to define a `next` block directly. **However, you'll need to provide a `TapRocketHandler` object which will let you define a custom action and the next block** (it will be fired after the `TouchUpInside` event).
 
 You can create a `ButtonRocketBlock` using one of these init:
 
@@ -340,7 +340,7 @@ input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock
 The `userInfo` will bring with itself the `index` and the `block` presented.
 
 ```swift
-// subscribe to the Notification.Name.addedNewRocketBlock
+// subscribe to the Notification.Name.rocketBlockAddedEvent
 NotificationCenter
     .default
     .addObserver(self,
