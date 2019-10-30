@@ -2,7 +2,8 @@
 
 Rockert Alert resolve the problem of being distracted by a boring AlertView with a user-friendly boarding process similar to a Chat Bot. 
 
-![alt text](https://media.giphy.com/media/5QLxkjz2nq5cHBENqr/giphy.gif)![alt text](https://media.giphy.com/media/9u15NC295RsZIKCDWj/giphy.gif)
+![alt text](https://media.giphy.com/media/5QLxkjz2nq5cHBENqr/giphy.gif)
+![alt text](https://media.giphy.com/media/9u15NC295RsZIKCDWj/giphy.gif)
 
 Would you like to improve your User Experience's while asking user to do some action? 
 
