@@ -19,55 +19,68 @@ class RocketTableView: UITableView, RocketSubView {
         self.setAutoresizingMask()
         self.setConstraints()
         
-        self.rowHeight = UITableViewAutomaticDimension
-        self.estimatedRowHeight = UITableViewAutomaticDimension
-        
+        self.rowHeight = UITableView.automaticDimension
+        self.estimatedRowHeight = UITableView.automaticDimension
+        self.showsVerticalScrollIndicator = false
+        self.sectionFooterHeight = 0
         self.separatorStyle = .none
         self.backgroundColor = .clear
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardOpening), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handle_keyboardHiding), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handle_newBlockAdded), name: .rocketBlockAddedEvent, object: nil)
     }
     
     weak var container: UIView!
-    weak var authorView: UIView!
+    fileprivate weak var authorView: UIView!
     
-    var heightConstraint: NSLayoutConstraint!
-    var bottomConstraint: NSLayoutConstraint!
-    var widthConstraint: NSLayoutConstraint!
+    fileprivate var cellCount: Int = 0
+    fileprivate var heightConstraint: NSLayoutConstraint!
+    fileprivate var bottomConstraint: NSLayoutConstraint!
+    fileprivate var widthConstraint: NSLayoutConstraint!
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.heightConstraint.constant = self.contentSize.height
+        heightConstraint.constant = contentSize.height
         let width: CGFloat = (UIDevice.current.isPad || Rocket.isLandscape) ? -180 : 0
         let widthIpadLandscape: CGFloat = (UIDevice.current.isPad && Rocket.isLandscape) ? -100 : 0
-        self.widthConstraint.constant = width + widthIpadLandscape
+        widthConstraint.constant = width + widthIpadLandscape
     }
     
-    @objc func handle_keyboardOpening(_ notification: Notification) {
-        guard let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
-            return
-        }
+    @objc
+    fileprivate func handle_keyboardOpening(_ notification: Notification) {
+        guard
+            let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        else { return }
         let keyboardHeight = keyboardFrame.cgRectValue.height
         let tabBarHeight: CGFloat = Rocket.hasTabBar ? 44 : 0
-        self.bottomConstraint.constant = -(keyboardHeight - tabBarHeight)
-        self.scrollToLastVisibleCell()
+        print(keyboardHeight, tabBarHeight)
+        bottomConstraint.constant = -(keyboardHeight - 30)
+        scrollToLastVisibleCell()
     }
     
-    @objc func handleKeyboardHiding(_ sender: Notification) {
-        self.bottomConstraint.constant = -10
+    @objc
+    fileprivate func handle_keyboardHiding(_ sender: Notification) {
+        bottomConstraint.constant = -10
     }
     
-    private func scrollToLastVisibleCell() {
-        DispatchQueue.main.async {
-            let indexPath = self.indexPath(for: self.visibleCells.last!)
-            self.scrollToRow(at: indexPath!, at: .middle, animated: true)
+    @objc
+    fileprivate func handle_newBlockAdded(_ sender: Notification) {
+        cellCount += 1
+        scrollToLastVisibleCell()
+    }
+    
+    fileprivate func scrollToLastVisibleCell() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let indexPath = IndexPath.init(row: self.cellCount-1, section: 0)
+            self.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .rocketBlockAddedEvent, object: nil)
         //print("🔥 [Rocket] Deinit RocketTableView")
     }
     
@@ -91,7 +104,7 @@ extension RocketTableView: RocketAnimatable {
     }
     
     func prepareAnimation() {
-        self.alpha = 0
+        alpha = 0
     }
     
     func openAnimation(completionHandler: (()->())? = nil) {
@@ -110,22 +123,22 @@ extension RocketTableView: RocketAnimatable {
 
 extension RocketTableView: RocketViewLayout {
     func setAutoresizingMask() {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
     }
 
     func setConstraints() {
-        self.widthConstraint = self.widthAnchor.constraint(equalTo: self.container.widthAnchor, multiplier: 0.6)
-        self.widthConstraint.isActive = true
+        widthConstraint = widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.6)
+        widthConstraint.isActive = true
         
-        self.topAnchor.constraint(greaterThanOrEqualTo: self.container.topAnchor, constant: 20).isActive = true
-        self.rightAnchor.constraint(equalTo: self.authorView.leftAnchor, constant: -6).isActive = true
+        topAnchor.constraint(greaterThanOrEqualTo: container.topAnchor, constant: 20).isActive = true
+        rightAnchor.constraint(equalTo: authorView.leftAnchor, constant: -6).isActive = true
         
-        self.bottomConstraint = self.bottomAnchor.constraint(equalTo: self.authorView.bottomAnchor, constant: 20)
-        self.bottomConstraint.isActive = true
+        bottomConstraint = bottomAnchor.constraint(equalTo: authorView.bottomAnchor, constant: 0)
+        bottomConstraint.isActive = true
         
-        self.heightConstraint = self.heightAnchor.constraint(equalToConstant: 44)
-        self.heightConstraint.priority = .defaultLow
-        self.heightConstraint.isActive = true
+        heightConstraint = heightAnchor.constraint(equalToConstant: 44)
+        heightConstraint.priority = .defaultLow
+        heightConstraint.isActive = true
     }
 }
 

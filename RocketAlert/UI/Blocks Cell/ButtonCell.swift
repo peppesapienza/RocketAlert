@@ -10,7 +10,7 @@ import UIKit
 
 class ButtonRocketCell: RocketCell {
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.button = UIButton.init(frame: .zero)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.mainView.addSubview(self.button)
@@ -19,12 +19,12 @@ class ButtonRocketCell: RocketCell {
     
     override var currentBlock: RocketBlock? {
         didSet {
-            guard let b = self.currentBlock as? ButtonRocketBlock else { return }
-            self.button.setTitle(b.title, for: .normal)
-            self.tapHandler = b.tapHandler
-            self.button.setTitleColor(b.font?.color, for: .normal)
-            self.button.titleLabel?.font = b.font?.font
-            self.setNeedsUpdateConstraints()
+            guard let b = currentBlock as? ButtonRocketBlock else { return }
+            button.setTitle(b.title, for: .normal)
+            tapHandler = b.tapHandler
+            button.setTitleColor(b.font?.color, for: .normal)
+            button.titleLabel?.font = b.font?.font
+            setNeedsUpdateConstraints()
         }
     }
     
@@ -34,30 +34,30 @@ class ButtonRocketCell: RocketCell {
     
     @objc
     fileprivate func handle_tapOnButton(_ sender: UIButton) {
-        guard self.isTapOnButtonEnabled else { return }
-        self.isTapOnButtonEnabled = false
-        self.mainView.smoothBounce(completionHandler: {
+        guard isTapOnButtonEnabled else { return }
+        isTapOnButtonEnabled = false
+        mainView.smoothBounce(completionHandler: {
             self.show(next: self.tapHandler?.next)
         })
-        self.tapHandler?.action?()
+        tapHandler?.action?()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.isTapOnButtonEnabled = true
+        isTapOnButtonEnabled = true
     }
     
     override func setAutoresizingMask() {
         super.setAutoresizingMask()
-        self.button.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func setConstraints() {
         super.setConstraints()
-        self.button.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 10).isActive = true
-        self.button.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 10).isActive = true
-        self.button.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -10).isActive = true
-        self.button.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -10).isActive = true
+        button.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 10).isActive = true
+        button.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10).isActive = true
+        button.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -10).isActive = true
+        button.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -10).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -9,7 +9,7 @@
 import UIKit
 
 class DoubleButtonRocketCell: RocketCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.firstButton = UIButton.init(frame: .zero)
         self.secondButton = UIButton.init(frame: .zero)
         self.separatorView = UIView.init(frame: .zero)
@@ -26,16 +26,16 @@ class DoubleButtonRocketCell: RocketCell {
     
     override var currentBlock: RocketBlock? {
         didSet {
-            guard let b = self.currentBlock as? DoubleButtonRocketBlock else { return }
-            self.firstButton.setTitle(b.left.title, for: .normal)
-            self.firstButton.setTitleColor(b.left.font?.color, for: .normal)
-            self.firstButton.titleLabel?.font = b.left.font?.font
-            self.tapFirstButtonHandler = b.left.tapHandler
-            self.secondButton.setTitle(b.right.title, for: .normal)
-            self.secondButton.setTitleColor(b.right.font?.color, for: .normal)
-            self.secondButton.titleLabel?.font = b.right.font?.font
-            self.tapSecondButtonHandler = b.right.tapHandler
-            self.setNeedsUpdateConstraints()
+            guard let b = currentBlock as? DoubleButtonRocketBlock else { return }
+            firstButton.setTitle(b.left.title, for: .normal)
+            firstButton.setTitleColor(b.left.font?.color, for: .normal)
+            firstButton.titleLabel?.font = b.left.font?.font
+            tapFirstButtonHandler = b.left.tapHandler
+            secondButton.setTitle(b.right.title, for: .normal)
+            secondButton.setTitleColor(b.right.font?.color, for: .normal)
+            secondButton.titleLabel?.font = b.right.font?.font
+            tapSecondButtonHandler = b.right.tapHandler
+            setNeedsUpdateConstraints()
         }
     }
     
@@ -48,53 +48,53 @@ class DoubleButtonRocketCell: RocketCell {
     
     @objc
     fileprivate func handle_tapOnFirstButton(_ sender: UIButton) {
-        guard self.isTapOnButtonsEnabled else { return }
-        self.isTapOnButtonsEnabled = false
-        self.firstButton.bounce(completionHandler: {
+        guard isTapOnButtonsEnabled else { return }
+        isTapOnButtonsEnabled = false
+        firstButton.bounce(completionHandler: {
             self.show(next: self.tapFirstButtonHandler?.next)
         })
-        self.tapFirstButtonHandler?.action?()
+        tapFirstButtonHandler?.action?()
     }
     
     @objc
     fileprivate func handle_tapOnSecondButton(_ sender: UIButton) {
         guard self.isTapOnButtonsEnabled else { return }
-        self.isTapOnButtonsEnabled = false
-        self.secondButton.bounce(completionHandler: {
+        isTapOnButtonsEnabled = false
+        secondButton.bounce(completionHandler: {
             self.show(next: self.tapSecondButtonHandler?.next)
         })
-        self.tapSecondButtonHandler?.action?()
+        tapSecondButtonHandler?.action?()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.isTapOnButtonsEnabled = true
+        isTapOnButtonsEnabled = true
     }
     
     override func setAutoresizingMask() {
         super.setAutoresizingMask()
-        self.firstButton.translatesAutoresizingMaskIntoConstraints = false
-        self.secondButton.translatesAutoresizingMaskIntoConstraints = false
-        self.separatorView.translatesAutoresizingMaskIntoConstraints = false
+        firstButton.translatesAutoresizingMaskIntoConstraints = false
+        secondButton.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
     }
 
     
     override func setConstraints() {
         super.setConstraints()
-        self.firstButton.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 10).isActive = true
-        self.firstButton.centerYAnchor.constraint(equalTo: self.secondButton.centerYAnchor).isActive = true
-        self.firstButton.widthAnchor.constraint(equalTo: self.secondButton.widthAnchor, multiplier: 1).isActive = true
-        self.firstButton.heightAnchor.constraint(equalTo: self.secondButton.heightAnchor, multiplier: 1).isActive = true
+        firstButton.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 10).isActive = true
+        firstButton.centerYAnchor.constraint(equalTo: secondButton.centerYAnchor).isActive = true
+        firstButton.widthAnchor.constraint(equalTo: secondButton.widthAnchor, multiplier: 1).isActive = true
+        firstButton.heightAnchor.constraint(equalTo: secondButton.heightAnchor, multiplier: 1).isActive = true
         
-        self.secondButton.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -10).isActive = true
-        self.secondButton.widthAnchor.constraint(equalTo: self.mainView.widthAnchor, multiplier: 0.45).isActive = true
-        self.secondButton.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -10).isActive = true
-        self.secondButton.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 10).isActive = true
+        secondButton.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -10).isActive = true
+        secondButton.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 0.45).isActive = true
+        secondButton.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -10).isActive = true
+        secondButton.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10).isActive = true
         
-        self.separatorView.heightAnchor.constraint(equalTo: self.firstButton.heightAnchor, multiplier: 1).isActive = true
-        self.separatorView.widthAnchor.constraint(equalToConstant: 2).isActive = true
-        self.separatorView.centerXAnchor.constraint(equalTo: self.mainView.centerXAnchor).isActive = true
-        self.separatorView.centerYAnchor.constraint(equalTo: self.mainView.centerYAnchor).isActive = true
+        separatorView.heightAnchor.constraint(equalTo: firstButton.heightAnchor, multiplier: 1).isActive = true
+        separatorView.widthAnchor.constraint(equalToConstant: 2).isActive = true
+        separatorView.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive = true
+        separatorView.centerYAnchor.constraint(equalTo: mainView.centerYAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

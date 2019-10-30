@@ -10,7 +10,7 @@ import Foundation
 
 class TextRocketCell: TapableRocketCell {
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.label = UILabel.init(frame: .zero)
         self.label.numberOfLines = 0
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,14 +20,14 @@ class TextRocketCell: TapableRocketCell {
     override var currentBlock: RocketBlock? {
         didSet {
             guard let b = currentBlock as? TextRocketBlock else { return }
-            self.label.textColor = b.font?.color
-            self.label.font = b.font?.font
-            self.label.text = b.text
+            label.textColor = b.font?.color
+            label.font = b.font?.font
+            label.text = b.text
             if (!b.isNextShowed) {
-                self.showNextAfter(seconds: b.showNextAfter)
+                showNextAfter(seconds: b.showNextAfter)
                 b.isNextShowed = true
             }
-            self.setNeedsUpdateConstraints()
+            setNeedsUpdateConstraints()
         }
     }
     
@@ -35,11 +35,11 @@ class TextRocketCell: TapableRocketCell {
     
     internal func showNextAfter(seconds: TimeInterval?) {
         guard let t = seconds, t > 0.0 else {
-            self.isTapEnabled = true
+            isTapEnabled = true
             return
         }
         
-        self.isTapEnabled = false
+        isTapEnabled = false
         
         DispatchQueue.main.asyncAfter(deadline: .now() + t) {
             self.tapAction()
@@ -48,15 +48,15 @@ class TextRocketCell: TapableRocketCell {
     
     override func setAutoresizingMask() {
         super.setAutoresizingMask()
-        self.label.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func setConstraints() {
         super.setConstraints()
-        self.label.leftAnchor.constraint(equalTo: self.mainView.leftAnchor, constant: 16).isActive = true
-        self.label.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: 16).isActive = true
-        self.label.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: -12).isActive = true
-        self.label.rightAnchor.constraint(equalTo: self.mainView.rightAnchor, constant: -16).isActive = true
+        label.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 16).isActive = true
+        label.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 16).isActive = true
+        label.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -12).isActive = true
+        label.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -16).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

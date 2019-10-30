@@ -8,7 +8,7 @@
 import UIKit
 
 extension UITableView {
-    func addRow(at: Int, with: UITableViewRowAnimation = .automatic) {
+    func addRow(at: Int, with: UITableView.RowAnimation = .automatic) {
         self.beginUpdates()
         self.insertRows(at: [IndexPath.init(row: at-1, section: 0)], with: with)
         self.endUpdates()
@@ -20,7 +20,7 @@ extension UIView {
         self.alpha = 0
         UIViewPropertyAnimator.init(duration: 0.3, curve: .easeInOut) {
             self.alpha = 1
-            }.startAnimation()
+        }.startAnimation()
     }
     
     public func bounce(completionHandler:  (() -> ())? = nil) {

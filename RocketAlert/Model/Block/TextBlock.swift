@@ -50,7 +50,7 @@ public class TextRocketBlock: TappableRocketBlock {
     internal var isNextShowed: Bool = false
     
     public func add(next block: RocketBlock) {
-        self.next = block
+        next = block
     }
     
 }

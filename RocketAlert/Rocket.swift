@@ -11,7 +11,7 @@ import UIKit
 /// A powerful, light and userfriendly Alert View
 public class Rocket: RocketControl {
     static var hasTabBar: Bool = false
-    static var isLandscape: Bool = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
+    static var isLandscape: Bool = UIDevice.current.orientation.isLandscape
     
     /**
     Initializes and returns a newly Rocket object with the specified author and block.
@@ -30,7 +30,7 @@ public class Rocket: RocketControl {
         self.block = block
         self.vc = RocketViewController.init(author: author)
         self.vc.rocket = self
-        NotificationCenter.default.addObserver(self, selector: #selector(Rocket.rotated), name: .UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Rocket.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     public var closeButton: RocketCloseButton?
@@ -41,25 +41,23 @@ public class Rocket: RocketControl {
     
     /// Show the Rocket Alert.
     public func show() {
-        self.topVC.present(self.vc, animated: false, completion: {
+        topVC.present(self.vc, animated: false, completion: {
             self.vc.show(block: self.block)
         })
     }
     
     /// Dismiss the Rocket Alert.
     public func dismiss() {
-        self.vc.dismiss {
-            
-        }
+        vc.dismiss {}
     }
     
     @objc
     fileprivate func rotated() {
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+        if UIDevice.current.orientation.isLandscape {
             Rocket.isLandscape = true
         }
         
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+        if UIDevice.current.orientation.isPortrait {
             Rocket.isLandscape = false
         }
     }
@@ -69,7 +67,7 @@ public class Rocket: RocketControl {
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self, name: .UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         //print("🔥 [Rocket] Deinit Rocket")
     }
     

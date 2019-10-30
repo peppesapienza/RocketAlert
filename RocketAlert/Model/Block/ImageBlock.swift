@@ -10,7 +10,7 @@ import Foundation
 
 public class ImageRocketBlock: TextRocketBlock {
     
-    public init(image: UIImage, text: String?, next: RocketBlock?, showNextAfter: TimeInterval?, id: String?) {
+    public init(image: UIImage, text: String?, next: RocketBlock?, showNextAfter: TimeInterval? = nil, id: String? = nil) {
         self.image = image
         super.init(text: text ?? "", next: next, showNextAfter: showNextAfter, id: id, font: .text)
     }

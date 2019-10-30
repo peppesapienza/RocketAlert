@@ -9,7 +9,7 @@
 import Foundation
 
 class TapableRocketCell: RocketCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.tapGestureRecognizer = UITapGestureRecognizer.init(target: self,
                                                                 action: #selector(TapableRocketCell.handleTap(_:)))
@@ -21,8 +21,8 @@ class TapableRocketCell: RocketCell {
     
     @objc
     fileprivate func handleTap(_ sender: UITapGestureRecognizer) {
-        guard self.isTapEnabled else { return }
-        self.tapAction()
+        guard isTapEnabled else { return }
+        tapAction()
     }
     
     func tapAction() {

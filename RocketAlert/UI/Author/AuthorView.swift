@@ -30,8 +30,8 @@ class RocketAuthorView: UIView, RocketSubView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.setCornerRadius()
-        self.setShadow()
+        setCornerRadius()
+        setShadow()
     }
     
     weak var container: UIView!
@@ -40,20 +40,20 @@ class RocketAuthorView: UIView, RocketSubView {
     fileprivate let style: RocketImageStyle
     
     fileprivate func setClipToBounds() {
-        self.midView.clipsToBounds = true
-        self.imageView.clipsToBounds = true
+        midView.clipsToBounds = true
+        imageView.clipsToBounds = true
     }
     
     fileprivate func setCornerRadius() {
-        self.midView.layer.masksToBounds = true
-        self.midView.layer.cornerRadius = self.style.cornerRadius(for: self.midView)
+        midView.layer.masksToBounds = true
+        midView.layer.cornerRadius = style.cornerRadius(for: midView)
     }
     
     fileprivate func setShadow() {
-        self.layer.shadowColor = #colorLiteral(red: 0.8767361111, green: 0.8767361111, blue: 0.8767361111, alpha: 1)
-        self.layer.shadowRadius = 10
-        self.layer.shadowOpacity = 1
-        self.layer.shadowOffset = CGSize.zero
+        layer.shadowColor = #colorLiteral(red: 0.8767361111, green: 0.8767361111, blue: 0.8767361111, alpha: 1)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize.zero
     }
     
     //deinit { print("🔥 [Rocket] Deinit RocketAuthorView") }
@@ -96,29 +96,29 @@ extension RocketAuthorView: RocketAnimatable {
 
 extension RocketAuthorView: RocketViewLayout {
     func setAutoresizingMask() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.midView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
+        midView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setConstraints() {
-        let tabBarHeight: CGFloat = Rocket.hasTabBar ? -40 : -30
+        let tabBarHeight: CGFloat = Rocket.hasTabBar ? -60 : -30
         let size: CGFloat = 60
         
-        self.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -20).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: tabBarHeight).isActive = true
-        self.heightAnchor.constraint(equalToConstant: size).isActive = true
-        self.widthAnchor.constraint(equalToConstant: size).isActive = true
+        rightAnchor.constraint(equalTo: container.rightAnchor, constant: -20).isActive = true
+        bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: tabBarHeight).isActive = true
+        heightAnchor.constraint(equalToConstant: size).isActive = true
+        widthAnchor.constraint(equalToConstant: size).isActive = true
         
-        self.midView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        self.midView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.midView.heightAnchor.constraint(equalToConstant: size).isActive = true
-        self.midView.widthAnchor.constraint(equalToConstant: size).isActive = true
+        midView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        midView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        midView.heightAnchor.constraint(equalToConstant: size).isActive = true
+        midView.widthAnchor.constraint(equalToConstant: size).isActive = true
         
-        self.imageView.centerXAnchor.constraint(equalTo: self.midView.centerXAnchor).isActive = true
-        self.imageView.centerYAnchor.constraint(equalTo: self.midView.centerYAnchor).isActive = true
-        self.imageView.heightAnchor.constraint(equalToConstant: size).isActive = true
-        self.imageView.widthAnchor.constraint(equalToConstant: size).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: midView.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: midView.centerYAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: size).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: size).isActive = true
     }
 
 }
