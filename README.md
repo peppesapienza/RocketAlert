@@ -3,7 +3,7 @@
 Rockert Alert resolve the problem of being distracted by a boring AlertView with a user-friendly boarding process similar to a Chat Bot. 
 
 ![alt text](https://media.giphy.com/media/LT7FHIDeQCiFxZy0yW/giphy.gif)
-![alt text](https://media.giphy.com/media/9u15NC295RsZIKCDWj/giphy.gif)
+![alt text](https://media.giphy.com/media/SUusanPotO5KePn78W/giphy.gif)
 
 Would you like to improve your User Experience's while asking user to do some action? 
 
@@ -63,9 +63,9 @@ $ pod install
 ```swift
 import RocketAlert
 
-let author = RocketAuthor.init(image: yourUIImage, style: RocketImageStyle.round)
-let textBlock = TextRocketBlock.init(text: "This is your first Block")
-let rocket = Rocket.init(author: author, block: textBlock)
+let author = RocketAuthor(image: yourUIImage, style: RocketImageStyle.round)
+let textBlock = TextRocketBlock(text: "This is your first Block")
+let rocket = Rocket(author: author, block: textBlock)
 
 rocket.show()
 ```
@@ -126,10 +126,10 @@ TextRocketBlock.init(text: String, next: RocketBlock? = nil, showNextAfter: Time
 And you can use it like that:
 
 ```swift
-let secondBlock = TextRocketBlock.init(text: "This is your second block")
-let firstBlock = TextRocketBlock.init(text: "This is your first block", next: secondBlock)
+let secondBlock = TextRocketBlock(text: "This is your second block")
+let firstBlock = TextRocketBlock(text: "This is your first block", next: secondBlock)
         
-let rocket = Rocket.init(author: author, block: firstBlock)
+let rocket = Rocket(author: author, block: firstBlock)
 rocket.show()
 ```
 The `secondBlock` will be presented after the tap on the `firstBlock`. Pay attention that I passed the `firstBlock` to the `rocket block` parameter.
@@ -139,9 +139,9 @@ The `secondBlock` will be presented after the tap on the `firstBlock`. Pay atten
 Use this style when you have a lot of blocks and you want to maintain your code clear:
 
 ```swift
-let firstBlock = TextRocketBlock.init(text: "First")
-let secondBlock = TextRocketBlock.init(text: "Second")
-let thirdBlock = TextRocketBlock.init(text: "Third")
+let firstBlock = TextRocketBlock(text: "First")
+let secondBlock = TextRocketBlock(text: "Second")
+let thirdBlock = TextRocketBlock(text: "Third")
 
 firstBlock.next = second 
 
@@ -152,8 +152,8 @@ secondBlock.font = RocketFont.textBold
 #### `showNextAfter` property
 
 ```swift
-let firstBlock = TextRocketBlock.init(text: "First")
-let secondBlock = TextRocketBlock.init(text: "Second")
+let firstBlock = TextRocketBlock(text: "First")
+let secondBlock = TextRocketBlock(text: "Second")
 
 firstBlock.next = second 
 firstBlock.showNextAfter = 2.0
@@ -171,8 +171,8 @@ The `thirdBlock` will be shown automatically after 2.0 seconds and after the `se
 You can change the `UIFont` by providing a `RocketFont` object to the `font` property. 
 
 ```swift
-let firstBlock = TextRocketBlock.init(text: "First", next: secondBlock)
-firstBlock.font = RocketFont.init(font: UIFont, color: UIColor)
+let firstBlock = TextRocketBlock(text: "First", next: secondBlock)
+firstBlock.font = RocketFont(font: UIFont, color: UIColor)
 // or 
 firstBlock.font = RocketFont.text // the default
 ```
@@ -235,10 +235,10 @@ The default `RocketFont` is `.button`.
 #### `TapRocketHandler` 
 
 ```swift
-let button = ButtonRocketBlock.init(title: "PRESS HERE")
-let afterTheTapOnButton = TextRocketBlock.init(text: "You press the button!!")
+let button = ButtonRocketBlock(title: "PRESS HERE")
+let afterTheTapOnButton = TextRocketBlock(text: "You press the button!!")
 
-button.tapHandler = TapRocketHandler.init(next: afterTheTapOnButton, action: {
+button.tapHandler = TapRocketHandler(next: afterTheTapOnButton, action: {
     print("the user click the button")
     
     UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
@@ -246,7 +246,7 @@ button.tapHandler = TapRocketHandler.init(next: afterTheTapOnButton, action: {
     }
 })
 
-let rocket = Rocket.init(author: author, block: button)
+let rocket = Rocket(author: author, block: button)
 rocket.show()
 ```
 
@@ -255,14 +255,14 @@ rocket.show()
 **Use the `DoubleButtonRocketBlock` whenever you want to show two options.** You can initialize a `DoubleButtonRocketBlock` passing to its init two `ButtonRocketBlock`. It's important to know that **the touch over the block will be disabled when a user taps to one of the buttons.** 
 
 ```swift
-let leftButton = ButtonRocketBlock.init(title: "Left Button")
+let leftButton = ButtonRocketBlock(title: "Left Button")
 leftButton.font = .button // the default
 
-let rightButton = ButtonRocketBlock.init(title: "Right Button")
+let rightButton = ButtonRocketBlock(title: "Right Button")
 rightButton.font = .lightButton
 rightButton.tapHandler = // remember to set a tapHandler if you want to show a block or if you want perform an action
 
-let doubleButton = DoubleButtonRocketBlock.init(left: leftButton, right: rightButton)
+let doubleButton = DoubleButtonRocketBlock(left: leftButton, right: rightButton)
 ```
 
 ## InputRocketBlock
@@ -296,17 +296,17 @@ You can create a `TextInputRocketBlock` by using one of these init:
 
 ```swift
 TextInputRocketBlock.init(text: String, buttonTitle: String)
-TextInputRocketBlock.init(text: text, buttonTitle: buttonTitle, inputHandler: InputRocketHandler<String>?)
+TextInputRocketBlock.init(text: String, buttonTitle: String, inputHandler: InputRocketHandler<String>?)
 TextInputRocketBlock.init(text: String, buttonTitle: String, inputHandler: InputRocketHandler<String>?, id: String? = nil, font: RocketFont? = RocketFont.text, buttonStyle: RocketFont? = RocketFont.lightButton)
 ```
 
 This is an easy way you can use it:
 
 ```swift
-let input = TextInputRocketBlock.init(text: "Describe your problem:", buttonTitle: "Send")
+let input = TextInputRocketBlock(text: "Describe your problem:", buttonTitle: "Send")
 
-input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock? in
-    return TextRocketBlock.init(text: "Thanks you so much!")
+input.handler = InputRocketHandler<String>(action: { (input) -> RocketBlock? in
+    return TextRocketBlock(text: "Thanks you so much!")
 })
 ```
 
@@ -315,18 +315,18 @@ input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock
 If you want to handle the user's input in a different way, **you can return a block based on the value of the `InputRocketHandler`:**
 
 ```swift
-let input = TextInputRocketBlock.init(text: "Describe your problem:", buttonTitle: "Send")
+let input = TextInputRocketBlock(text: "Describe your problem:", buttonTitle: "Send")
 
-input.handler = InputRocketHandler<String>.init(action: { (input) -> RocketBlock? in
+input.handler = InputRocketHandler<String>(action: { (input) -> RocketBlock? in
     if (input.isEmpty) {
-        return TextRocketBlock.init(text: "Why haven't added a text? :(")
+        return TextRocketBlock(text: "Why haven't added a text? :(")
     }
     
     if (input == "SecretKey") {
-        return TextRocketBlock.init(text: "Awesome!! you know the secret key")
+        return TextRocketBlock(text: "Awesome!! you know the secret key")
     }
     
-    let block = TextRocketBlock.init(text: "Thanks you so much!")
+    let block = TextRocketBlock(text: "Thanks you so much!")
     /* you can concatenate more blocks if you want */
     return block
 })
